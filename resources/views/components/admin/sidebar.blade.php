@@ -28,7 +28,7 @@
                 <div class="collapse {{ request()->routeIs('admin.dashboard.hero.*') ? 'show' : '' }}" id="pages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="#" class="nav-link {{ request()->routeIs('admin.dashboard.hero.*') ? 'active' : '' }}">Hero</a>
+                            <a href="{{ route('admin.dashboard.hero') }}" class="nav-link {{ request()->routeIs('admin.dashboard.hero.*') ? 'active' : '' }}">Hero</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Banner</a>

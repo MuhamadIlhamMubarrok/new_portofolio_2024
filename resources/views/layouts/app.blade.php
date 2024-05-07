@@ -8,7 +8,7 @@
     <meta name="description" content="AquaFlow">
     <meta name="author" content="AquaFlow">
 
-    <title>AquaFlow</title>
+    <title>@yield('title') &mdash; KKRA KAB BOGOR</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
