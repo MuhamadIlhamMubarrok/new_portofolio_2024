@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <h1>Edit Hero</h1>
-    <form method="POST" action="{{ route('admin.dashboard.hero.update', $hero->id) }}">
+    <form method="POST" action="{{ route('admin.hero.update', $hero->id) }}">
         @csrf
         @method('PUT')
         <div class="form-group">

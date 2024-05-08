@@ -46,7 +46,7 @@ class HeroController extends Controller
                 'alert-type' => 'success',
             );
 
-            return redirect()->route('admin.dashboard.hero', $id)->with($notification);
+            return redirect()->route('admin.hero.index', $id)->with($notification);
         } catch (\Exception $e) {
 
             $notification = array(
@@ -54,7 +54,7 @@ class HeroController extends Controller
                 'alert-type' => 'error',
             );
 
-            return redirect()->route('admin.dashboard.hero', $id)->with($notification);
+            return redirect()->route('admin.hero.index', $id)->with($notification);
         }
     }
 }

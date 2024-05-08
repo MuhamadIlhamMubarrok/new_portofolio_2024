@@ -12,9 +12,9 @@ Route::get('/', function () {
 Route::name('admin.')->prefix('admin')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-        Route::get('dashboard/hero', [HeroController::class, 'indexHero'])->name('dashboard.hero');
-        Route::get('dashboard/hero/{id}', [HeroController::class, 'editHero'])->name('dashboard.hero.edit');
-        Route::put('dashboard/hero/update/{id}', [HeroController::class, 'updateHero'])->name('dashboard.hero.update');
+        Route::get('hero', [HeroController::class, 'indexHero'])->name('hero.index');
+        Route::get('hero/{id}', [HeroController::class, 'editHero'])->name('hero.edit');
+        Route::put('hero/update/{id}', [HeroController::class, 'updateHero'])->name('hero.update');
         
     });
 });

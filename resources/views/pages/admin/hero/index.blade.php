@@ -17,7 +17,7 @@
                 <tr>
                     <td>{{ $item->title }}</td>
                     <td>
-                        <a href="{{ route('admin.dashboard.hero.edit', $item->id) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('admin.hero.edit', $item->id) }}" class="btn btn-primary">Edit</a>
                     </td>
                 </tr>
             @endforeach
