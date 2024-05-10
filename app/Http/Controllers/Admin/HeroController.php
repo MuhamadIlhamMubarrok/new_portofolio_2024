@@ -14,29 +14,25 @@ class HeroController extends Controller
         return view('pages.admin.hero.index', compact('hero'));
     }
 
-    public function updateHero(Request $request)
+    public function updateHero(Request $request, string $id)
     {
         try {
 
-            $hero = Hero::first();
-            if (!$hero) {
-                return redirect()->route('hero.index')->with('error', 'No hero data found!');
-            }
-
-            $validatedData = $request->validate([
-                'marquee_text' => 'nullable|string',
-                'title' => 'nullable|string',
-                'text' => 'nullable|string',
-                'image' => 'nullable|string',
-                'cta_1' => 'nullable|string',
-                'cta_2' => 'nullable|string',
-                'whatsapp' => 'nullable|string',
-                'instagram' => 'nullable|string',
-                'youtube' => 'nullable|string',
-                'facebook' => 'nullable|string',
+            $data = $request->validate([
+                'marquee_text' => 'required|string',
+                'title' => 'required|string',
+                'text' => 'required|string',
+                'image' => 'required|string',
+                'cta_1' => 'required|string',
+                'cta_2' => 'required|string',
+                'whatsapp' => 'required|string',
+                'instagram' => 'required|string',
+                'youtube' => 'required|string',
+                'facebook' => 'required|string',
             ]);
 
-            $hero->update($validatedData);
+            $hero = Hero::find($id);
+            $hero->update($data);
 
             $notification = array(
                 'message' => 'Hero Updated Successfully!',
@@ -47,7 +43,7 @@ class HeroController extends Controller
         } catch (\Exception $e) {
 
             $notification = array(
-                'message' => 'Hero Failed to Update ',
+                'message' => 'Failed to Update Hero',
                 'alert-type' => 'error',
             );
 

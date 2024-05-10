@@ -19,7 +19,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('/hero', [HeroController::class, 'indexHero'])->name('hero.index');
         // Route::get('/hero/{id}', [HeroController::class, 'editHero'])->name('hero.edit');
-        Route::post('/hero/update', [HeroController::class, 'updateHero'])->name('hero.update');
+        Route::put('/hero/update/{id}', [HeroController::class, 'updateHero'])->name('hero.update');
         
     });
 });
