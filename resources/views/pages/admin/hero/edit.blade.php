@@ -10,11 +10,7 @@
         @method('PUT')
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{ $hero->title }}">
-        </div>
-        <div class="form-group">
-            <label for="text">Text</label>
-            <textarea class="form-control" id="text" name="text">{{ $hero->text }}</textarea>
+            <input type="text" class="form-control" id="title" name="title" value="{{ old('waktu', $hero->title) }}">
         </div>
         <!-- Add other fields as needed -->
         <button type="submit" class="btn btn-primary">Submit</button>

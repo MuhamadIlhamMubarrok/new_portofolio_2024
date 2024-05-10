@@ -10,21 +10,20 @@ class HeroController extends Controller
 {
     public function indexHero()
     {
-        $hero = Hero::all();
+        $hero = Hero::first();
         return view('pages.admin.hero.index', compact('hero'));
     }
 
-    public function editHero($id)
-    {
-        $hero = Hero::findOrFail($id);
-        return view('pages.admin.hero.edit', compact('hero'));
-    }
-
-    public function updateHero(Request $request, $id)
+    public function updateHero(Request $request)
     {
         try {
 
-            $request->validate([
+            $hero = Hero::first();
+            if (!$hero) {
+                return redirect()->route('hero.index')->with('error', 'No hero data found!');
+            }
+
+            $validatedData = $request->validate([
                 'marquee_text' => 'nullable|string',
                 'title' => 'nullable|string',
                 'text' => 'nullable|string',
@@ -37,24 +36,22 @@ class HeroController extends Controller
                 'facebook' => 'nullable|string',
             ]);
 
-            $hero = Hero::findOrFail($id);
-            $hero->update($request->all());
-
+            $hero->update($validatedData);
 
             $notification = array(
                 'message' => 'Hero Updated Successfully!',
                 'alert-type' => 'success',
             );
 
-            return redirect()->route('admin.hero.index', $id)->with($notification);
+            return redirect()->route('admin.hero.index')->with($notification);
         } catch (\Exception $e) {
 
             $notification = array(
-                'message' => 'Hero Updated Successfully!',
+                'message' => 'Hero Failed to Update ',
                 'alert-type' => 'error',
             );
 
-            return redirect()->route('admin.hero.index', $id)->with($notification);
+            return redirect()->route('admin.hero.index')->with($notification);
         }
     }
 }

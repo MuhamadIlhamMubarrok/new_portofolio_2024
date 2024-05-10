@@ -19,7 +19,7 @@
                 </a>
             </li>
             <li class="nav-item nav-category">Pages</li>
-            <li class="nav-item {{ request()->routeIs('admin.hero.index')? 'active' : '' }}">
+            <li class="nav-item {{ request()->routeIs('admin.hero.*')? 'active' : '' }}">
                 <a href="{{ route('admin.hero.index') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Hero</span>
