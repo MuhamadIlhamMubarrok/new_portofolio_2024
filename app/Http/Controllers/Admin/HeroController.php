@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Hero;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class HeroController extends Controller
 {
@@ -18,11 +19,11 @@ class HeroController extends Controller
     {
         try {
 
-            $data = $request->validate([
+            $request->validate([
                 'marquee_text' => 'required|string',
                 'title' => 'required|string',
                 'text' => 'required|string',
-                'image' => 'required|string',
+                'image' => 'required|image|mimes:jpeg,jpg,png',
                 'cta_1' => 'required|string',
                 'cta_2' => 'required|string',
                 'whatsapp' => 'required|string',
@@ -32,6 +33,26 @@ class HeroController extends Controller
             ]);
 
             $hero = Hero::find($id);
+
+            $data = [
+                'marquee_text' => $request->marquee_text,
+                'title' => $request->title,
+                'text' => $request->text,
+                'cta_1' => $request->cta_1,
+                'cta_2' => $request->cta_2,
+                'whatsapp' => $request->whatsapp,
+                'instagram' => $request->instragram,
+                'youtube' => $request->youtube,
+                'facebook' => $request->facebook,
+            ];
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $image->storeAs('public/hero_image', $image->hashName());
+                Storage::delete('public/hero_image/' . $hero->image);
+                $data['gambar'] = $image->hashName();
+            }
+
             $hero->update($data);
 
             $notification = array(

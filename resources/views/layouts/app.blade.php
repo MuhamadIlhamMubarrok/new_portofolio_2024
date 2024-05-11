@@ -79,7 +79,7 @@
     </div>
 
     <!-- core:js -->
-    <script src="{{ asset('../assets/vendors/core/core.js') }}"></script>
+    <script src="{{ asset('../../../assets/vendors/core/core.js') }}"></script>
     <!-- endinject -->
 
     <!-- Plugin js for this page -->
@@ -87,7 +87,7 @@
     <script src="{{ asset('../assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('../../../assets/vendors/datatables.net/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('../../../assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js') }}"></script>
-    <script src="{{ asset('../assets/vendors/dropify/dist/dropify.min.js') }}"></script>
+    <script src="{{ asset('../../../assets/vendors/dropify/dist/dropify.min.js') }}"></script>
     <!-- End plugin js for this page -->
 
     <!-- inject:js -->
@@ -98,7 +98,7 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('../assets/js/dashboard-light.js') }}"></script>
     <script src="{{ asset('../../../assets/js/data-table.js') }}"></script>
-    <script src="{{ asset('../assets/js/dropify.js') }}"></script>
+    <script src="{{ asset('../../../assets/js/dropify.js') }}"></script>
     <!-- End custom js for this page -->
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

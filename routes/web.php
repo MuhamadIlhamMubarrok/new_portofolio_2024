@@ -18,7 +18,6 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('/hero', [HeroController::class, 'indexHero'])->name('hero.index');
-        // Route::get('/hero/{id}', [HeroController::class, 'editHero'])->name('hero.edit');
         Route::put('/hero/update/{id}', [HeroController::class, 'updateHero'])->name('hero.update');
         
     });
