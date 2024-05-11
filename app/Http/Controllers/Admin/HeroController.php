@@ -41,7 +41,7 @@ class HeroController extends Controller
                 'cta_1' => $request->cta_1,
                 'cta_2' => $request->cta_2,
                 'whatsapp' => $request->whatsapp,
-                'instagram' => $request->instragram,
+                'instagram' => $request->instagram,
                 'youtube' => $request->youtube,
                 'facebook' => $request->facebook,
             ];
@@ -50,7 +50,7 @@ class HeroController extends Controller
                 $image = $request->file('image');
                 $image->storeAs('public/hero_image', $image->hashName());
                 Storage::delete('public/hero_image/' . $hero->image);
-                $data['gambar'] = $image->hashName();
+                $data['image'] = $image->hashName();
             }
 
             $hero->update($data);
