@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\MediaInformasi;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class MediaInformasiController extends Controller
@@ -34,7 +34,7 @@ class MediaInformasiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(MediaInformasi $mediaInformasi)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class MediaInformasiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MediaInformasi $mediaInformasi)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +50,7 @@ class MediaInformasiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MediaInformasi $mediaInformasi)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +58,7 @@ class MediaInformasiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(MediaInformasi $mediaInformasi)
+    public function destroy(string $id)
     {
         //
     }

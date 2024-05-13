@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\DataCount;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class DataCountController extends Controller
@@ -34,7 +34,7 @@ class DataCountController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DataCount $dataCount)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class DataCountController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DataCount $dataCount)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +50,7 @@ class DataCountController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DataCount $dataCount)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +58,7 @@ class DataCountController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DataCount $dataCount)
+    public function destroy(string $id)
     {
         //
     }

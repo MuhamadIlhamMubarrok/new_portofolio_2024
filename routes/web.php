@@ -1,21 +1,21 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\CertificateController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DataCountController;
-use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\Guest\HomeController;
-use App\Http\Controllers\MediaInformasiController;
-use App\Http\Controllers\PengurusController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TestimonyController;
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CertificateController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\DataCountController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\MediaInformasiController;
+use App\Http\Controllers\Admin\PedomanController;
+use App\Http\Controllers\Admin\PengurusController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\TestimonyController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,7 +39,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::resource('/pengurus', PengurusController::class);
         Route::resource('/media-informasi', MediaInformasiController::class);
         Route::resource('/contact', ContactController::class);
-        Route::resource('/document', DocumentController::class);
+        Route::resource('/document', PedomanController::class);
         Route::resource('/certificate', CertificateController::class);
 
         

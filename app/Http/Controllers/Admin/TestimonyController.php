@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Testimony;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class TestimonyController extends Controller
@@ -34,7 +34,7 @@ class TestimonyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Testimony $testimony)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class TestimonyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Testimony $testimony)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +50,7 @@ class TestimonyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Testimony $testimony)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +58,7 @@ class TestimonyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Testimony $testimony)
+    public function destroy(string $id)
     {
         //
     }
