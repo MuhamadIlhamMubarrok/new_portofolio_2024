@@ -20,16 +20,16 @@ class HeroController extends Controller
         try {
 
             $request->validate([
-                'marquee_text' => 'required|string',
-                'title' => 'required|string',
-                'text' => 'required|string',
-                'image' => 'required|image|mimes:jpeg,jpg,png',
-                'cta_1' => 'required|string',
-                'cta_2' => 'required|string',
-                'whatsapp' => 'required|string',
-                'instagram' => 'required|string',
-                'youtube' => 'required|string',
-                'facebook' => 'required|string',
+                'marquee_text' => 'nullable|string',
+                'title' => 'nullable|string',
+                'text' => 'nullable|string',
+                'image' => 'nullable|image|mimes:jpeg,jpg,png',
+                'cta_1' => 'nullable|string',
+                'cta_2' => 'nullable|string',
+                'whatsapp' => 'nullable|string',
+                'instagram' => 'nullable|string',
+                'youtube' => 'nullable|string',
+                'facebook' => 'nullable|string',
             ]);
 
             $hero = Hero::find($id);
