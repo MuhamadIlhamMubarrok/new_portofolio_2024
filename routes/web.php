@@ -22,27 +22,35 @@ Route::get('/', function () {
 });
 
 Route::name('guest.')->prefix('guest')->group(function () {
-        Route::get('/', [HomeController::class, 'hero'])->name('hero');
+    Route::get('/', [HomeController::class, 'hero'])->name('hero');
 });
 
 Route::name('admin.')->prefix('admin')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
         Route::get('/hero', [HeroController::class, 'indexHero'])->name('hero.index');
         Route::put('/hero/update/{id}', [HeroController::class, 'updateHero'])->name('hero.update');
-        Route::resource('/banner', BannerController::class);
-        Route::resource('/profile', ProfileController::class);
-        Route::resource('/data-count', DataCountController::class);
+
+        Route::get('/banner', [BannerController::class, 'indexBanner'])->name('banner-index');
+        Route::put('/banner/update/{id}', [BannerController::class, 'updateBanner'])->name('banner.update');
+
+        Route::get('/profile', [ProfileController::class, 'indexProfile'])->name('profile.index');
+        Route::put('/profile/update/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
+
+        Route::get('/data-count', [DataCountController::class, 'indexDataCount'])->name('data-count.index');
+        Route::put('/data-count/update/{id}', [DataCountController::class, 'updateDataCount'])->name('data-count.update');
+
+        Route::get('/contact', [ContactController::class, 'indexContact'])->name('contact.index');
+        Route::put('/contact/update/{id}', [ContactController::class, 'updateContact'])->name('contact.update');
+
         Route::resource('/article', ArticleController::class);
         Route::resource('/gallery', GalleryController::class);
         Route::resource('/testimony', TestimonyController::class);
         Route::resource('/pengurus', PengurusController::class);
         Route::resource('/media-informasi', MediaInformasiController::class);
-        Route::resource('/contact', ContactController::class);
-        Route::resource('/document', PedomanController::class);
+        Route::resource('/pedoman-document', PedomanController::class);
         Route::resource('/certificate', CertificateController::class);
-
-        
     });
 });
 
