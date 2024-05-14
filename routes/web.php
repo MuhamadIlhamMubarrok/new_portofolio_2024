@@ -32,7 +32,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/hero', [HeroController::class, 'indexHero'])->name('hero.index');
         Route::put('/hero/update/{id}', [HeroController::class, 'updateHero'])->name('hero.update');
 
-        Route::get('/banner', [BannerController::class, 'indexBanner'])->name('banner-index');
+        Route::get('/banner', [BannerController::class, 'indexBanner'])->name('banner.index');
         Route::put('/banner/update/{id}', [BannerController::class, 'updateBanner'])->name('banner.update');
 
         Route::get('/profile', [ProfileController::class, 'indexProfile'])->name('profile.index');
@@ -49,8 +49,8 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::resource('/testimony', TestimonyController::class);
         Route::resource('/pengurus', PengurusController::class);
         Route::resource('/media-informasi', MediaInformasiController::class);
-        Route::resource('/pedoman-document', PedomanController::class);
-        Route::resource('/certificate', CertificateController::class);
+        Route::resource('/pedoman', PedomanController::class);
+        Route::resource('/sertifikat', CertificateController::class);
     });
 });
 
