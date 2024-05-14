@@ -9,7 +9,6 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\DataCountController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\MediaInformasiController;
 use App\Http\Controllers\Admin\PedomanController;

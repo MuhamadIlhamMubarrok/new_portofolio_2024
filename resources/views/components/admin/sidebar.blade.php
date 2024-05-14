@@ -40,8 +40,8 @@
                         <li class="nav-item {{ request()->routeIs('admin.sumber-data.*') ? 'active' : '' }}">
                             <a href="{{ route('admin.sumber-data.index') }}" class="nav-link">Sumber Data</a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.gallery.index') }}" class="nav-link">Gallery</a>
+                        <li class="nav-item {{ request()->routeIs('admin.galeri.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.galeri.index') }}" class="nav-link">Gallery</a>
                         </li>
                         <li class="nav-item {{ request()->routeIs('admin.testimony.*') ? 'active' : '' }}">
                             <a href="{{ route('admin.testimony.index') }}" class="nav-link">Testimony</a>
@@ -59,17 +59,17 @@
                 </div>
             </li>
 
-            <li class="nav-item {{ request()->routeIs('admin.article.*') ? 'active' : '' }}">
+            <li class="nav-item {{ request()->routeIs('admin.artikel.*') ? 'active' : '' }}">
                 <a class="nav-link" data-bs-toggle="collapse" href="#artikel" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="grid"></i>
                     <span class="link-title">Artikel</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse {{ request()->routeIs('admin.article.*') ? 'show' : '' }}" id="artikel">
+                <div class="collapse {{ request()->routeIs('admin.artikel.*') ? 'show' : '' }}" id="artikel">
                     <ul class="nav sub-menu">
-                        <li class="nav-item {{ request()->routeIs('admin.article.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.article.index') }}" class="nav-link">Artikel</a>
+                        <li class="nav-item {{ request()->routeIs('admin.artikel.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.artikel.index') }}" class="nav-link">Artikel</a>
                         </li>
                     </ul>
                 </div>
