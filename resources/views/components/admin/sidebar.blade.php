@@ -37,8 +37,8 @@
                         <li class="nav-item {{ request()->routeIs('admin.profile.*') ? 'active' : '' }}">
                             <a href="{{ route('admin.profile.index') }}" class="nav-link">Profil</a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('admin.data-count.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.data-count.index') }}" class="nav-link">Sumber Data</a>
+                        <li class="nav-item {{ request()->routeIs('admin.sumber-data.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.sumber-data.index') }}" class="nav-link">Sumber Data</a>
                         </li>
                         <li class="nav-item {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
                             <a href="{{ route('admin.gallery.index') }}" class="nav-link">Gallery</a>
@@ -47,7 +47,7 @@
                             <a href="{{ route('admin.testimony.index') }}" class="nav-link">Testimony</a>
                         </li>
                         <li class="nav-item {{ request()->routeIs('admin.pengurus.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.pengurus.index') }}" class="nav-link">Anggota</a>
+                            <a href="{{ route('admin.pengurus.index') }}" class="nav-link">Pengurus</a>
                         </li>
                         <li class="nav-item {{ request()->routeIs('admin.media-informasi.*') ? 'active' : '' }}">
                             <a href="{{ route('admin.media-informasi.index') }}" class="nav-link">Media Informasi</a>

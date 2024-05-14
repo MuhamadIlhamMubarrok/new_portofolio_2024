@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\MediaInformasiController;
 use App\Http\Controllers\Admin\PedomanController;
 use App\Http\Controllers\Admin\PengurusController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\SumberDataController;
 use App\Http\Controllers\Admin\TestimonyController;
 
 Route::get('/', function () {
@@ -38,14 +39,14 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/profile', [ProfileController::class, 'indexProfile'])->name('profile.index');
         Route::put('/profile/update/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
-        Route::get('/data-count', [DataCountController::class, 'indexDataCount'])->name('data-count.index');
-        Route::put('/data-count/update/{id}', [DataCountController::class, 'updateDataCount'])->name('data-count.update');
+        Route::get('/sumber-data', [SumberDataController::class, 'indexSumberData'])->name('sumber-data.index');
+        Route::put('/sumber-data/update/{id}', [SumberDataController::class, 'updateSumberData'])->name('sumber-data.update');
 
         Route::get('/contact', [ContactController::class, 'indexContact'])->name('contact.index');
         Route::put('/contact/update/{id}', [ContactController::class, 'updateContact'])->name('contact.update');
 
-        Route::resource('/article', ArticleController::class);
-        Route::resource('/gallery', GalleryController::class);
+        Route::resource('/artikel', ArticleController::class);
+        Route::resource('/galeri', GalleryController::class);
         Route::resource('/testimony', TestimonyController::class);
         Route::resource('/pengurus', PengurusController::class);
         Route::resource('/media-informasi', MediaInformasiController::class);

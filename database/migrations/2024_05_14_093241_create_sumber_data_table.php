@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_counts', function (Blueprint $table) {
+        Schema::create('sumber_data', function (Blueprint $table) {
             $table->id();
             $table->integer("jumlah_lembaga")->nullable();
             $table->integer("jumlah_guru")->nullable();
             $table->integer("jumlah_peserta")->nullable();
-            $table->integer("jumlah_roombeel")->nullable();
+            $table->integer("jumlah_rombel")->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_counts');
+        Schema::dropIfExists('sumber_data');
     }
 };
