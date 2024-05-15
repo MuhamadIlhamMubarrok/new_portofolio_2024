@@ -27,5 +27,12 @@ class DatabaseSeeder extends Seeder
         $this->call(ProfileSeeder::class);
         $this->call(ProfileSeeder::class);
         $this->call(BannerSeeder::class);
+        $this->call(ArticlesSeeder::class);
+        $this->call(CertificatesSeeder::class);
+        $this->call(GalleriesSeeder::class);
+        $this->call(MediaInformasisSeeder::class);
+        $this->call(PedomenSeeder::class);
+        $this->call(PengurusesSeeder::class);
+        $this->call(TestimoniesSeeder::class);
     }
 }
