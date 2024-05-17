@@ -3,16 +3,28 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\CertificateService;
 use Illuminate\Http\Request;
 
 class CertificateController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $certificateService;
+    public function __construct(CertificateService $certificateService){
+        $this->certificateService = $certificateService;
+    }
     public function index()
     {
-        //
+        try{
+             $certicate = $this->certificateService->getAll();
+             return view('admin.certicate.index', compact('certicate'));
+        }catch(\Exception $e){
+             $notification = [
+                'message' => 'Failed to get Articles: ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
+
+            return view('admin.certicate.index')->with($notification);
+        }
     }
 
     /**
