@@ -4,6 +4,12 @@
 
 @section('content')
 
+    @push('style')
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
+            integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @endpush
+
     <div class="page-content">
 
         <nav class="page-breadcrumb">
@@ -17,8 +23,6 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-
-                        {{-- <h6 class="card-title">Hero Data</h6> --}}
 
                         <form method="POST" action="{{ route('admin.hero.update', $hero->id) }}"
                             enctype="multipart/form-data">
@@ -45,7 +49,7 @@
 
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
-                                <input type="file" class="form-control" id="image" name="image">
+                                <input type="file" class="form-control dropify" id="image" name="image">
                             </div>
 
                             <div class="mb-3">
@@ -93,7 +97,14 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 @endsection
+
+@push('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
+        integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $('.dropify').dropify();
+    </script>
+@endpush
