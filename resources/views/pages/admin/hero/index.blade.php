@@ -49,7 +49,7 @@
 
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
-                                <input type="file" class="form-control dropify" id="image" name="image">
+                                <input type="file" class="form-control dropify" id="image" data-default-file="{{ $hero->image ? asset('storage/hero_image/'.$hero->image) : '' }}" name="image">
                             </div>
 
                             <div class="mb-3">
