@@ -3,63 +3,96 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\ArtikelService;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    protected $articleService;
+    public function __construct(ArtikelService $articleService){
+        $this->articleService = $articleService;
+    }
+   public function index(Request $request)
     {
-        //
+        try {
+            $search = $request->input('search');
+            if ($search) {
+                $articles = $this->articleService->searchByTitle($search);
+            } else {
+                $articles = $this->articleService->getAll();
+            }
+            return view('admin.articles.index', compact('articles'));
+        } catch (\Exception $e) {
+            $notification = [
+                'message' => 'Failed to get Articles: ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
+
+            return view('admin.articles.index')->with($notification);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+   
     public function store(Request $request)
     {
-        //
+        try {
+            $this->articleService->create($request->all());
+             $notification = [
+                'message' => 'Article created successfully!',
+                'alert-type' => 'success',
+            ];
+            return redirect()->route('admin.articles.index')->with($notification);
+        }catch(\Exception $e){
+            $notification = [
+                'message' => 'Failed to create Article: ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
+
+            return redirect()->route('admin.articles.index')->with($notification);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
+   
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $this->articleService->update($id, $request->all());
+
+            $notification = [
+                'message' => 'Article updated successfully!',
+                'alert-type' => 'success',
+            ];
+
+            return redirect()->route('admin.articles.index')->with($notification);
+        } catch (\Exception $e) {
+            $notification = [
+                'message' => 'Failed to update Article: ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
+
+            return redirect()->route('admin.articles.index')->with($notification);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy(string $id)
     {
-        //
+        try {
+            $this->articleService->delete($id);
+
+            $notification = [
+                'message' => 'Article deleted successfully!',
+                'alert-type' => 'success',
+            ];
+
+            return redirect()->route('admin.articles.index')->with($notification);
+        } catch (\Exception $e) {
+            $notification = [
+                'message' => 'Failed to delete Article: ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
+
+            return redirect()->route('admin.articles.index')->with($notification);
+        }
     }
 }

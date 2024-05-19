@@ -48,4 +48,6 @@ class ProfileController extends Controller
 
         return redirect()->route('admin.profile.index')->with($notification);
     }
+
+    
 }

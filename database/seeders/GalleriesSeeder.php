@@ -14,6 +14,7 @@ class GalleriesSeeder extends Seeder
     {
         DB::table('galleries')->insert([
             'gambar' => null,
+            'status' => false,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
