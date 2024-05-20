@@ -30,7 +30,7 @@ class ProfileController extends Controller
         }
     }
 
-    public function updateHero(Request $request, string $id)
+    public function updateProfile(Request $request, string $id)
     {
         try {
             $this->profileService->updateProfile($request, $id);
