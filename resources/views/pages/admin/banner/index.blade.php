@@ -14,7 +14,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Banner</li>
             </ol>
         </nav>

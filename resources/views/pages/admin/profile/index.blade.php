@@ -14,7 +14,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">profile</li>
             </ol>
         </nav>
@@ -24,8 +24,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.profile.update', $profile->id) }}"
-                            enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.profile.update', $profile->id) }}">
                             @csrf
                             @method('PUT')
 
