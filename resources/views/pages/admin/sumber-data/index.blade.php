@@ -30,28 +30,28 @@
 
                             <div class="mb-3">
                                 <label for="jumlah_lembaga" class="form-label">Jumlah Lembaga</label>
-                                <input type="text" class="form-control" id="jumlah_lembaga" autocomplete="off"
+                                <input type="number" class="form-control" id="jumlah_lembaga" autocomplete="off"
                                     placeholder="Jumlah Lembaga" name="jumlah_lembaga"
                                     value="{{ old('jumlah_lembaga') ?? $sumberData->jumlah_lembaga }}">
                             </div>
 
                             <div class="mb-3">
                                 <label for="jumlah_guru" class="form-label">Jumlah Guru</label>
-                                <input type="text" class="form-control" id="jumlah_guru" autocomplete="off"
+                                <input type="number" class="form-control" id="jumlah_guru" autocomplete="off"
                                     placeholder="Jumlah Guru" name="jumlah_guru"
                                     value="{{ old('jumlah_guru') ?? $sumberData->jumlah_guru }}">
                             </div>
 
                             <div class="mb-3">
                                 <label for="jumlah_peserta" class="form-label">Jumlah Peserta</label>
-                                <input type="text" class="form-control" id="jumlah_peserta" autocomplete="off"
+                                <input type="number" class="form-control" id="jumlah_peserta" autocomplete="off"
                                     placeholder="Jumlah Peserta" name="jumlah_peserta"
                                     value="{{ old('jumlah_peserta') ?? $sumberData->jumlah_peserta }}">
                             </div>
 
                             <div class="mb-3">
                                 <label for="jumlah_rombel" class="form-label">Jumlah Rombel</label>
-                                <input type="text" class="form-control" id="jumlah_rombel" autocomplete="off"
+                                <input type="number" class="form-control" id="jumlah_rombel" autocomplete="off"
                                     placeholder="Jumlah Rombel" name="jumlah_rombel"
                                     value="{{ old('jumlah_rombel') ?? $sumberData->jumlah_rombel }}">
                             </div>
