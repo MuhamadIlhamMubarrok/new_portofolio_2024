@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\TestimonyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\HomeController;
@@ -15,7 +16,7 @@ use App\Http\Controllers\Admin\PedomanController;
 use App\Http\Controllers\Admin\PengurusController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SumberDataController;
-use App\Http\Controllers\Admin\TestimonyController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,7 +50,6 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::resource('/testimony', TestimonyController::class);
         Route::resource('/pengurus', PengurusController::class);
         Route::resource('/media-informasi', MediaInformasiController::class);
-        Route::resource('/pedoman', PedomanController::class);
         Route::resource('/sertifikat', CertificateController::class);
     });
 });

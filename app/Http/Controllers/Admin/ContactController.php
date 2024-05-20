@@ -6,13 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Services\ContactService;
 use Illuminate\Http\Request;
-
+use Illuminate\View\View;
 class ContactController extends Controller
 {
     protected $contactService;
     public function __construct(ContactService $contactService)
     {
         $this->contactService = $contactService;
+    }
+
+     public function edit(Request $request): View
+    {
+        return view('admin.contact.edit', [
+            'user' => $request->user(),
+        ]);
     }
 
     public function indexContact()
@@ -29,6 +36,8 @@ class ContactController extends Controller
             return view('pages.admin.contact.index')->with($notification);
         }
     }
+
+    
 
     public function updateContact(Request $request, string $id)
     {

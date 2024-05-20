@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Services\ArtikelService;
 use Illuminate\Http\Request;
-
+use Illuminate\View\View;
 class ArticleController extends Controller
 {
     protected $articleService;
@@ -30,6 +30,13 @@ class ArticleController extends Controller
 
             return view('admin.articles.index')->with($notification);
         }
+    }
+
+    public function edit(Request $request): View
+    {
+        return view('admin.articles.edit', [
+            'user' => $request->user(),
+        ]);
     }
 
    

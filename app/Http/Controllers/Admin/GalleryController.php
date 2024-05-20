@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use App\Services\GalleryService;
 use Illuminate\Http\Request;
-
+use Illuminate\View\View;
 class GalleryController extends Controller
 {
     protected $galleryService;
@@ -73,9 +73,11 @@ class GalleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+     public function edit(Request $request): View
     {
-        //
+        return view('admin.galeri.edit', [
+            'user' => $request->user(),
+        ]);
     }
 
     /**

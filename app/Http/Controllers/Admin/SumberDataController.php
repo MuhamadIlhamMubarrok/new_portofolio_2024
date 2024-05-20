@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\SumberData;
 use App\Services\SumberDataService;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class SumberDataController extends Controller
 {
@@ -28,6 +29,13 @@ class SumberDataController extends Controller
 
             return view('pages.admin.sumber-data.index')->with($notification);
         }
+    }
+
+     public function edit(Request $request): View
+    {
+        return view('admin.sumber-data.edit', [
+            'user' => $request->user(),
+        ]);
     }
 
     public function updateSumberData(Request $request, string $id)
