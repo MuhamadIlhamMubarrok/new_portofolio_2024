@@ -32,23 +32,24 @@
                             <div class="mb-3">
                                 <label for="text_profile" class="form-label">Tentang Kami</label>
                                 <input type="text" class="form-control" id="text_profile" autocomplete="off"
-                                    placeholder="Marquee Text" name="text_profile"
+                                    placeholder="Tentang Kami" name="text_profile"
                                     value="{{ old('text_profile') ?? $profile->text_profile }}">
                             </div>
 
                             <div class="mb-3">
                                 <label for="visi" class="form-label">Visi</label>
-                                <textarea class="form-control" id="visi" rows="3" name="visi" placeholder="Text">{{ old('visi') ?? $profile->visi }}</textarea>
+                                <textarea class="form-control" id="visi" rows="3" name="visi" placeholder="Visi">{{ old('visi') ?? $profile->visi }}</textarea>
                             </div>
 
                             <div class="mb-3">
                                 <label for="misi" class="form-label">Misi</label>
-                                <textarea class="form-control" id="misi" rows="3" name="misi" placeholder="Text">{{ old('misi') ?? $profile->misi }}</textarea>
+                                <textarea class="form-control" id="misi" rows="3" name="misi" placeholder="Misi">{{ old('misi') ?? $profile->misi }}</textarea>
                             </div>
 
                             <div class="mb-3">
-                                <label for="vidio" class="form-label">Video</label>
-                                <input type="file" class="form-control dropify" id="vidio" data-default-file="{{ $profile->vidio ? asset('storage/profile_vidio/'.$profile->vidio) : '' }}" name="image">
+                                <label for="vidio" class="form-label">Link Video</label>
+                                <input type="text" class="form-control" id="vidio" autocomplete="off"
+                                    placeholder="Video" name="vidio" value="{{ old('vidio') ?? $profile->vidio }}">
                             </div>
 
                             <button type="submit" class="btn btn-primary me-2">Submit</button>
