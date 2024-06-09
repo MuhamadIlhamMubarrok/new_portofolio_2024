@@ -15,7 +15,6 @@ class TestimoniesSeeder extends Seeder
         DB::table('testimonies')->insert([
             'gambar' => null,
             'nama' => null,
-            'tempat_kerja' => null,
             'text_testimoni' => null,
             'created_at' => now(),
             'updated_at' => now(),
