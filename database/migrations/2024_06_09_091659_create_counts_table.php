@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('banners', function (Blueprint $table) {
+        Schema::create('counts', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('foto')->nullable();
-            $table->string('vidio')->nullable();
+            $table->string("judul_count")->nullable();
+            $table->integer("count")->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('counts');
     }
 };

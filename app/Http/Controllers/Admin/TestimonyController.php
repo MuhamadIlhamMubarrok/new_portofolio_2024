@@ -1,52 +1,37 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Testimony;
 use App\Services\TestimoniService;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+
 class TestimonyController extends Controller
 {
-    protected $tesimonyService;
-    public function __construct(TestimoniService $tesimonyService){
-        $this->tesimonyService = $tesimonyService;
-    }
-   public function index(Request $request)
+    protected $testimonyService;
+
+    public function __construct(TestimoniService $testimonyService)
     {
-        try {
-             
-            $testimony = $this->tesimonyService->getAll();
-           
-            return view('admin.testimony.index', compact('testimony'));
-        } catch (\Exception $e) {
-            $notification = [
-                'message' => 'Failed to get Testimony: ' . $e->getMessage(),
-                'alert-type' => 'error',
-            ];
-
-            return view('admin.testimony.index')->with($notification);
-        }
+        $this->testimonyService = $testimonyService;
     }
-
-    public function edit(Request $request): View
+    public function index()
     {
-        return view('admin.testimony.edit', [
-            'user' => $request->user(),
-        ]);
+        $testimonies = Testimony::all();
+        return view('pages.admin.testimoni.index', compact('testimonies'));
     }
 
-   
+    public function create()
+    {
+        return view('pages.admin.testimoni.create');
+    }
+
     public function store(Request $request)
     {
         try {
-            $this->tesimonyService->create($request->all());
-             $notification = [
-                'message' => 'Testimony created successfully!',
-                'alert-type' => 'success',
-            ];
-            return redirect()->route('admin.testimony.index')->with($notification);
-        }catch(\Exception $e){
+             
+            $this->testimonyService->create($request);
+            return redirect()->route('admin.testimony.index')->with('success', 'Testimony created successfully.');
+        } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to create Testimony: ' . $e->getMessage(),
                 'alert-type' => 'error',
@@ -56,18 +41,17 @@ class TestimonyController extends Controller
         }
     }
 
-   
-    public function update(Request $request, string $id)
+    public function edit(string $id)
     {
-        try {
-            $this->tesimonyService->update($id, $request->all());
+        $testimony = Testimony::findOrFail($id);
+        return view('pages.admin.testimoni.edit', compact('testimony'));
+    }
 
-            $notification = [
-                'message' => 'Testimony updated successfully!',
-                'alert-type' => 'success',
-            ];
-
-            return redirect()->route('admin.testimony.index')->with($notification);
+    public function update(Request $request, $id)
+    {
+         try {
+            $this->testimonyService->update($request, $id);
+            return redirect()->route('admin.testimony.index')->with('success', 'Testimony updated successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to update Testimony: ' . $e->getMessage(),
@@ -78,11 +62,10 @@ class TestimonyController extends Controller
         }
     }
 
-    
     public function destroy(string $id)
     {
         try {
-            $this->tesimonyService->delete($id);
+            $this->testimonyService->delete($id);
 
             $notification = [
                 'message' => 'Testimony deleted successfully!',
@@ -92,7 +75,7 @@ class TestimonyController extends Controller
             return redirect()->route('admin.testimony.index')->with($notification);
         } catch (\Exception $e) {
             $notification = [
-                'message' => 'Failed to delete Testimony: ' . $e->getMessage(),
+                'message' => 'Failed to delete Article: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 

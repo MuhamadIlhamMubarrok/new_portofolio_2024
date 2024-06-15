@@ -6,46 +6,52 @@ use App\Models\Testimony;
 use Illuminate\Support\Facades\Storage;
 class TestimoniService
 {
-   public function create($data)
+    public function create($request)
     {
-        $image = $data['gambar'];
-        $image->storeAs('public/testimony_images', $image->hashName());
-        $data['gambar'] = $image->hashName();
-
-        $dataTestimony = [
-           'gambar' => $data['gambar'],
-            'nama' => $data['nama'],
-            'tempat_kerja' => $data['tempat_kerja'],
-            'text_testimoni' => $data['text_testimoni'],
+        $data = [
+            'nama' => $request->nama,
+            'text_testimoni' => $request->text_testimoni,
         ];
+        $request->validate([
+            'gambar' => 'required|image',
+            'nama' => 'required|string|max:255',
+            'text_testimoni' => 'required|string',
+        ]);
 
-        return Testimony::create($dataTestimony);
+        $gambar = $request->file('gambar');
+        $gambar->storeAs('public/testimony_foto/' . $gambar->hashName());
+        $data['gambar'] = $gambar->hashName();
+
+        return Testimony::create($data);
     }
 
-     public function getAll()
+    public function getAll()
     {
         return Testimony::all();
     }
 
-     public function update($id, $data)
+    public function update($request, $id)
     {
         $testimony = Testimony::findOrFail($id);
+        $data = [
+            'nama' => $request->nama,
+            'text_testimoni' => $request->text_testimoni,
 
-        if (isset($data['gambar'])) {
-            $image = $data['gambar'];
-            $image->storeAs('public/testimony_images', $image->hashName());
-            Storage::delete('public/testimony_images/' . $testimony->gambar);
-            $data['gambar'] = $image->hashName();
-        }
-
-        $dataTestimony = [
-            'gambar' => $data['gambar'] ?? $testimony->gambar,
-             'nama' => $data['nama'],
-            'tempat_kerja' => $data['tempat_kerja'],
-            'text_testimoni' => $data['text_testimoni'],
         ];
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'text_testimoni' => 'required|string',
+        ]);
 
-        $testimony->update($dataTestimony);
+        if (isset($request['gambar'])) {
+            $gambar = $request->file('gambar');
+            $gambar->storeAs('public/testimony_foto/' . $gambar->hashName());
+            if ($testimony->gambar) {
+                Storage::delete('public/testimony_foto/' . $testimony->gambar);
+            }
+            $data['gambar'] = $gambar->hashName();
+        }
+        $testimony->update($data);
 
         return $testimony;
     }
@@ -53,7 +59,9 @@ class TestimoniService
     public function delete($id)
     {
         $testimony = Testimony::findOrFail($id);
-        Storage::delete('public/testimony_images/' . $testimony->gambar);
+        if ($testimony->gambar) {
+            Storage::delete('public/testimony_foto/' . $testimony->gambar);
+        }
         return $testimony->delete();
     }
 }

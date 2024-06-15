@@ -3,16 +3,16 @@
         <i data-feather="menu"></i>
     </a>
     <div class="navbar-content">
-        <form class="search-form">
+        {{-- <form class="search-form">
             <div class="input-group">
                 <div class="input-group-text">
                     <i data-feather="search"></i>
                 </div>
                 <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
             </div>
-        </form>
+        </form> --}}
         <ul class="navbar-nav">
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i data-feather="grid"></i>
@@ -209,20 +209,18 @@
                         <a href="javascript:;">View all</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="wd-30 ht-30 rounded-circle"
-                        src="#"
+                    <img class="wd-30 ht-30 rounded-circle" src="{{ asset('./assets/images/logo.png') }}"
                         alt="profile">
                 </a>
                 <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
                     <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
                         <div class="mb-3">
-                            <img class="wd-80 ht-80 rounded-circle"
-                                src="#"
+                            <img class="wd-80 ht-80 rounded-circle" src="{{ asset('./assets/images/logo.png') }}"
                                 alt="">
                         </div>
                         <div class="text-center">
@@ -231,7 +229,7 @@
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
-                        <li class="dropdown-item py-2">
+                        {{-- <li class="dropdown-item py-2">
                             <a href="#" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="user"></i>
                                 <span>Profile</span>
@@ -248,7 +246,7 @@
                                 <i class="me-2 icon-md" data-feather="repeat"></i>
                                 <span>Switch User</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="dropdown-item py-2">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

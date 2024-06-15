@@ -6,18 +6,19 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-class TestimoniesSeeder extends Seeder
+class ProjekSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('testimonies')->insert([
+         DB::table('projeks')->insert([
             'id' => (string) Str::uuid(),
-            'gambar' => null,
-            'nama' => null,
-            'text_testimoni' => null,
+            'gambar' => "gambar.png",
+            'video' => "vidio.mp4",
+            'nama' => "projeks",
+            'deskripsi' => "lorem ipsum",
             'created_at' => now(),
             'updated_at' => now(),
         ]);

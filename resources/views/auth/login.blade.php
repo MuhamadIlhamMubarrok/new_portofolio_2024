@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>KKRA Kab Bogor - Login Page</title>
+    <title>PT.Aditya mandiri konstruksi - Login Page</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,15 +43,13 @@
                         <div class="card">
                             <div class="row">
                                 <div class="col-md-4 pe-md-0">
-                                    <div class="auth-side-wrapper">
-
-                                    </div>
+                                    <img src="{{ asset('./assets/images/logo.png') }}" class="w-100 h-100"
+                                        alt="Login">
                                 </div>
                                 <div class="col-md-8 ps-md-0">
                                     <div class="auth-form-wrapper px-4 py-5">
-                                        <a href="#"
-                                            class="noble-ui-logo logo-light d-block mb-2">Login</a>
-                                            {{-- class="noble-ui-logo logo-light d-block mb-2">Login<span>In</span></a> --}}
+                                        <a href="#" class="noble-ui-logo logo-light d-block mb-2">Login</a>
+                                        {{-- class="noble-ui-logo logo-light d-block mb-2">Login<span>In</span></a> --}}
                                         <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
                                         <form method="POST" action="{{ route('login') }}" class="forms-sample">
                                             @csrf
@@ -81,11 +79,6 @@
                                             <div>
                                                 <button type="submit"
                                                     class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login
-                                                </button>
-                                                <button type="button"
-                                                    class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
-                                                    <i class="btn-icon-prepend" data-feather="twitter"></i>
-                                                    Login with twitter
                                                 </button>
                                             </div>
                                             {{-- <a href="{{ route('register') }}" class="d-block mt-3 text-muted">Not a

@@ -23,15 +23,23 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-
                         <form method="POST" action="{{ route('admin.banner.update', $banner->id) }}"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
                             <div class="mb-3">
-                                <label for="banner" class="form-label">Banner</label>
-                                <input type="file" class="form-control dropify" id="banner" data-default-file="{{ $banner->banner ? asset('storage/banner_image/'.$banner->banner) : '' }}" name="banner">
+                                <label for="banner" class="form-label">Foto</label>
+                                <input type="file" class="form-control dropify" id="banner"
+                                    data-default-file="{{ $banner->foto ? asset('storage/banner_foto/' . $banner->foto) : '' }}"
+                                    name="foto">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="vidio" class="form-label">Video</label>
+                                <input type="file" class="form-control dropify" id="vidio"
+                                    data-default-file="{{ $banner->vidio ? asset('storage/banner_vidio/' . $banner->vidio) : '' }}"
+                                    name="vidio" accept="vidio/*">
                             </div>
 
                             <button type="submit" class="btn btn-primary me-2">Submit</button>
@@ -50,5 +58,32 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $('.dropify').dropify();
+
+        const photoInput = document.getElementById('banner');
+        const videoInput = document.getElementById('video');
+
+        photoInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                videoInput.disabled = true;
+            } else {
+                videoInput.disabled = false;
+            }
+        });
+
+        videoInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                photoInput.disabled = true;
+            } else {
+                photoInput.disabled = false;
+            }
+        });
+
+        $('#banner').on('dropify.afterClear', function(event, element) {
+            videoInput.disabled = false;
+        });
+
+        $('#video').on('dropify.afterClear', function(event, element) {
+            photoInput.disabled = false;
+        });
     </script>
 @endpush
