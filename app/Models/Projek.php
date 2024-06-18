@@ -9,7 +9,7 @@ class Projek extends Model
 {
    use HasFactory, HasUuids;
 
-    protected $fillable = ['gambar', 'video', 'nama', 'deskripsi'];
+    protected $fillable = ['banner', 'nama', 'deskripsi'];
 
     public function subGambarProjects()
     {

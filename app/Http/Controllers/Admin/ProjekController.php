@@ -4,11 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Projek;
+use App\Services\ProjekService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProjekController extends Controller
 {
+    protected $projekService;
+
+    public function __construct(ProjekService $projekService)
+    {
+        $this->projekService = $projekService;
+    }
     public function index()
     {
         $projeks = Projek::all();
@@ -22,60 +29,57 @@ class ProjekController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'gambar' => 'nullable|image',
-            'nama' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string|max:1000',
-        ]);
+       try {
+            $this->projekService->createProjek($request);
+            return redirect()->route('admin.projek.index')->with('success', 'Projek Created successfully.');
+       } catch (\Exception $e) {
+             $notification = [
+                'message' => 'Failed to Create Project: ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
 
-        $path = $request->file('gambar') ? $request->file('gambar')->store('projek_images', 'public') : null;
-
-        Projek::create([
-            'gambar' => $path,
-            'nama' => $request->nama,
-            'deskripsi' => $request->deskripsi,
-        ]);
-
-        return redirect()->route('pages.admin.projeks.index')->with('success', 'Projek created successfully.');
+             return redirect()->route('admin.projek.index')->with($notification);
+       }
     }
 
     public function edit(Projek $projek)
     {
-        return view('pages.admin.projeks.edit', compact('projek'));
+        return view('pages.admin.project.edit', compact('projek'));
     }
 
-    public function update(Request $request, Projek $projek)
+    public function update(Request $request, string $id)
     {
-        $request->validate([
-            'gambar' => 'nullable|image',
-            'nama' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string|max:1000',
-        ]);
+        try {
+            $this->projekService->updateProjek($request, $id);
+            return redirect()->route('admin.projek.index')->with('success', 'Project updated successfully.');
+        } catch (\Exception $e) {
+            $notification = [
+                'message' => 'Failed to update Project: ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
 
-        if ($request->hasFile('gambar')) {
-            if ($projek->gambar) {
-                Storage::disk('public')->delete($projek->gambar);
-            }
-            $path = $request->file('gambar')->store('projek_images', 'public');
-        } else {
-            $path = $projek->gambar;
+            return redirect()->route('admin.projek.index')->with($notification);
         }
-
-        $projek->update([
-            'gambar' => $path,
-            'nama' => $request->nama,
-            'deskripsi' => $request->deskripsi,
-        ]);
-
-        return redirect()->route('pages.admin.projeks.index')->with('success', 'Projek updated successfully.');
     }
 
-    public function destroy(Projek $projek)
+    public function destroy(string $id)
     {
-        if ($projek->gambar) {
-            Storage::disk('public')->delete($projek->gambar);
+        try {
+            $this->projekService->delete($id);
+
+            $notification = [
+                'message' => 'Project deleted successfully!',
+                'alert-type' => 'success',
+            ];
+
+            return redirect()->route('admin.projek.index')->with($notification);
+        } catch (\Exception $e) {
+            $notification = [
+                'message' => 'Failed to delete Project: ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
+
+            return redirect()->route('admin.projek.index')->with($notification);
         }
-        $projek->delete();
-        return redirect()->route('pages.admin.projeks.index')->with('success', 'Projek deleted successfully.');
     }
 }

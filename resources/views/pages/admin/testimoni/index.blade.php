@@ -47,7 +47,7 @@
                                         <td><img src="{{ asset('storage/testimony_foto/' . $data->gambar) }}" width="100"
                                                 alt="Gambar">
                                         </td>
-                                        <td>{{ $data->text_testimoni }}</td>
+                                        <td>{{ Str::limit($data->text_testimoni, 50) }}..</td>
                                         <td>
                                             <a href="{{ route('admin.testimony.edit', $data->id) }}"
                                                 class="btn btn-warning">Edit</a>

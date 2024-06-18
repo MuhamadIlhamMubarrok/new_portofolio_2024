@@ -15,8 +15,7 @@ class BannerSeeder extends Seeder
     {
          DB::table('banners')->insert([
             'id' => (string) Str::uuid(),
-            'foto' => "gambar.png",
-            'vidio' => "vidio.mp4",
+            'banner' => "gambar.png",
             'created_at' => now(),
             'updated_at' => now(),
         ]);

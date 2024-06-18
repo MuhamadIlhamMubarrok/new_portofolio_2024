@@ -8,6 +8,7 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.count.index') }}">Counts</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Count</li>
             </ol>
         </nav>

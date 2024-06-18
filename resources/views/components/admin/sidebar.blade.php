@@ -19,33 +19,42 @@
                 </a>
             </li>
             <li class="nav-item nav-category">Halaman</li>
-            <li class="nav-item {{ request()->routeIs('admin.hero.*') ? 'active' : '' }}">
+            <li
+                class="nav-item {{ request()->routeIs('admin.banner.*', 'admin.client.*', 'admin.projek.*', 'admin.subGambar.*', 'admin.testimony.*', 'admin.count.*') ? 'active' : '' }}">
                 <a class="nav-link" data-bs-toggle="collapse" href="#home" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="grid"></i>
                     <span class="link-title">Self Maintenance</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse {{ request()->routeIs('admin.hero.*') ? 'show' : '' }}" id="home">
+                <div class="collapse {{ request()->routeIs('admin.banner.*', 'admin.client.*', 'admin.projek.*', 'admin.subGambar.*', 'admin.testimony.*', 'admin.count.*') ? 'show' : '' }}"
+                    id="home">
                     <ul class="nav sub-menu">
 
                         <li class="nav-item {{ request()->routeIs('admin.banner.*') ? 'active' : '' }}">
                             <a href="{{ route('admin.banner.index') }}" class="nav-link">Banner</a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('admin.client.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.client.index') }}" class="nav-link">Client</a>
+                        <li class="nav-item ">
+                            <a href="{{ route('admin.client.index') }}"
+                                class="nav-link {{ request()->routeIs('admin.client.*') ? 'active' : '' }}">Client</a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('admin.projek.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.projek.index') }}" class="nav-link">Project</a>
+                        <li class="nav-item ">
+                            <a href="{{ route('admin.projek.index') }}"
+                                class="nav-link {{ request()->routeIs('admin.projek.*') ? 'active' : '' }}">Project</a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('admin.subGambar.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.subGambar.index') }}" class="nav-link">Sub Gamabar Project</a>
+                        <li class="nav-item ">
+                            <a href="{{ route('admin.subGambar.index') }}"
+                                class="nav-link {{ request()->routeIs('admin.subGambar.*') ? 'active' : '' }}">Sub
+                                Gamabar Project</a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('admin.count.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.count.index') }}" class="nav-link">Count</a>
+                        <li class="nav-item ">
+                            <a href="{{ route('admin.count.index') }}"
+                                class="nav-link {{ request()->routeIs('admin.count.*') ? 'active' : '' }}">Count</a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('admin.testimony.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.testimony.index') }}" class="nav-link">Self Comment</a>
+                        <li class="nav-item ">
+                            <a href="{{ route('admin.testimony.index') }}"
+                                class="nav-link {{ request()->routeIs('admin.testimony.*') ? 'active' : '' }}">Self
+                                Comment</a>
                         </li>
                     </ul>
                 </div>

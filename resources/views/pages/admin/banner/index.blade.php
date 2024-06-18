@@ -29,18 +29,12 @@
                             @method('PUT')
 
                             <div class="mb-3">
-                                <label for="banner" class="form-label">Foto</label>
+                                <label for="banner" class="form-label">Banner</label>
                                 <input type="file" class="form-control dropify" id="banner"
-                                    data-default-file="{{ $banner->foto ? asset('storage/banner_foto/' . $banner->foto) : '' }}"
-                                    name="foto">
+                                    data-default-file="{{ $banner->banner ? asset('storage/banner_file/' . $banner->banner) : '' }}"
+                                    name="banner">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="vidio" class="form-label">Video</label>
-                                <input type="file" class="form-control dropify" id="vidio"
-                                    data-default-file="{{ $banner->vidio ? asset('storage/banner_vidio/' . $banner->vidio) : '' }}"
-                                    name="vidio" accept="vidio/*">
-                            </div>
 
                             <button type="submit" class="btn btn-primary me-2">Submit</button>
                         </form>

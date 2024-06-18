@@ -6,11 +6,17 @@ use App\Models\SubGambarProject;
 use App\Models\Projek;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
+use App\Services\SubGambarService;
 
 class SubGambarProjectController extends Controller
 {
-   public function index()
+    protected $subGambarService;
+
+    public function __construct(SubGambarService $subGambarService)
+    {
+        $this->subGambarService = $subGambarService;
+    }
+    public function index()
     {
         $subGambarProjects = SubGambarProject::with('projek')->get();
         return view('pages.admin.subGambarProject.index', compact('subGambarProjects'));
@@ -24,52 +30,58 @@ class SubGambarProjectController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'projek_id' => 'required|exists:projeks,id',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        try {
+            $this->subGambarService->create($request);
+            return redirect()->route('admin.subGambar.index')->with('success', 'Sub Gambar Project created successfully.');
+        } catch (\Exception $e) {
+            $notification = [
+                'message' => 'Failed to Create Sub Gambar ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
 
-        $image = $request->file('gambar');
-        $imagePath = $image->store('public/sub_gambar_projects');
-
-        SubGambarProject::create([
-            'projek_id' => $validatedData['projek_id'],
-            'gambar' => basename($imagePath),
-        ]);
-
-        return redirect()->route('admin.subGambarProjects.index')->with('success', 'Sub Gambar Project created successfully.');
+            return redirect()->route('admin.subGambar.index')->with($notification);
+        }
     }
 
-    public function edit(SubGambarProject $subGambarProject)
+    public function edit(SubGambarProject $subGambar)
     {
         $projeks = Projek::all();
-        return view('admin.subGambarProjects.edit', compact('subGambarProject', 'projeks'));
+        return view('pages.admin.subGambarProject.edit', compact('subGambar', 'projeks'));
     }
 
-    public function update(Request $request, SubGambarProject $subGambarProject)
+    public function update(Request $request, string $id)
     {
-        $validatedData = $request->validate([
-            'projek_id' => 'required|exists:projeks,id',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        try {
+            $this->subGambarService->update($request, $id);
+            return redirect()->route('admin.subGambar.index')->with('success', 'Sub Gambar Project Updated successfully.');
+        } catch (\Exception $e) {
+            $notification = [
+                'message' => 'Failed to Update Sub Gambar ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
 
-        if ($request->hasFile('gambar')) {
-            $image = $request->file('gambar');
-            $imagePath = $image->store('public/sub_gambar_projects');
-            Storage::delete('public/sub_gambar_projects/' . $subGambarProject->gambar);
-            $subGambarProject->gambar = basename($imagePath);
+            return redirect()->route('admin.subGambar.index')->with($notification);
         }
-
-        $subGambarProject->projek_id = $validatedData['projek_id'];
-        $subGambarProject->save();
-
-        return redirect()->route('admin.subGambarProjects.index')->with('success', 'Sub Gambar Project updated successfully.');
     }
 
-    public function destroy(SubGambarProject $subGambarProject)
+    public function destroy(string $id)
     {
-        Storage::delete('public/sub_gambar_projects/' . $subGambarProject->gambar);
-        $subGambarProject->delete();
-        return redirect()->route('admin.subGambarProjects.index')->with('success', 'Sub Gambar Project deleted successfully.');
+        try {
+            $this->subGambarService->delete($id);
+
+            $notification = [
+                'message' => 'Sub Gambar deleted successfully!',
+                'alert-type' => 'success',
+            ];
+
+            return redirect()->route('admin.projek.index')->with($notification);
+        } catch (\Exception $e) {
+            $notification = [
+                'message' => 'Failed to delete Sub Gambar: ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
+
+            return redirect()->route('admin.projek.index')->with($notification);
+        }
     }
 }

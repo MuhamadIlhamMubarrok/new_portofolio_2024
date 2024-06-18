@@ -35,7 +35,7 @@
                                 {{ session('error') }}
                             </div>
                         @endif
-                        <a href="{{ route('admin.subGambar.create') }}" class="btn btn-primary mb-3">Create Client</a>
+                        <a href="{{ route('admin.subGambar.create') }}" class="btn btn-primary mb-3">Create Sub Gambar</a>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -51,9 +51,9 @@
                                         <td><img src="{{ Storage::url('sub_gambar_projects/' . $subGambarProject->gambar) }}"
                                                 alt="Gambar" width="100"></td>
                                         <td>
-                                            <a href="{{ route('subGambarProjects.edit', $subGambarProject->id) }}"
+                                            <a href="{{ route('admin.subGambar.edit', $subGambarProject->id) }}"
                                                 class="btn btn-warning">Edit</a>
-                                            <form action="{{ route('subGambarProjects.destroy', $subGambarProject->id) }}"
+                                            <form action="{{ route('admin.subGambar.destroy', $subGambarProject->id) }}"
                                                 method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')

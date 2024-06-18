@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('projeks', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string("gambar")->nullable();
-            $table->string("video")->nullable();
+            $table->string("banner")->nullable();
             $table->string("nama")->nullable();
-            $table->string("deskripsi")->nullable();
+            $table->text("deskripsi")->nullable();
             $table->timestamps();
         });
     }

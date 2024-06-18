@@ -24,24 +24,8 @@
             <form action="{{ route('admin.projek.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label for="gambar" class="form-label">Gambar</label>
-                    <input type="file" class="form-control dropify" id="gambar" name="gambar">
-                </div>
-                <div class="mb-3">
-                    <label for="sub_gambar1" class="form-label">Sub Gambar 1</label>
-                    <input type="file" class="form-control dropify" id="sub_gambar1" name="sub_gambar1">
-                </div>
-                <div class="mb-3">
-                    <label for="sub_gambar2" class="form-label">Sub Gambar 2</label>
-                    <input type="file" class="form-control dropify" id="sub_gambar2" name="sub_gambar2">
-                </div>
-                <div class="mb-3">
-                    <label for="sub_gambar3" class="form-label">Sub Gambar 3</label>
-                    <input type="file" class="form-control dropify" id="sub_gambar3" name="sub_gambar3">
-                </div>
-                <div class="mb-3">
-                    <label for="sub_gambar4" class="form-label">Sub Gambar 4</label>
-                    <input type="file" class="form-control dropify" id="sub_gambar4" name="sub_gambar4">
+                    <label for="banner" class="form-label">Banner Product</label>
+                    <input type="file" class="form-control dropify" id="banner" name="banner">
                 </div>
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>

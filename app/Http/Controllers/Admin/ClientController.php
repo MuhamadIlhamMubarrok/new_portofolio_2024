@@ -18,10 +18,8 @@ class ClientController extends Controller
     }
     public function index()
     {
-        
         $clients = Client::all();
         return view('pages.admin.client.index', compact('clients'));
-       
     }
 
     public function create()
@@ -31,17 +29,17 @@ class ClientController extends Controller
 
     public function store(Request $request)
     {
-            try {
-                $this->clientService->createClient($request);
-                return redirect()->route('admin.client.index')->with('success', 'Client created successfully.');
-            } catch (\Exception $e) {
-                $notification = [
-                    'message' => 'Failed to create Client: ' . $e->getMessage(),
-                    'alert-type' => 'error',
-                ];
+        try {
+            $this->clientService->createClient($request);
+            return redirect()->route('admin.client.index')->with('success', 'Client created successfully.');
+        } catch (\Exception $e) {
+            $notification = [
+                'message' => 'Failed to create Client: ' . $e->getMessage(),
+                'alert-type' => 'error',
+            ];
 
-                return view('pages.admin.client.index')->with($notification);
-            }
+            return view('pages.admin.client.index')->with($notification);
+        }
     }
 
     public function edit(Client $client)
@@ -62,8 +60,6 @@ class ClientController extends Controller
 
             return redirect()->route('admin.client.index')->with($notification);
         }
-
-        
     }
 
     public function destroy(string $id)

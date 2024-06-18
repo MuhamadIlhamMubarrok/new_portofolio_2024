@@ -23,38 +23,46 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ route('admin.projek.create') }}" class="btn btn-primary mb-3">Create Client</a>
+                        <!-- Notifikasi -->
+                        @if (session('success'))
+                            <div class="alert alert-success" id="success-alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if (session('error'))
+                            <div class="alert alert-danger" id="error-alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                        <a href="{{ route('admin.projek.create') }}" class="btn btn-primary mb-3">Create Project</a>
                         <table class="table mt-3">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Gambar</th>
-                                    <th>subGambar1</th>
-                                    <th>subGambar2</th>
-                                    <th>subGambar3</th>
-                                    <th>subGambar4</th>
+                                    <th>No</th>
+                                    <th>Banner</th>
                                     <th>Nama</th>
                                     <th>Deskripsi</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($projeks as $projek)
+                                @php
+                                    function limitWords($string, $word_limit)
+                                    {
+                                        $words = explode(' ', $string);
+                                        return implode(' ', array_slice($words, 0, $word_limit));
+                                    }
+                                @endphp
+                                @foreach ($projeks as $index => $projek)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ asset($projek->gambar) }}" alt="{{ $projek->nama }}"
-                                                width="50"></td>
-                                        <td><img src="{{ asset($projek->subGambar1) }}" alt="{{ $projek->subGambar1 }}"
-                                                width="50"></td>
-                                        <td><img src="{{ asset($projek->subGambar2) }}" alt="{{ $projek->subGambar2 }}"
-                                                width="50"></td>
-                                        <td><img src="{{ asset($projek->subGambar3) }}" alt="{{ $projek->subGambar3 }}"
-                                                width="50"></td>
-                                        <td><img src="{{ asset($projek->subGambar4) }}" alt="{{ $projek->subGambar4 }}"
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>
+                                            <img src="{{ asset('storage/fotoProduct/' . $projek->banner) }}" alt="gambar"
                                                 width="50">
                                         </td>
                                         <td>{{ $projek->nama }}</td>
-                                        <td>{{ $projek->deskripsi }}</td>
+                                        <td>{{ limitWords($projek->deskripsi, 4) }}...</td>
                                         <td>
                                             <a href="{{ route('admin.projek.edit', $projek->id) }}"
                                                 class="btn btn-sm btn-primary">Edit</a>
@@ -77,10 +85,15 @@
 @endsection
 
 @push('script')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
-        integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $('.dropify').dropify();
+        $(document).ready(function() {
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                $(this).slideUp(500);
+            });
+            $("#error-alert").fadeTo(2000, 500).slideUp(500, function() {
+                $(this).slideUp(500);
+            });
+        });
     </script>
 @endpush

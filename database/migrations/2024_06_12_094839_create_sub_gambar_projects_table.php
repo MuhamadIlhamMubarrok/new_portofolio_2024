@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('sub_gambar_projects', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('gambar')->nullable();
-            $table->foreignUuid('projek_id')->constrained();
+            $table->foreignUuid('projek_id')->constrained()->onDelete("cascade");
             $table->timestamps();
         });
     }

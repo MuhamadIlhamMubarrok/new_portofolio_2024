@@ -15,8 +15,7 @@ class ProjekSeeder extends Seeder
     {
          DB::table('projeks')->insert([
             'id' => (string) Str::uuid(),
-            'gambar' => "gambar.png",
-            'video' => "vidio.mp4",
+            'banner' => "gambar.png",
             'nama' => "projeks",
             'deskripsi' => "lorem ipsum",
             'created_at' => now(),

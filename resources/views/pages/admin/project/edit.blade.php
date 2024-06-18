@@ -15,7 +15,8 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Client</li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.projek.index') }}">Project</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Project</li>
             </ol>
         </nav>
 
@@ -24,24 +25,27 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.client.update', $client->id) }}"
+                        <form method="POST" action="{{ route('admin.projek.update', $projek->id) }}"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
                             <div class="mb-3">
-                                <label for="gambar" class="form-label">Gambar</label>
-                                <input type="file" class="form-control dropify" id="gambar"
-                                    data-default-file="{{ $client->gambar ? asset('storage/' . $client->gambar) : '' }}"
-                                    name="gambar">
+                                <label for="banner" class="form-label">Gambar</label>
+                                <input type="file" class="form-control dropify" id="banner"
+                                    data-default-file="{{ $projek->banner ? asset('storage/fotoProduct/' . $projek->banner) : '' }}"
+                                    name="banner">
                             </div>
 
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama</label>
                                 <input type="text" class="form-control" id="nama" name="nama"
-                                    value="{{ $client->nama }}">
+                                    value="{{ $projek->nama }}">
                             </div>
-
+                            <div class="mb-3">
+                                <label for="deskripsi" class="form-label">Deskripsi</label>
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3">{{ $projek->deskrip }}si</textarea>
+                            </div>
                             <button type="submit" class="btn btn-primary me-2">Submit</button>
                         </form>
 

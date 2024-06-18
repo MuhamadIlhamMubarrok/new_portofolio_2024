@@ -1,37 +1,48 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Client')
+@section('title', 'Edit Count')
 
 @section('content')
 
-    @push('style')
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
-            integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-    @endpush
+    <div class="page-content">
+        <nav class="page-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.count.index') }}">Counts</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Count</li>
+            </ol>
+        </nav>
 
-    <div class="container">
-        <h1>Edit Sub Gambar Project</h1>
-
-        <form action="{{ route('subGambarProjects.update', $subGambarProject->id) }}" method="POST"
-            enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <div class="mb-3">
-                <label for="projek_id" class="form-label">Nama Project</label>
-                <select name="projek_id" id="projek_id" class="form-control">
-                    @foreach ($projeks as $projek)
-                        <option value="{{ $projek->id }}"
-                            {{ $projek->id == $subGambarProject->projek_id ? 'selected' : '' }}>{{ $projek->nama }}</option>
-                    @endforeach
-                </select>
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ route('admin.subGambar.update', $subGambar->id) }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="mb-3">
+                                <label for="projek_id" class="form-label">Nama Project</label>
+                                <select name="projek_id" id="projek_id" class="form-control">
+                                    @foreach ($projeks as $projek)
+                                        <option value="{{ $projek->id }}"
+                                            {{ $projek->id == $subGambar->projek_id ? 'selected' : '' }}>
+                                            {{ $projek->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="gambar" class="form-label">Gambar</label>
+                                <input type="file" class="form-control dropify" id="gambar"
+                                    data-default-file="{{ $subGambar->gambar ? asset('storage/sub_gambar_projects/' . $subGambar->gambar) : '' }}"
+                                    name="gambar">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="gambar" class="form-label">Gambar</label>
-                <input type="file" name="gambar" id="gambar" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </div>
     </div>
 @endsection
 

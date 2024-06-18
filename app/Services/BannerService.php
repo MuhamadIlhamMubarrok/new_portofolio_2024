@@ -13,35 +13,15 @@ class BannerService
 {
     $banner = Banner::findOrFail($id);
     $data = [];
+    if ($request->hasFile('banner')) {
+        $image = $request->file('banner');
+        $image->storeAs('public/banner_file', $image->hashName());
 
-    if ($request->hasFile('vidio')) {
-        $vidio = $request->file('vidio');
-        $vidio->storeAs("public/banner_vidio", $vidio->hashName());
-
-        if ($banner->vidio) {
-            Storage::delete('public/banner_vidio/' . $banner->vidio);
+        if ($banner->banner) {
+            Storage::delete('public/banner_file/' . $banner->banner);
         }
 
-         if ($banner->foto) {
-            Storage::delete('public/banner_foto/' . $banner->foto);
-        }
-
-        $data["vidio"] = $vidio->hashName();
-    }
-
-    if ($request->hasFile('foto')) {
-        $image = $request->file('foto');
-        $image->storeAs('public/banner_foto', $image->hashName());
-
-        if ($banner->foto) {
-            Storage::delete('public/banner_foto/' . $banner->foto);
-        }
-
-        if ($banner->vidio) {
-            Storage::delete('public/banner_vidio/' . $banner->vidio);
-        }
-
-        $data['foto'] = $image->hashName();
+        $data['banner'] = $image->hashName();
     }
 
     if (!empty($data)) {

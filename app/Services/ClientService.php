@@ -42,7 +42,7 @@ class ClientService
         $data = [
             'nama' => $request->nama,
         ];
-
+        
         if ($request->hasFile('gambar')) {
             $image = $request->file('gambar');
             $image->storeAs('public/logo_client', $image->hashName());

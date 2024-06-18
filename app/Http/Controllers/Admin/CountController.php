@@ -54,7 +54,7 @@ class CountController extends Controller
             return redirect()->route('admin.count.index')->with('success', 'Count updated successfully.');
         } catch (\Exception $e) {
             $notification = [
-                'message' => 'Failed to update Count: ' . $e->getMessage(),
+                'message' => 'Failed to Update Count: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
@@ -75,7 +75,7 @@ class CountController extends Controller
             return redirect()->route('admin.count.index')->with($notification);
         } catch (\Exception $e) {
             $notification = [
-                'message' => 'Failed to delete Article: ' . $e->getMessage(),
+                'message' => 'Failed to delete Count: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
