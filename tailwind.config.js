@@ -1,21 +1,29 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 import forms from "@tailwindcss/forms";
+const { addIconSelectors } = require("@iconify/tailwind");
+const { addDynamicIconSelectors } = require("@iconify/tailwind");
 
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
-        "./storage/framework/views/*.php",
-        "./resources/views/**/*.blade.php",
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js",
     ],
 
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                abril: ["Abril Fatface", "serif"],
             },
         },
     },
-
-    plugins: [forms],
+    plugins: [
+        require("flowbite/plugin"),
+        // Iconify plugin, requires writing list of icon sets to load
+        addIconSelectors(["mdi", "mdi-light"]),
+        // Iconify plugin
+        addDynamicIconSelectors(),
+    ],
 };

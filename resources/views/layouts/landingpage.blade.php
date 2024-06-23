@@ -16,6 +16,7 @@
     @yield('content')
     @include('components.landingPage.footer')
     <script src="{{ mix('js/app.js') }}"></script>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 </body>
 
 </html>
