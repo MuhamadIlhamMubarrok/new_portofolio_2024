@@ -1,0 +1,269 @@
+[33mcommit aec5f8ce4b6d61890c9a9cd01fb67afd13d497b6[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Sun Jun 23 12:36:10 2024 +0700
+
+    fix : 80%
+
+[33mcommit 0b35cc9739484a5a7d0bfbffe0af2d68aefc75e6[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Tue Jun 18 11:30:01 2024 +0700
+
+    fix : backend
+
+[33mcommit 029ab9c615b444c2678b0c992f00b9327af78e98[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Sat Jun 15 19:40:23 2024 +0700
+
+    fix some content
+
+[33mcommit b570406b9c2193aa9925c904d5f3dc2084b0f287[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Sun Jun 9 16:08:01 2024 +0700
+
+    first commit
+
+[33mcommit ce7eea70a008862d646b8615c41d75094f7863d7[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Mon May 20 22:56:58 2024 +0700
+
+    fix : all controller
+
+[33mcommit 61434ed8c4b708cba244d053996939d294fd4454[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Mon May 20 18:56:21 2024 +0700
+
+    kontak
+
+[33mcommit bda94d26c3a94f8c9e80cd7f4dd6852fbec3073a[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Mon May 20 18:30:11 2024 +0700
+
+    fix:sumber dadta
+
+[33mcommit be85b3c510fddda3dbc77db1e3f80036ab5271ec[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Mon May 20 15:03:00 2024 +0700
+
+    Data Sumber
+
+[33mcommit 3c8b3656f1c353aa7e61c471bacf41fba7610d72[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Mon May 20 14:27:16 2024 +0700
+
+    modify profile
+
+[33mcommit 54d40b1e4777afa688690d3d8b6fb1574016e7e7[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Mon May 20 14:19:59 2024 +0700
+
+    visi
+
+[33mcommit cf01ce73e406daddba55e6ec61e01bdfbd2d2b84[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Mon May 20 13:29:59 2024 +0700
+
+    Profile
+
+[33mcommit 9fe8f0a20035740a52d269b6fcf9749a9f32b1ed[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Mon May 20 03:13:14 2024 +0700
+
+    banner
+
+[33mcommit d5e07f2b4e6696252032a22a046c2cccf75f5976[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Mon May 20 00:06:28 2024 +0700
+
+    data default
+
+[33mcommit d9e28987934f7ab011b35e6238794ee54881e977[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Sun May 19 23:57:34 2024 +0700
+
+    dropify
+
+[33mcommit 33f0f2a82d35a3e7445117197e0e353a1497f85f[m
+Merge: a93f2e5 0f09ff5
+Author: Muhammad Rifqy <88916774+M-Rifqy@users.noreply.github.com>
+Date:   Sun May 19 22:19:45 2024 +0700
+
+    Merge pull request #2 from M-Rifqy/backendd
+    
+    Backendd
+
+[33mcommit 0f09ff50972bd054d7b3d0e0096a744f48699b1a[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Fri May 17 08:43:58 2024 +0700
+
+    fix : cerficate and article
+
+[33mcommit c90be3c973077af0e18fe77e3419d9bbeb2840d6[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Thu May 16 09:27:53 2024 +0700
+
+    fix : articles, gallery
+
+[33mcommit a93f2e5e59c16138c1338a2feea35aa2b76e7248[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Wed May 15 13:45:43 2024 +0700
+
+    fix : all seeder
+
+[33mcommit 0b157ee04e336f2076357898b9789168a68b30cc[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Tue May 14 22:15:40 2024 +0700
+
+    fix : banner,profile,sumberData,banner,contact
+
+[33mcommit bfa3d469d307445590798307e5d292aff5d636e8[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Tue May 14 16:36:31 2024 +0700
+
+    fix:SIDEBAR
+
+[33mcommit 045ddc8b9799f1fd2ce2f3bfa4aa068519a03a0c[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Tue May 14 16:34:40 2024 +0700
+
+    fix:Routes
+
+[33mcommit bd2231d917d7d5e51b89e47efc862fb39ce69cc1[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Tue May 14 15:03:08 2024 +0700
+
+    sidebar
+
+[33mcommit 2f518a9e07ca1b4ffc4130782c354ef65c983619[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Tue May 14 14:11:54 2024 +0700
+
+    fix:routes
+
+[33mcommit 343d23bfbabe595c3cac97e8e1bf0adf1aaa2006[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Tue May 14 06:24:52 2024 +0700
+
+    push untracked files
+
+[33mcommit 9854c7f2e969ad6a15046aa3d8b94131ce424cd4[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Tue May 14 06:24:12 2024 +0700
+
+    fix:controllers
+
+[33mcommit 3638735e1e81183f1e89694645a14be943c062ee[m
+Merge: d486257 0575841
+Author: Muhammad Rifqy <88916774+M-Rifqy@users.noreply.github.com>
+Date:   Tue May 14 01:14:25 2024 +0700
+
+    Merge pull request #1 from M-Rifqy/backend
+    
+    Backend
+
+[33mcommit 057584125da6284a4f545daffe684f25ada5d5a8[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Mon May 13 21:34:45 2024 +0700
+
+    fix : move controller on admin
+
+[33mcommit 58f156d19a6949d7ca4169bc18f61cf09d54d959[m
+Author: MuhamadIlhamMubarrok <milhammubarrok@gmail.com>
+Date:   Mon May 13 21:17:57 2024 +0700
+
+    fix : set up skema of project
+
+[33mcommit d4862574d859c660e515b5848ee5d857d9e00888[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Mon May 13 12:07:54 2024 +0700
+
+    modify form
+
+[33mcommit 1efb9cd60f7450d99e37e63562b25838d91766e0[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Mon May 13 11:55:23 2024 +0700
+
+    modify controller
+
+[33mcommit 8d287aaa614c7265e806d51d84fb48bffa733c7d[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Sun May 12 07:32:13 2024 +0700
+
+     modify route
+
+[33mcommit 7e4a2116a6341ac49d2cb255f54be493bf4b5119[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Sat May 11 21:19:40 2024 +0700
+
+    fix HeroController
+
+[33mcommit 4da64eddfffd6bfc2c6405ffc1c3a5f64974921b[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Sat May 11 20:57:24 2024 +0700
+
+    hero form
+
+[33mcommit 35fdea29c3d650cf2f9892ab184c7e2c8f1eb764[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Sat May 11 07:12:15 2024 +0700
+
+    form
+
+[33mcommit 6122d5942f7aad17037c9954669ac98aaddde368[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Sat May 11 05:18:30 2024 +0700
+
+    pushing untracked files
+
+[33mcommit d3f3c0622825a75366554d1ff0d16b329a1a3c36[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Sat May 11 05:16:48 2024 +0700
+
+    hero view
+
+[33mcommit d779819d53d6ff2459369079fa08300bfb1e55db[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Fri May 10 20:21:02 2024 +0700
+
+    guest
+
+[33mcommit dee538d8e5ad44af906771c59bd2b7bb47a96eca[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Wed May 8 11:31:31 2024 +0700
+
+    modify sidebar logic
+
+[33mcommit 80b878a0da54b4e566a76570512f3e3811996300[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Wed May 8 01:11:25 2024 +0700
+
+    hero
+
+[33mcommit 5de680273f1f94fd19d13c3a4ea6c061ab06f3f1[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Tue May 7 00:04:16 2024 +0700
+
+    hero
+
+[33mcommit b78c7f72eac93f69cda0eae96a7f357d1813dc9c[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Sun May 5 12:35:55 2024 +0700
+
+    login
+
+[33mcommit 72a2d415fda7b173177dd5e838bb85ed2a18d30a[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Tue Apr 30 13:25:31 2024 +0700
+
+    boilerplate
+
+[33mcommit 87b55c847ce8f5550c35555caf0457f43afce828[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Tue Apr 30 10:07:09 2024 +0700
+
+    breeze
+
+[33mcommit 6e6d7010eaf29bc481c8af088cc65cd8cdb1dbe7[m
+Author: Muhammad Rifqy <2ndrifqy@gmail.com>
+Date:   Thu Apr 4 13:40:45 2024 +0700
+
+    initial commit

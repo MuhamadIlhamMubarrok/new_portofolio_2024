@@ -16,11 +16,25 @@ class SubGambarProjectController extends Controller
     {
         $this->subGambarService = $subGambarService;
     }
-    public function index()
-    {
-        $subGambarProjects = SubGambarProject::with('projek')->get();
-        return view('pages.admin.subGambarProject.index', compact('subGambarProjects'));
-    }
+   public function index(Request $request)
+{
+    $search = $request->input('search');
+
+    $subGambarProjects = SubGambarProject::with(['projek' => function ($query) use ($search) {
+        if ($search) {
+            $query->where('nama', 'like', '%' . $search . '%');
+        }
+    }])
+    ->whereHas('projek', function ($query) use ($search) {
+        if ($search) {
+            $query->where('nama', 'like', '%' . $search . '%');
+        }
+    })
+    ->paginate(5);
+
+    return view('pages.admin.subGambarProject.index', compact('subGambarProjects', 'search'));
+}
+
 
     public function create()
     {

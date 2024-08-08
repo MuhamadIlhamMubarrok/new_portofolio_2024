@@ -32,7 +32,7 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>No</th>
                                     <th>Judul Count</th>
                                     <th>Count</th>
                                     <th>Action</th>

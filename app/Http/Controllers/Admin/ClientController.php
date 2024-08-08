@@ -16,10 +16,14 @@ class ClientController extends Controller
     {
         $this->clientService = $clientService;
     }
-    public function index()
+    public function index(Request $request)
     {
-        $clients = Client::all();
-        return view('pages.admin.client.index', compact('clients'));
+        $search = $request->input('search');
+        $clients = Client::when($search, function ($query, $search) {
+            return $query->where('nama', 'like', '%' . $search . '%');
+        })->orderBy('created_at', 'desc')->paginate(5);
+
+        return view('pages.admin.client.index', compact('clients', 'search'));
     }
 
     public function create()

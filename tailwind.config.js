@@ -1,5 +1,3 @@
-import defaultTheme from "tailwindcss/defaultTheme";
-import forms from "@tailwindcss/forms";
 const { addIconSelectors } = require("@iconify/tailwind");
 const { addDynamicIconSelectors } = require("@iconify/tailwind");
 
@@ -16,6 +14,15 @@ export default {
         extend: {
             fontFamily: {
                 abril: ["Abril Fatface", "serif"],
+                julius: ["Julius Sans One", "serif"],
+                inter: ["Inter", "serif"],
+            },
+            animation: {
+                fadeIn: "fadeIn 1s ease-out",
+            },
+            boxShadow: {
+                "custom-thick":
+                    "0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3)",
             },
         },
     },

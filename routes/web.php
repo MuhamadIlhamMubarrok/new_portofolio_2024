@@ -13,7 +13,10 @@ use App\Http\Controllers\Admin\SubGambarProjectController;
 
 Route::get('/about-us', [HomeController::class, 'AboutUs'])->name('home.aboutus');
 Route::get('/contact-us', [HomeController::class, 'ContactUs'])->name('home.contactus');
+Route::post('/contact-us', [HomeController::class, 'submitContactForm'])->name('submitContactForm');
 Route::get('/our-client', [HomeController::class, 'OurClient'])->name('home.ourclients');
+Route::get('/', [HomeController::class, 'LandingPage'])->name('home');
+Route::get('/home/detail/{id}', [HomeController::class, 'DetailHome'])->name('home.detail');
 
 Route::name('admin.')
     ->prefix('admin')

@@ -16,10 +16,19 @@ class ProjekController extends Controller
     {
         $this->projekService = $projekService;
     }
-    public function index()
+    public function index(Request $request)
     {
-        $projeks = Projek::all();
-        return view('pages.admin.project.index', compact('projeks'));
+        $search = $request->input('search');
+
+        $projeks = Projek::when($search, function ($query, $search) {
+            return $query->where(function ($query) use ($search) {
+                $query->where('nama', 'like', '%' . $search . '%')->orWhere('deskripsi', 'like', '%' . $search . '%');
+            });
+        })
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
+        return view('pages.admin.project.index', compact('projeks', 'search'));
     }
 
     public function create()
@@ -29,17 +38,17 @@ class ProjekController extends Controller
 
     public function store(Request $request)
     {
-       try {
+        try {
             $this->projekService->createProjek($request);
             return redirect()->route('admin.projek.index')->with('success', 'Projek Created successfully.');
-       } catch (\Exception $e) {
-             $notification = [
+        } catch (\Exception $e) {
+            $notification = [
                 'message' => 'Failed to Create Project: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-             return redirect()->route('admin.projek.index')->with($notification);
-       }
+            return redirect()->route('admin.projek.index')->with($notification);
+        }
     }
 
     public function edit(Projek $projek)

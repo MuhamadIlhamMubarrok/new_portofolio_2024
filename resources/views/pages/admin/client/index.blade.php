@@ -23,7 +23,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <!-- Notifikasi -->
+                        <!-- Notifications -->
                         @if (session('success'))
                             <div class="alert alert-success" id="success-alert">
                                 {{ session('success') }}
@@ -35,7 +35,20 @@
                                 {{ session('error') }}
                             </div>
                         @endif
+
                         <a href="{{ route('admin.client.create') }}" class="btn btn-primary mb-3">Create Client</a>
+
+                        <!-- Search Form -->
+                        <form action="{{ route('admin.client.index') }}" method="GET" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search clients"
+                                    value="{{ old('search', $search) }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
+
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -48,7 +61,7 @@
                             <tbody>
                                 @foreach ($clients as $index => $client)
                                     <tr>
-                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ ($clients->currentPage() - 1) * $clients->perPage() + $index + 1 }}</td>
                                         <td><img src="{{ asset('storage/logo_client/' . $client->gambar) }}" alt="Gambar"
                                                 width="50"></td>
                                         <td>{{ $client->nama }}</td>
@@ -66,6 +79,12 @@
                                 @endforeach
                             </tbody>
                         </table>
+
+                        <!-- Pagination Links -->
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $clients->appends(['search' => $search])->links('vendor.pagination.simple-bootstrap-4') }}
+                        </div>
+
                     </div>
                 </div>
             </div>

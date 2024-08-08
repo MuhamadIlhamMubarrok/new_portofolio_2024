@@ -36,34 +36,50 @@
                             </div>
                         @endif
                         <a href="{{ route('admin.subGambar.create') }}" class="btn btn-primary mb-3">Create Sub Gambar</a>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nama Project</th>
-                                    <th>Gambar</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($subGambarProjects as $subGambarProject)
+                        <!-- Search Form -->
+                        <form action="{{ route('admin.subGambar.index') }}" method="GET" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search Sub Gambar"
+                                    value="{{ old('search', $search) }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
                                     <tr>
-                                        <td>{{ $subGambarProject->projek->nama }}</td>
-                                        <td><img src="{{ Storage::url('sub_gambar_projects/' . $subGambarProject->gambar) }}"
-                                                alt="Gambar" width="100"></td>
-                                        <td>
-                                            <a href="{{ route('admin.subGambar.edit', $subGambarProject->id) }}"
-                                                class="btn btn-warning">Edit</a>
-                                            <form action="{{ route('admin.subGambar.destroy', $subGambarProject->id) }}"
-                                                method="POST" style="display:inline-block;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </td>
+                                        <th>No</th>
+                                        <th>Nama Project</th>
+                                        <th>Gambar</th>
+                                        <th>Action</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach ($subGambarProjects as $index => $subGambarProject)
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{ $subGambarProject->projek->nama }}</td>
+                                            <td><img src="{{ Storage::url('sub_gambar_projects/' . $subGambarProject->gambar) }}"
+                                                    alt="Gambar" width="100"></td>
+                                            <td>
+                                                <a href="{{ route('admin.subGambar.edit', $subGambarProject->id) }}"
+                                                    class="btn btn-warning">Edit</a>
+                                                <form
+                                                    action="{{ route('admin.subGambar.destroy', $subGambarProject->id) }}"
+                                                    method="POST" style="display:inline-block;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <!-- Pagination Links -->
+                            <div class="d-flex justify-content-center mt-4">
+                                {{ $subGambarProjects->appends(['search' => $search])->links('vendor.pagination.simple-bootstrap-4') }}
+                            </div>
                     </div>
                 </div>
             </div>

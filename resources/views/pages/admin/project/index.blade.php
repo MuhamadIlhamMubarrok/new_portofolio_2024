@@ -36,6 +36,16 @@
                             </div>
                         @endif
                         <a href="{{ route('admin.projek.create') }}" class="btn btn-primary mb-3">Create Project</a>
+                        <!-- Search Form -->
+                        <form action="{{ route('admin.projek.index') }}" method="GET" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search Project"
+                                    value="{{ old('search', $search) }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
                         <table class="table mt-3">
                             <thead>
                                 <tr>
@@ -77,6 +87,11 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <!-- Pagination Links -->
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $projeks->appends(['search' => $search])->links('vendor.pagination.simple-bootstrap-4') }}
+                        </div>
+
                     </div>
                 </div>
             </div>

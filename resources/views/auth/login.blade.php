@@ -6,110 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>PT.Aditya mandiri konstruksi - Login Page</title>
+    <title>Login - PT ADITYA MANDIRI KONSTRUKSI</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <!-- End fonts -->
+    <!-- Tailwind CSS -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- core:css -->
-    <link rel="stylesheet" href="{{ asset('') }}../../../assets/vendors/core/core.css">
-    <!-- endinject -->
-
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-
-    <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('../../../assets/fonts/feather-font/css/iconfont.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../../assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
-    <!-- endinject -->
-
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('../../../assets/css/demo1/style.css') }}">
-    <!-- End layout styles -->
-
-    <link rel="shortcut icon" href="{{ asset('../../../assets/images/favicon.ico') }}" />
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('favicon.png') }}" />
 </head>
 
-<body>
-    <div class="main-wrapper">
-        <div class="page-wrapper full-page">
-            <div class="page-content d-flex align-items-center justify-content-center">
+<body class="h-screen flex items-center justify-center bg-cover bg-center"
+    style="background-image: url('./assets/images/bg-login.png');">
+    <div class="bg-[#6B5E36]/[0.6] shadow-lg rounded-lg p-8 w-full max-w-md">
+        <img src="./assets/images/logo.png" class="mx-auto w-[100px] h-auto top-[-10px] " alt="">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <div class="mb-4">
+                <label for="email" class="block text-white mb-2 text-gradient font-bold">Email address</label>
+                <input type="email" id="email" name="email"
+                    class="w-full p-2 border border-gray-300 rounded-full pl-[15px]" placeholder="Email" required>
+                @error('email')
+                    <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-white mb-2 text-gradient font-bold">Password</label>
+                <input type="password" id="password" name="password"
+                    class="w-full p-2 border border-gray-300 rounded-full pl-[15px]" placeholder="Password" required>
+                @error('password')
+                    <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
+                @enderror
+            </div>
 
-                <div class="row w-100 mx-0 auth-page">
-                    <div class="col-md-8 col-xl-6 mx-auto">
-                        <div class="card">
-                            <div class="row">
-                                <div class="col-md-4 pe-md-0">
-                                    <img src="{{ asset('./assets/images/logo.png') }}" class="w-100 h-100"
-                                        alt="Login">
-                                </div>
-                                <div class="col-md-8 ps-md-0">
-                                    <div class="auth-form-wrapper px-4 py-5">
-                                        <a href="#" class="noble-ui-logo logo-light d-block mb-2">Login</a>
-                                        {{-- class="noble-ui-logo logo-light d-block mb-2">Login<span>In</span></a> --}}
-                                        <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-                                        <form method="POST" action="{{ route('login') }}" class="forms-sample">
-                                            @csrf
-                                            <div class="mb-3">
-                                                <label for="email" class="form-label">Email address</label>
-                                                <input type="text" class="form-control" id="email" name="email"
-                                                    placeholder="Email">
-                                                @error('email')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="password" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="password"
-                                                    name="password" autocomplete="current-password"
-                                                    placeholder="Password">
-                                                @error('password')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="form-check mb-3">
-                                                <input type="checkbox" class="form-check-input" id="authCheck">
-                                                <label class="form-check-label" for="authCheck">
-                                                    Remember me
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <button type="submit"
-                                                    class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login
-                                                </button>
-                                            </div>
-                                            {{-- <a href="{{ route('register') }}" class="d-block mt-3 text-muted">Not a
-                                                user? Sign up</a> --}}
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex items-center justify-between">
+                <button type="submit"
+                    class="text-white bg-gradient-to-br from-[#6B5E36] to-[#503C2B] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-full w-[100px] text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button>
 
             </div>
-        </div>
+        </form>
     </div>
 
-    <!-- core:js -->
-    <script src="{{ asset('../../../assets/vendors/core/core.js') }}"></script>
-    <!-- endinject -->
-
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-
-    <!-- inject:js -->
-    <script src="{{ asset('../../../assets/vendors/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('../../../assets/js/template.js') }}"></script>
-    <!-- endinject -->
-
-    <!-- Custom js for this page -->
-    <!-- End custom js for this page -->
-
+    <!-- Font Awesome for icons (used for Twitter icon) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

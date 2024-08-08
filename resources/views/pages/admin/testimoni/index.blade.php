@@ -29,6 +29,16 @@
                             </div>
                         @endif
                         <a href="{{ route('admin.testimony.create') }}" class="btn btn-primary mb-3">Create Testimony</a>
+                        <!-- Search Form -->
+                        <form action="{{ route('admin.testimony.index') }}" method="GET" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search testimony"
+                                    value="{{ old('search', $search) }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -62,6 +72,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $testimonies->appends(['search' => $search])->links('vendor.pagination.simple-bootstrap-4') }}
+                        </div>
                     </div>
                 </div>
             </div>

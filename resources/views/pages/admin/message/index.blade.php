@@ -28,6 +28,16 @@
                             </div>
                         @endif
                         <h6 class="card-title">Messages</h6>
+                        <!-- Search Form -->
+                        <form action="{{ route('admin.message.index') }}" method="GET" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search message"
+                                    value="{{ old('search', $search) }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
@@ -68,6 +78,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-center mt-4">
+                                {{ $messages->appends(['search' => $search])->links('vendor.pagination.simple-bootstrap-4') }}
+                            </div>
                         </div>
                     </div>
                 </div>

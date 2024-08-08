@@ -14,10 +14,15 @@ class TestimonyController extends Controller
     {
         $this->testimonyService = $testimonyService;
     }
-    public function index()
+    public function index(Request $request)
     {
-        $testimonies = Testimony::all();
-        return view('pages.admin.testimoni.index', compact('testimonies'));
+        $search = $request->input('search');
+        $testimonies = Testimony::when($search, function ($query, $search) {
+            return $query->where('nama', 'like', '%' . $search . '%')
+            ->orWhere('text_testimoni', 'like', '%' . $search . '%');
+        })->orderBy('created_at', 'desc')->paginate(5);
+
+        return view('pages.admin.testimoni.index', compact('testimonies', 'search'));
     }
 
     public function create()
