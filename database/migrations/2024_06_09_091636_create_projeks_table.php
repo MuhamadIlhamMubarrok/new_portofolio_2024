@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,9 +12,12 @@ return new class extends Migration
     {
         Schema::create('projeks', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string("banner")->nullable();
-            $table->string("nama")->nullable();
-            $table->text("deskripsi")->nullable();
+            $table->string('banner')->nullable();
+            $table->enum("category", ["project team", "personal project", "project at work"])->nullable();
+            $table->string('nama')->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->json('memberId')->nullable();
+            $table->json('skillId')->nullable();
             $table->timestamps();
         });
     }

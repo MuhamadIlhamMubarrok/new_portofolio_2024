@@ -1,48 +1,88 @@
-<div class="bg-[#6B5E36] flex flex-col items-center pt-[50px]">
-    {{-- logo perusahaan --}}
-    <div class="flex flex-col items-center space-y-3">
-        <img class="h-[30px] w-auto" src="{{ asset('./assets/images/logo3.png') }}" alt="">
-        <p class="text-white md:text-[14px] text-[8px] font-semibold font-abril">ADITYA MANDIRI KONSTRUKSI</p>
+<div class="h-auto w-full bg-cover bg-bottom bg-no-repeat flex flex-col md:flex-row px-4 py-6 md:px-8 md:py-10 lg:px-20 lg:py-15 gap-y-4"
+    style="background-image: url('{{ asset('./assets/background/footer.png') }}');">
+    <div class="md:w-[60%] flex flex-col gap-y-5">
+        <img src="{{ asset('./assets/images/favicon.png') }}" alt="logo aing" class="h-[50px] w-[80px]">
+        <div class="flex flex-col md:flex-row text-white gap-y-5 md:gap-x-[200px]">
+            <div class="text-start">
+                <h1 class="font-bold font-Anek text-base md:text-lg lg:text-xl">Portofolio - Muhamad Ilham Mubarrok</h1>
+                <p class="w-full md:w-[400px] text-sm md:text-base lg:text-lg">Aku dan hiruk pikuk perjalan ini adalah
+                    kalibrasi frequensi tanpa arogansi</p>
+            </div>
+            <div>
+                <h1 class="text-base font-bold font-Anek md:text-lg lg:text-xl">Navbar</h1>
+                <ul class="text-sm md:text-base lg:text-lg">
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Our Client</li>
+                    <li>News</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row text-white gap-y-5 md:gap-x-10">
+            <div class="text-start">
+                <h1 class="font-bold font-Anek text-base md:text-lg lg:text-xl">Telephone</h1>
+                <p class="text-sm md:text-base lg:text-lg">08312213123</p>
+            </div>
+            <div>
+                <h1 class="font-bold font-Anek text-base md:text-lg lg:text-xl">WhatsApp</h1>
+                <p class="text-sm md:text-base lg:text-lg">08312213123</p>
+            </div>
+            <div>
+                <h1 class="font-bold font-Anek text-base md:text-lg lg:text-xl">Email</h1>
+                <p class="text-sm md:text-base lg:text-lg">milhammubarrok@gmail.com</p>
+            </div>
+        </div>
+        <div class="flex flex-col text-white gap-y-4">
+            <h1 class="font-semibold text-base md:text-lg lg:text-xl">Sosial Media</h1>
+            <div class="flex flex-row justify-center md:justify-start items-center gap-x-4 mb-6">
+                {{-- IG --}}
+                <a href="https://www.instagram.com/milhamm._/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="35" height="35"
+                        viewBox="0 0 24 24">
+                        <path fill="#009FF9"
+                            d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                    </svg>
+                </a>
+                {{-- TWITTER --}}
+                <a href="" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="35" height="35"
+                        viewBox="-2 -2 24 24">
+                        <g fill="#009FF9">
+                            <path
+                                d="M15 6.947c-.368.16-.763.27-1.178.318c.424-.25.748-.646.902-1.117a4.2 4.2 0 0 1-1.304.49A2.06 2.06 0 0 0 11.923 6c-1.133 0-2.051.905-2.051 2.02q0 .237.053.46a5.85 5.85 0 0 1-4.228-2.11a2 2 0 0 0-.278 1.015c0 .7.363 1.32.913 1.681a2.1 2.1 0 0 1-.93-.253v.025a2.03 2.03 0 0 0 1.646 1.98a2.1 2.1 0 0 1-.927.034a2.05 2.05 0 0 0 1.916 1.403a4.16 4.16 0 0 1-2.548.864q-.248 0-.489-.028A5.86 5.86 0 0 0 8.144 14c3.774 0 5.837-3.078 5.837-5.748l-.007-.262A4.1 4.1 0 0 0 15 6.947" />
+                            <path
+                                d="M4 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0-2h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4" />
+                        </g>
+                    </svg>
+                </a>
+                {{-- LINKEDIN --}}
+                <a href="https://www.linkedin.com/in/muhamad-ilham-mubarrok-ab67462a0/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="35" height="35"
+                        viewBox="-2 -2 24 24">
+                        <g fill="#009FF9">
+                            <path
+                                d="M15 11.13v3.697h-2.143v-3.45c0-.866-.31-1.457-1.086-1.457c-.592 0-.945.398-1.1.784c-.056.138-.071.33-.071.522v3.601H8.456s.029-5.842 0-6.447H10.6v.913l-.014.021h.014v-.02c.285-.44.793-1.066 1.932-1.066c1.41 0 2.468.922 2.468 2.902M6.213 5.271C5.48 5.271 5 5.753 5 6.385c0 .62.466 1.115 1.185 1.115h.014c.748 0 1.213-.496 1.213-1.115c-.014-.632-.465-1.114-1.199-1.114m-1.086 9.556h2.144V8.38H5.127z" />
+                            <path
+                                d="M4 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0-2h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4" />
+                        </g>
+                    </svg>
+                </a>
+                {{-- FACEBOOK --}}
+                <a href="" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="35" height="35"
+                        viewBox="-2 -2 24 24">
+                        <g fill="#009FF9">
+                            <path
+                                d="M8.695 6.937v1.377H7.687v1.683h1.008V15h2.072V9.997h1.39s.131-.807.194-1.69h-1.576v-1.15c0-.173.226-.404.45-.404h1.128V5h-1.535C8.644 5 8.695 6.685 8.695 6.937" />
+                            <path
+                                d="M4 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0-2h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4" />
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </div>
-    {{-- text --}}
-    <p class="text-[20px] pt-[50px] pb-[25px] text-white font-inter">Connect With Us :</p>
-    {{-- icon sosmed --}}
-    <div class="flex flex-row space-x-8">
-        {{-- WA --}}
-        <a href="https://wa.me/6281219980188">
-            <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="40" height="40"
-                viewBox="0 0 24 24">
-                <path fill="white"
-                    d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28" />
-            </svg>
-        </a>
-
-        {{-- facebook --}}
-        <a href="https://www.facebook.com/profile.php?id=100089126461892">
-            <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="40" height="40"
-                viewBox="0 0 24 24">
-                <path fill="white"
-                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95" />
-            </svg>
-        </a>
-        {{-- tiktok --}}
-        <a href="https://www.tiktok.com/@adityamandirikonstruksi">
-            <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="40" height="40"
-                viewBox="0 0 24 24">
-                <path fill="white"
-                    d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48" />
-            </svg>
-        </a>
-        {{-- instagram --}}
-        <a href="https://www.instagram.com/adityamandirikonstruksi/">
-            <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="40" height="40"
-                viewBox="0 0 24 24">
-                <path fill="white"
-                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
-            </svg>
-        </a>
+    <div class="flex md:items-end md:justify-end items-start justify-center">
+        <p class="text-white text-xs md:text-sm lg:text-base text-center">Copyright © 2024 - Muhamad Ilham Mubarrok</p>
     </div>
-    <p class="text-white text-center mt-[40px] mb-[10px] font-inter">©2024 <a
-            href="https://milhammubarrok.my.id/">@milhammubarrok</a>. All
-        rights reserved.</p>
 </div>

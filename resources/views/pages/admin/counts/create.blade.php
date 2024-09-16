@@ -29,7 +29,10 @@
                                 <label for="count" class="form-label">Count</label>
                                 <input type="number" class="form-control" id="count" name="count">
                             </div>
-
+                            <div class="mb-3">
+                                <label for="deskripsi" class="form-label">Deskripsi</label>
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"></textarea>
+                            </div>
                             <button type="submit" class="btn btn-primary me-2">Submit</button>
                         </form>
                     </div>

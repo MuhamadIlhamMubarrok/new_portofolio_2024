@@ -14,10 +14,12 @@ class CountService
         $request->validate([
             'judul_count' => 'nullable|string|max:255',
             'count' => 'nullable|integer',
+            'deskripsi' => 'nullable|string',
         ]);
         $data = [
             'judul_count' => $request->judul_count,
             'count' => $request->count,
+            'deskripsi' => $request->deskripsi,
         ];
 
         $count->update($data);
@@ -30,12 +32,17 @@ class CountService
         $request->validate([
             'judul_count' => 'nullable|string|max:255',
             'count' => 'nullable|integer',
+            'deskripsi' => 'nullable|string',
         ]);
 
-        Count::create([
-            'judul_count' => $request->judul_count,
+         $data = [
+           'judul_count' => $request->judul_count,
             'count' => $request->count,
-        ]);
+            'deskripsi' => $request->deskripsi,
+        ];
+
+        return Count::create($data);
+       
     }
 
     public function destroy($id)

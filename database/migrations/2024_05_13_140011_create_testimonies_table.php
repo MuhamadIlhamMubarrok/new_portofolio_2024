@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string("gambar")->nullable();
             $table->string("nama")->nullable();
+            $table->string("jabatan")->nullable();
             $table->text("text_testimoni")->nullable();
             $table->timestamps();
         });

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Member;
 use App\Models\Projek;
+use App\Models\Skill;
 use App\Services\ProjekService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +22,7 @@ class ProjekController extends Controller
     {
         $search = $request->input('search');
 
+        // Mengambil semua project dengan pencarian
         $projeks = Projek::when($search, function ($query, $search) {
             return $query->where(function ($query) use ($search) {
                 $query->where('nama', 'like', '%' . $search . '%')->orWhere('deskripsi', 'like', '%' . $search . '%');
@@ -33,7 +36,10 @@ class ProjekController extends Controller
 
     public function create()
     {
-        return view('pages.admin.project.create');
+        $members = Member::all();
+        $skills = Skill::all();
+
+        return view('pages.admin.project.create', compact('members', 'skills'));
     }
 
     public function store(Request $request)
@@ -53,7 +59,14 @@ class ProjekController extends Controller
 
     public function edit(Projek $projek)
     {
-        return view('pages.admin.project.edit', compact('projek'));
+       
+        $members = Member::all();
+        $skills = Skill::all();
+
+        $projekMemberIds = $projek->memberId ?? [];
+        $projekSkillIds = $projek->skillId ?? [];
+
+        return view('pages.admin.project.edit', compact('projek', 'members', 'projekMemberIds', 'projekSkillIds', 'skills'));
     }
 
     public function update(Request $request, string $id)

@@ -53,26 +53,42 @@
                                     <th>Banner</th>
                                     <th>Nama</th>
                                     <th>Deskripsi</th>
+                                    <th>Members</th>
+                                    <th>Skills</th>
+                                    <th>Category</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @php
-                                    function limitWords($string, $word_limit)
-                                    {
-                                        $words = explode(' ', $string);
-                                        return implode(' ', array_slice($words, 0, $word_limit));
-                                    }
-                                @endphp
+
                                 @foreach ($projeks as $index => $projek)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>
-                                            <img src="{{ asset('storage/fotoProduct/' . $projek->banner) }}" alt="gambar"
+                                            <img src="{{ asset('storage/fotoProject/' . $projek->banner) }}" alt="gambar"
                                                 width="50">
                                         </td>
                                         <td>{{ $projek->nama }}</td>
-                                        <td>{{ limitWords($projek->deskripsi, 4) }}...</td>
+                                        <td>{{ Str::limit(strip_tags($projek->deskripsi), 50) }}</td>
+                                        <td>
+                                            <!-- Menampilkan gambar-gambar member -->
+                                            @foreach ($projek->getMembers() as $member)
+                                                <img src="{{ asset('storage/logo_members/' . $member->gambar) }}"
+                                                    alt="{{ $member->nama }}" width="40" height="40"
+                                                    style="border-radius: 50%; margin-right: 5px;">
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            <!-- Menampilkan gambar-gambar member -->
+                                            @foreach ($projek->getSkills() as $skill)
+                                                <img src="{{ asset('storage/logo_skills/' . $skill->gambar) }}"
+                                                    alt="{{ $skill->nama }}" width="40" height="40"
+                                                    style="border-radius: 50%; margin-right: 5px;">
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            {{ $projek->category }}
+                                        </td>
                                         <td>
                                             <a href="{{ route('admin.projek.edit', $projek->id) }}"
                                                 class="btn btn-sm btn-primary">Edit</a>

@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
-use App\Models\Banner;
+use App\Models\Certificate;
 use App\Models\Client;
 use App\Models\Count;
-use App\Models\Message;
+use App\Models\News;
 use App\Models\Projek;
-use App\Models\Testimony;
+use App\Models\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class HomeController extends Controller
 {
@@ -21,38 +22,33 @@ class HomeController extends Controller
     {
         return view('contactus');
     }
-
-    public function submitContactForm(Request $request)
-{
-    $request->validate([
-        'first_name' => 'required|string|max:255',
-        'last_name' => 'required|string|max:255',
-        'email' => 'required|email|max:255',
-        'message' => 'required|string',
-    ]);
-
-    // Assuming you have a Contact model to save the contact details
-    Message::create([
-        'firstName' => $request->first_name,
-        'lastName' => $request->last_name,
-        'email' => $request->email,
-        'message' => $request->message,
-    ]);
-
-    return redirect()->route('home.contactus')->with('success', 'Your message has been sent successfully!');
-}
-
-    public function DetailHome(string $id)
+    public function news(Request $request)
     {
-        $project = Projek::with('subGambarProjects')->find($id);
-        // Check if project details are found
-        if ($project) {
-            // Return a view with project details and related sub-images
-            return view('detailProduct', compact('project'));
-        } else {
-            // If no project details found, return a 404 response
-            abort(404, 'Project details not found');
+        $query = News::query();
+
+        // Filter by search term
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'LIKE', '%' . $search . '%')->orWhere('deskripsi', 'LIKE', '%' . $search . '%');
+            });
         }
+
+        // Filter by category
+        if ($request->has('category') && !empty($request->input('category'))) {
+            $category = $request->input('category');
+            $query->where('category', $category);
+        }
+
+        // Fetch filtered data
+        $news = $query->get();
+
+        return view('news', compact('news'));
+    }
+
+    public function DetailHome()
+    {
+        return view('detailProduct');
     }
 
     public function OurClient()
@@ -62,11 +58,35 @@ class HomeController extends Controller
     }
     public function LandingPage()
     {
-        $banner = Banner::where('id', '8751d04d-c20d-442d-ade5-238d5d6ab024')->first();
         $counts = Count::all();
-        $testimony = Testimony::all();
-        $project = Projek::all();
-        return view('landingpage', compact('banner', 'counts', 'testimony', 'project'));
+        $projects = Projek::all();
+        $skill = Skill::all();
+        $certificate = Certificate::all();
+        $news = News::all();
+        return view('landingpage', compact('counts', 'skill', 'certificate', 'news', 'projects'));
+    }
+
+    public function DetailNews(string $id)
+    {
+        $news = News::find($id);
+        $other = News::where('id', '!=', $id)->get();
+        if ($news) {
+            return view('detailNews', compact('news', 'other'));
+        } else {
+            abort(404, 'News Details Not Found');
+        }
+    }
+
+     public function DetailProject(string $id)
+    {
+
+        $project = Projek::find($id);
+        $other = Projek::where('id', '!=', $id)->get();
+        if ($project) {
+            return view('detailProject', compact('project', "other"));
+        } else {
+            abort(404, 'Project Details Not Found');
+        }
+       
     }
 }
-    

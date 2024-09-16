@@ -19,6 +19,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "@iconify-json/mdi-light": "^1.1.10"
+        "@iconify-json/mdi-light": "^1.1.10",
+        "@tailwindcss/typography": "^0.5.14"
     }
 }

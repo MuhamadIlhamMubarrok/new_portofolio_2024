@@ -8,7 +8,7 @@
     <meta name="description" content="AquaFlow">
     <meta name="author" content="AquaFlow">
 
-    <title>@yield('title') &mdash; PT ADITYA MANDIRI KONSTRUKSI</title>
+    <title>@yield('title') &mdash; PORTOFOLIO - ILHAM</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,9 +33,12 @@
 
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('../assets/css/demo1/style.css') }}">
+
+    {{-- CKE editor 5 --}}
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.css" />
     <!-- End layout styles -->
 
-    <link rel="shortcut icon" href="{{ asset('../assets/images/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('./assets/images/favicon.png') }}" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.44.2/apexcharts.min.css"
@@ -136,6 +139,15 @@
                     break;
             }
         @endif
+    </script>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.js",
+            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.1.0/"
+        }
+    }
     </script>
 
 </body>

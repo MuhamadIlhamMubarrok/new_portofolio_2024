@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string("judul_count")->nullable();
             $table->integer("count")->nullable();
+            $table->text("deskripsi")->nullable();
             $table->timestamps();
         });
     }

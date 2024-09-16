@@ -35,15 +35,24 @@
                                     <th>No</th>
                                     <th>Judul Count</th>
                                     <th>Count</th>
+                                    <th>Deskripsi</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    function limitWords($string, $word_limit)
+                                    {
+                                        $words = explode(' ', $string);
+                                        return implode(' ', array_slice($words, 0, $word_limit));
+                                    }
+                                @endphp
                                 @foreach ($counts as $index => $count)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $count->judul_count }}</td>
                                         <td>{{ $count->count }}</td>
+                                        <td>{{ limitWords($count->deskripsi, 4) }}...</td>
                                         <td>
                                             <a href="{{ route('admin.count.edit', $count->id) }}"
                                                 class="btn btn-warning">Edit</a>
