@@ -1,13 +1,5 @@
 <div class=" justify-center flex flex-col  md:px-[200px] px-[50px] py-[50px] bg-cover bg-center md:py-[100px]">
-    <div class="flex flex-row justify-start items-center gap-x-4" data-aos="fade-up">
-        <div class="border-[1px] rounded-full border-white w-[25px] md:w-[50px] my-[15px] md:my-[25px]"></div>
-        <h1 class="text-white text-xl">WHAT WE MADE</h1>
-    </div>
-    <h1 class="font-poppins text-[24px] md:text-[32px] font-semibold mb-4" data-aos="fade-up"
-        style="background: linear-gradient(178deg, #2300F9 25%, #009FF9 32%, #08FFF0 44%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;">
-        OUR SERVICES</h1>
+    <x-section-header smallTitle="WHAT WE MADE" bigTitle="OUR SERVICES" />
     <div class="container mx-auto px-4">
         <div class="grid md:grid-cols-2 grid-cols-1 gap-8">
             <a href="/contact-us" class="group relative block overflow-hidden rounded-[20px] shadow-xl p-[4px]">

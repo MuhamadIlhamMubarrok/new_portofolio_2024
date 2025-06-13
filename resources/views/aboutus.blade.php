@@ -19,7 +19,10 @@
 
             <!-- Konten Teks -->
             <div data-aos="fade-up"
-                class="flex flex-col space-y-4 text-justify font-dmsans text-[14px] md:text-[16px] bg-white/20 text-gray-300 shadow-xl shadow rounded-lg p-6">
+                class="flex flex-col space-y-4 text-justify font-dmsans text-[14px] md:text-[16px]  bg-gradient-to-br from-[#2300F9]/10 via-[#009FF9]/10 to-[#08FFF0]/10
+        backdrop-blur-md p-6 md:p-8 rounded-2xl
+        shadow-[0_0_30px_#08FFF033] border border-[#08FFF0]/20
+        transition-all duration-500 hover:shadow-[0_0_50px_#08FFF088] text-gray-300  p-6">
                 <p class="first-line:pl-5">
                     Hello, my name is Muhamad Ilham Mubarrok. I am a full-stack developer specializing in back-end
                     development. My educational background began at a pesantren, which led me to continue my studies at IDN
@@ -41,7 +44,10 @@
                     alt="Citra Indah Group">
             </a>
             <div data-aos="fade-up"
-                class="flex flex-col space-y-4 text-justify font-dmsans text-[14px] md:text-[16px] bg-white/20 text-gray-300 shadow-xl shadow rounded-lg p-6">
+                class="flex flex-col space-y-4 text-justify font-dmsans text-[14px] md:text-[16px]  bg-gradient-to-br from-[#2300F9]/10 via-[#009FF9]/10 to-[#08FFF0]/10
+        backdrop-blur-md p-6 md:p-8 rounded-2xl
+        shadow-[0_0_30px_#08FFF033] border border-[#08FFF0]/20
+        transition-all duration-500 hover:shadow-[0_0_50px_#08FFF088] text-gray-300  p-6">
                 <p class="first-line:pl-5">
                     Additionally, I am in the process of building a software house with my campus friends called "Citra
                     Indah Group." This project started from a close friendship while living together, and it has now grown
@@ -57,17 +63,31 @@
                     enthusiasm to keep creating.
                 </p>
             </div>
-            <!-- Contact Us Section -->
-            <div class="mt-12 text-center shadow-xl mx-4 md:mx-0">
-                <div class="bg-gradient-to-r from-[#2300F9] to-[#1e0243] py-8 rounded-lg px-7">
-                    <h2 class="text-xl font-bold text-white mb-3">Get in Touch with Us</h2>
-                    <p class="text-white mb-5">Let’s work together! Reach out for personalized support and discover how we
-                        can
-                        assist you in achieving your goals.</p>
-                    <a href="/contact-us"
-                        class="bg-white text-[#2300F9] font-medium py-2 px-6 rounded-full shadow-md hover:bg-[#2300F9] hover:text-white transition">
-                        Contact Us
-                    </a>
+            <div class="mt-12 text-center mx-4 md:mx-0">
+                <div
+                    class="bg-gradient-to-br from-[#2300F9] via-[#009FF9] to-[#08FFF0] p-1 rounded-2xl shadow-[0_0_30px_#08FFF088] hover:shadow-[0_0_50px_#009FF9] transition-all duration-500">
+
+                    <div class="bg-[#0a0f1a] rounded-2xl py-10 px-6 md:px-12">
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4  font-poppins tracking-wide animate-fade-in">
+                            Get in Touch with Us
+                        </h2>
+                        <p class="text-white/80 text-base md:text-lg max-w-xl mx-auto mb-6 leading-relaxed font-dmsans">
+                            Let’s work together! Reach out for personalized support and discover how we can help you achieve
+                            your goals.
+                        </p>
+
+                        <a href="/contact-us"
+                            class="inline-flex items-center gap-3 text-white font-semibold px-6 py-3 rounded-full
+                            bg-gradient-to-r from-[#2300F9] via-[#009FF9] to-[#08FFF0]
+                            shadow-[0_0_20px_#009FF9] hover:shadow-[0_0_40px_#08FFF0]
+                            transition-all duration-300 hover:scale-105">
+                            Contact Us
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 animate-bounce-x" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -17,6 +17,7 @@ use App\Mail\ContactFormSubmitted;
 use App\Mail\Pengirim;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\File;
 use Exception;
 
 class HomeController extends Controller
@@ -76,7 +77,12 @@ class HomeController extends Controller
         $certificate = Certificate::all();
         $news = News::all();
         $client = Client::all();
-        return view('landingpage', compact('counts', 'skill', 'certificate', 'news', 'projects', 'client'));
+
+        $logoPaths = collect(File::files(public_path('storage/logo_client')))
+        ->filter(fn($file) => in_array($file->getExtension(), ['png', 'jpg', 'jpeg', 'webp']))
+        ->map(fn($file) => asset('storage/logo_client/' . $file->getFilename()))
+        ->toArray();
+        return view('landingpage', compact('counts', 'skill', 'certificate', 'news', 'projects', 'client', 'logoPaths'));
     }
 
     public function DetailNews(string $id)
