@@ -1,32 +1,24 @@
 @if (Request::path() !== 'contact-us')
-    <div class="w-full h-[60px] py-6 flex items-center overflow-hidden bg-[#051844]/30 py-[40px]" data-aos="fade-down">
-        <div class="marquee-wrapper">
-            <div class="marquee-content flex flex-row items-center">
-                @foreach ($client as $index => $clients)
-                    <img src="{{ asset('./storage/logo_client/' . $clients->gambar) }}" alt="Gambar"
-                        class="h-[40px] w-auto md:h-[50px] lg:h-[60px]">
-                @endforeach
-                <!-- Repeated for seamless looping -->
-                @foreach ($client as $index => $clients)
-                    <img src="{{ asset('./storage/logo_client/' . $clients->gambar) }}" alt="Gambar"
-                        class="h-[40px] w-auto md:h-[50px] lg:h-[60px]">
-                @endforeach
-                @foreach ($client as $index => $clients)
-                    <img src="{{ asset('./storage/logo_client/' . $clients->gambar) }}" alt="Gambar"
-                        class="h-[40px] w-auto md:h-[50px] lg:h-[60px]">
-                @endforeach
-                @foreach ($client as $index => $clients)
-                    <img src="{{ asset('./storage/logo_client/' . $clients->gambar) }}" alt="Gambar"
-                        class="h-[40px] w-auto md:h-[50px] lg:h-[60px]">
-                @endforeach
-                @foreach ($client as $index => $clients)
-                    <img src="{{ asset('./storage/logo_client/' . $clients->gambar) }}" alt="Gambar"
-                        class="h-[40px] w-auto md:h-[50px] lg:h-[60px]">
-                @endforeach
+    <div class="relative w-full overflow-hidden bg-gradient-to-r from-[#051844]/50 via-[#0B1F40]/40 to-[#051844]/50 py-6 shadow-[0_0_30px_#08FFF033]"
+        data-aos="fade-down">
+        <div class="marquee-wrapper relative">
+            <div class="marquee-content flex items-center gap-3 animate-marquee whitespace-nowrap">
+                @for ($i = 0; $i < 5; $i++)
+                    @foreach ($client as $clients)
+                        <img src="{{ asset('storage/logo_client/' . $clients->gambar) }}" alt="Client Logo"
+                            class="h-[40px] w-auto md:h-[50px] lg:h-[60px] brightness-125 hover:brightness-200 transition-all duration-300" />
+                    @endforeach
+                @endfor
             </div>
+        </div>
+
+        <!-- Glow Overlay -->
+        <div
+            class="absolute top-0 left-0 w-full h-full pointer-events-none bg-gradient-to-r from-transparent via-[#08FFF022] to-transparent">
         </div>
     </div>
 @endif
+
 
 <div class="min-h-auto w-full bg-cover bg-bottom bg-no-repeat flex flex-col md:flex-row px-4 py-6 md:px-8 md:py-10 lg:px-20 lg:py-15 gap-y-4"
     style="background-image: url('{{ asset('./images/background/footer.webp') }}');">
