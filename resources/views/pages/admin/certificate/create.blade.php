@@ -8,8 +8,8 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.certificate.index') }}">Certificates</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('certificate.index') }}">Certificates</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Create Certificates</li>
             </ol>
         </nav>
@@ -19,7 +19,7 @@
                 <div class="card">`
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.certificate.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('certificate.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="gambar" class="form-label">Gambar</label>

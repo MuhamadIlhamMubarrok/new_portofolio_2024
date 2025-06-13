@@ -6,7 +6,7 @@
     <div class="page-content">
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Counts</li>
             </ol>
         </nav>
@@ -28,7 +28,7 @@
                             </div>
                         @endif
 
-                        <a href="{{ route('admin.count.create') }}" class="btn btn-primary mb-3">Create Count</a>
+                        <a href="{{ route('count.create') }}" class="btn btn-primary mb-3">Create Count</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -54,9 +54,8 @@
                                         <td>{{ $count->count }}</td>
                                         <td>{{ limitWords($count->deskripsi, 4) }}...</td>
                                         <td>
-                                            <a href="{{ route('admin.count.edit', $count->id) }}"
-                                                class="btn btn-warning">Edit</a>
-                                            <form action="{{ route('admin.count.destroy', $count->id) }}" method="POST"
+                                            <a href="{{ route('count.edit', $count->id) }}" class="btn btn-warning">Edit</a>
+                                            <form action="{{ route('count.destroy', $count->id) }}" method="POST"
                                                 style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')

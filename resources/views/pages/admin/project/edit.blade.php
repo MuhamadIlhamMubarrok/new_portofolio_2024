@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Client')
+@section('title', 'Edit Projects')
 
 @section('content')
     <style>
@@ -22,8 +22,8 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.projek.index') }}">Project</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('projek.index') }}">Project</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Project</li>
             </ol>
         </nav>
@@ -33,7 +33,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.projek.update', $projek->id) }}"
+                        <form method="POST" action="{{ route('projek.update', $projek->id) }}"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')

@@ -1,48 +1,41 @@
 @extends('layouts.landingpage')
 
-@section('title', 'PT.ADITYA MANDIRI KONSTRUKSI')
+@section('title', 'Clients')
 
 @section('content')
-    <div class="flex flex-col justify-center items-center px-4 md:px-10 lg:px-24 py-10 mt-24" data-aos="fade-up">
-        <h1 class="pt-5 text-4xl md:text-5xl lg:text-[48px] xl:text-[64px] font-Anek font-bold text-center"
-            style="background: linear-gradient(178deg, #2300F9 51%, #009FF9 67%, #08FFF0 77%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;">
-            Our Clients
-        </h1>
-        <p
-            class="pt-3 text-sm md:text-base lg:text-lg xl:text-xl font-inter font-light md:px-[100px] text-center text-white max-w-screen-lg">
-            We are proud to have partnered with a diverse range of clients across various industries. Each collaboration has
-            allowed us to demonstrate our commitment to quality, innovation, and customer satisfaction. Our clients trust us
-            to bring their visions to life, and we work tirelessly to exceed their expectations.
-        </p>
-        {{-- Clients --}}
-        <div class="flex flex-wrap justify-center items-center w-full max-w-screen-lg mt-10 mb-8 md:mb-20">
-            @foreach ($clients as $data)
-                <img class="m-3 sm:m-4 md:m-5 h-[40px] md:h-[50px] lg:h-[60px] xl:h-[70px]"
-                    src="{{ asset('storage/logo_client/' . $data->gambar) }}" alt="Client Logo"
-                    style="max-width: 100px; height: auto;">
-            @endforeach
-        </div>
+    <div class="flex flex-col justify-center items-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 mt-[100px]">
 
-        <div class=" md:block border-[1px] rounded-full border-white w-3/4 lg:w-[500px] xl:w-[700px] mb-12"></div>
+        <!-- Breadcrumb -->
+        <x-breadcrumb title="OUR CLIENTS" breadcrumbHome="Home" breadcrumbCurrent="Client" />
 
-        {{-- Contact Us --}}
-        <div class="flex flex-col items-center justify-center mb-10 md:mb-12 lg:mb-[50px]">
-            <h1 class="text-xl md:text-2xl lg:text-[32px] font-semibold font-Anek text-center"
-                style="background: linear-gradient(178deg, #2300F9 31%, #009FF9 51%, #08FFF0 77%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;">
-                CONTACT US
-            </h1>
-            <p
-                class="text-center mt-6 mb-10 text-sm md:text-base lg:text-lg xl:text-xl font-inter font-light text-white max-w-screen-md">
-                If you are interested in our product, you can call us and make a deal with us to work with you!
+        <div data-aos="fade-up" class=" flex flex-col my-6 px-4 md:px-20 lg:px-32 xl:px-60">
+            <p class="text-center font-dmsans text-lg text-gray-300 bg-white/20 p-6 rounded-lg">
+                We are proud to have partnered with diverse clients across industries, showcasing our commitment to quality,
+                innovation, and customer satisfaction. Our clients trust us to bring their visions to life, and we strive to
+                exceed their expectations.
             </p>
-            <a href="/contact-us"
-                class="text-white w-[180px] duration-200 md:w-[240px] border border-[2px] border-[#009FF9] hover:border hover:border-[#F9F9F9]/15 hover:border-[2px] font-Anek hover:bg-gradient-to-br hover:from-[#2300F9] hover:via-[#009FF9] hover:to-[#08FFF0] hover:bg-gradient-to-bl font-bold rounded-full txt-[18px] px-4 md:px-5 py-2.5 text-center me-2 mb-4 md:mb-2">
-                CONTACT US
-            </a>
+            {{-- Clients --}}
+            <div class="flex flex-wrap justify-center items-center w-full mt-10 mb-8 md:mb-20">
+                @foreach ($clients as $data)
+                    <img class="m-3 sm:m-4 max-h-[70px] w-auto" src="{{ asset('storage/logo_client/' . $data->gambar) }}"
+                        alt="Client Logo" style="max-width: 100px; height: auto;">
+                @endforeach
+            </div>
+
+            {{-- Contact Us --}}
+            <div data-aos="fade-up" class="text-center shadow-xl">
+                <div data-aos="fade-up" class="bg-gradient-to-r from-[#2300F9] to-[#1e0243] py-8 rounded-lg px-7">
+                    <h2 data-aos="fade-up" class="text-xl font-poppins font-bold text-white mb-3">Get in Touch with Us</h2>
+                    <p data-aos="fade-up" class="text-white font-dmsans mb-5">If you're interested in our products or
+                        services,
+                        feel free to reach out for further discussions. We’re here to help you achieve your goals.</p>
+                    <a href="/contact-us" data-aos="fade-up"
+                        class="bg-white text-[#2300F9] font-poppins font-medium py-2 px-6 rounded-full shadow-md hover:bg-[#2300F9] hover:text-white transition">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
+
 @endsection

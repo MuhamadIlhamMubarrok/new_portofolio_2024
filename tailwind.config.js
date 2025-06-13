@@ -15,9 +15,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                abril: ["Abril Fatface", "serif"],
-                Anek: ["Anek Latin", "serif"],
-                inter: ["Inter", "serif"],
+                poppins: ["Poppins", "sans-serif"], // Font Poppins
+                dmsans: ["DM Sans", "sans-serif"], // Font DM Sans
             },
             animation: {
                 fadeIn: "fadeIn 1s ease-out",
@@ -47,9 +46,9 @@ export default {
             },
 
             backgroundImage: {
-                count1: " url('{{ asset('assets/images/count1.png') }}')",
-                count2: "url('{{ asset('assets/images/count2.png') }}')",
-                count3: "url('{{ asset('assets/images/count3.png') }}')",
+                count1: " url('{{ asset('images/images/count1.png') }}')",
+                count2: "url('{{ asset('images/images/count2.png') }}')",
+                count3: "url('{{ asset('images/images/count3.png') }}')",
             },
         },
     },

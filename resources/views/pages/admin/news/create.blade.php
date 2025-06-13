@@ -8,8 +8,8 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.news.index') }}">Berita</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('news.index') }}">Berita</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Create Berita</li>
             </ol>
         </nav>
@@ -19,7 +19,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.news.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('news.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="banner" class="form-label">Banner</label>

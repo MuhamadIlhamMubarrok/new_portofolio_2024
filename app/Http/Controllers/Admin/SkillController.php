@@ -36,7 +36,7 @@ class SkillController extends Controller
     {
         try {
             $this->skillsService->createSkills($request);
-            return redirect()->route('admin.skill.index')->with('success', 'Skills created successfully.');
+            return redirect()->route('skill.index')->with('success', 'Skills created successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to create Skills: ' . $e->getMessage(),
@@ -56,14 +56,14 @@ class SkillController extends Controller
     {
         try {
             $this->skillsService->updateSkills($request, $id);
-            return redirect()->route('admin.skill.index')->with('success', 'Skills updated successfully.');
+            return redirect()->route('skill.index')->with('success', 'Skills updated successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to update Skills: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.skill.index')->with($notification);
+            return redirect()->route('skill.index')->with($notification);
         }
     }
 
@@ -77,14 +77,14 @@ class SkillController extends Controller
                 'alert-type' => 'success',
             ];
 
-            return redirect()->route('admin.skill.index')->with($notification);
+            return redirect()->route('skill.index')->with($notification);
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to delete Skills: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.skill.index')->with($notification);
+            return redirect()->route('skill.index')->with($notification);
         }
     }
 }

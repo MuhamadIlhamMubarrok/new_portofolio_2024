@@ -14,7 +14,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Certificate</li>
             </ol>
         </nav>
@@ -24,7 +24,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.Certificate.update', $Certificate->id) }}"
+                        <form method="POST" action="{{ route('Certificate.update', $Certificate->id) }}"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')

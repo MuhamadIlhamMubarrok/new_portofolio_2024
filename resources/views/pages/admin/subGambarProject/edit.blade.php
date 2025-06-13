@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Count')
+@section('title', 'Edit Sub Gambar')
 
 @section('content')
 
     <div class="page-content">
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.count.index') }}">Counts</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('count.index') }}">Counts</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Count</li>
             </ol>
         </nav>
@@ -17,7 +17,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('admin.subGambar.update', $subGambar->id) }}" method="POST"
+                        <form action="{{ route('subGambar.update', $subGambar->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')

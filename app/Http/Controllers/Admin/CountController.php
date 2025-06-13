@@ -30,14 +30,14 @@ class CountController extends Controller
     {
         try {
             $this->countService->createCount($request);
-            return redirect()->route('admin.count.index')->with('success', 'Count created successfully.');
+            return redirect()->route('count.index')->with('success', 'Count created successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to create Count: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.count.index')->with($notification);
+            return redirect()->route('count.index')->with($notification);
         }
     }
 
@@ -51,14 +51,14 @@ class CountController extends Controller
     {
         try {
             $this->countService->updateCount($request, $id);
-            return redirect()->route('admin.count.index')->with('success', 'Count updated successfully.');
+            return redirect()->route('count.index')->with('success', 'Count updated successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to Update Count: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.count.index')->with($notification);
+            return redirect()->route('count.index')->with($notification);
         }
     }
 
@@ -72,14 +72,14 @@ class CountController extends Controller
                 'alert-type' => 'success',
             ];
 
-            return redirect()->route('admin.count.index')->with($notification);
+            return redirect()->route('count.index')->with($notification);
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to delete Count: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.count.index')->with($notification);
+            return redirect()->route('count.index')->with($notification);
         }
     }
 }

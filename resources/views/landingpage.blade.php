@@ -1,6 +1,6 @@
 @extends('layouts.landingpage')
 
-@section('title', 'PORTOFOLIO - ILHAM')
+@section('title', 'Home')
 
 @section('content')
     @include('components.landingPage.hero')
@@ -11,5 +11,4 @@
     @include('components.landingPage.project')
     @include('components.landingPage.service')
     @include('components.landingPage.news')
-
 @endsection

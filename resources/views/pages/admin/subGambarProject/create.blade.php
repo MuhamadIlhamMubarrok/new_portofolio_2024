@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create Client')
+@section('title', 'Create Sub Gambar')
 
 @section('content')
 
@@ -8,8 +8,8 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.subGambar.index') }}">Sub Gambar Project</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('subGambar.index') }}">Sub Gambar Project</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Create Clients</li>
             </ol>
         </nav>
@@ -18,7 +18,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">`
                     <div class="card-body">
-                        <form action="{{ route('admin.subGambar.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('subGambar.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="projek_id" class="form-label">Nama Project</label>

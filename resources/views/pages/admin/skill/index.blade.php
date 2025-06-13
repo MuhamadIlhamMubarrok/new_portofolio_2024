@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Skills')
+@section('title', 'Daftar Skills')
 
 @section('content')
 
@@ -14,7 +14,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Skills</li>
             </ol>
         </nav>
@@ -36,10 +36,10 @@
                             </div>
                         @endif
 
-                        <a href="{{ route('admin.skill.create') }}" class="btn btn-primary mb-3">Create Skill</a>
+                        <a href="{{ route('skill.create') }}" class="btn btn-primary mb-3">Create Skill</a>
 
                         <!-- Search Form -->
-                        <form action="{{ route('admin.skill.index') }}" method="GET" class="mb-3">
+                        <form action="{{ route('skill.index') }}" method="GET" class="mb-3">
                             <div class="input-group">
                                 <input type="text" name="search" class="form-control" placeholder="Search skills"
                                     value="{{ old('search', $search) }}">
@@ -66,9 +66,8 @@
                                                 width="50"></td>
                                         <td>{{ $skill->nama }}</td>
                                         <td>
-                                            <a href="{{ route('admin.skill.edit', $skill->id) }}"
-                                                class="btn btn-warning">Edit</a>
-                                            <form action="{{ route('admin.skill.destroy', $skill->id) }}" method="POST"
+                                            <a href="{{ route('skill.edit', $skill->id) }}" class="btn btn-warning">Edit</a>
+                                            <form action="{{ route('skill.destroy', $skill->id) }}" method="POST"
                                                 style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')

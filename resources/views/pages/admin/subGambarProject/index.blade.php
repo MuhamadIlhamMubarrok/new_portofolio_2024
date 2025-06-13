@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Clients')
+@section('title', 'Daftar Sub Gambar')
 
 @section('content')
 
@@ -14,7 +14,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Sub Gambar Project</li>
             </ol>
         </nav>
@@ -35,9 +35,9 @@
                                 {{ session('error') }}
                             </div>
                         @endif
-                        <a href="{{ route('admin.subGambar.create') }}" class="btn btn-primary mb-3">Create Sub Gambar</a>
+                        <a href="{{ route('subGambar.create') }}" class="btn btn-primary mb-3">Create Sub Gambar</a>
                         <!-- Search Form -->
-                        <form action="{{ route('admin.subGambar.index') }}" method="GET" class="mb-3">
+                        <form action="{{ route('subGambar.index') }}" method="GET" class="mb-3">
                             <div class="input-group">
                                 <input type="text" name="search" class="form-control" placeholder="Search Sub Gambar"
                                     value="{{ old('search', $search) }}">
@@ -62,10 +62,9 @@
                                             <td><img src="{{ Storage::url('sub_gambar_projects/' . $subGambarProject->gambar) }}"
                                                     alt="Gambar" width="100"></td>
                                             <td>
-                                                <a href="{{ route('admin.subGambar.edit', $subGambarProject->id) }}"
+                                                <a href="{{ route('subGambar.edit', $subGambarProject->id) }}"
                                                     class="btn btn-warning">Edit</a>
-                                                <form
-                                                    action="{{ route('admin.subGambar.destroy', $subGambarProject->id) }}"
+                                                <form action="{{ route('subGambar.destroy', $subGambarProject->id) }}"
                                                     method="POST" style="display:inline-block;">
                                                     @csrf
                                                     @method('DELETE')

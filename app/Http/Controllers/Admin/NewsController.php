@@ -41,7 +41,7 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'banner' => 'nullable|image',
             'title' => 'required|string|max:255',
             'category' => 'required|in:work experience,hobby,achievment,organizational experience',
             'deskripsi' => 'required|string',
@@ -62,7 +62,7 @@ class NewsController extends Controller
             'deskripsi' => $request->input('deskripsi'),
         ]);
 
-        return redirect()->route('admin.news.index')->with('success', 'Berita berhasil ditambahkan.');
+        return redirect()->route('news.index')->with('success', 'Berita berhasil ditambahkan.');
     }
 
     /**
@@ -83,12 +83,13 @@ class NewsController extends Controller
     public function update(Request $request, string $id)
     {
         $news = News::findOrFail($id);
-        $request->validate([
-            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'title' => 'required|string|max:255',
-            'category' => 'required|in:work experience,hobby,activity',
-            'deskripsi' => 'required|string',
-        ]);
+        // $request->validate([
+        //     'banner' => 'nullable|image',
+        //     'title' => 'required|string|max:255',
+        //     'category' => 'required|in:work experience,hobby,activity',
+        //     'deskripsi' => 'required|string',
+        // ]);
+        // @dd($request->all());
 
         // Handle the banner upload
         if ($request->hasFile('banner')) {
@@ -108,7 +109,7 @@ class NewsController extends Controller
             'deskripsi' => $request->input('deskripsi'),
         ]);
 
-        return redirect()->route('admin.news.index')->with('success', 'Berita berhasil diperbarui.');
+        return redirect()->route('news.index')->with('success', 'Berita berhasil diperbarui.');
     }
 
     /**
@@ -123,6 +124,6 @@ class NewsController extends Controller
 
         $News->delete();
 
-        return redirect()->route('admin.news.index')->with('success', 'Berita berhasil dihapus.');
+        return redirect()->route('news.index')->with('success', 'Berita berhasil dihapus.');
     }
 }

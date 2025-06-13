@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create Client')
+@section('title', 'Create Skill')
 
 @section('content')
 
@@ -8,8 +8,8 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.skill.index') }}">Skill</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('skill.index') }}">Skill</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Create Skill</li>
             </ol>
         </nav>
@@ -19,7 +19,7 @@
                 <div class="card">`
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.skill.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('skill.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="gambar" class="form-label">Gambar</label>

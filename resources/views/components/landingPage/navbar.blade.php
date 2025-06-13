@@ -1,15 +1,17 @@
-<nav id="navbar"
-    class="md:bg-transparent border-gray-200 drop-shadow-lg sticky top-0 z-50 transition-all duration-300">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
-        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse md:pl-0 pl-[20px] space-x-[50px]">
-            <div class="flex justify-center">
-                <img src="{{ asset('assets/images/favicon.png') }}" class="md:h-[50px] h-[30px] w-auto"
-                    alt="Flowbite Logo" />
-            </div>
+<nav id="navbar" class="bg-white border-gray-200 shadow-md dark:bg-gray-900 dark:border-gray-700 font-poppins">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="{{ asset('./images/logo/logo.png') }}" class="h-10" alt="Logo" />
+            <div class="border h-[25px] hidden md:block"></div>
+            <span
+                class="text-[15px] hidden md:block font-bold font-dmsans text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-300 to-text-blue-700 dark:text-white uppercase">Portofolio</span>
         </a>
-        <button data-collapse-toggle="navbar-default" type="button"
+
+        <!-- Mobile Menu Button -->
+        <button data-collapse-toggle="navbar-dropdown" type="button"
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default" aria-expanded="false">
+            aria-controls="navbar-dropdown" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 17 14">
@@ -17,42 +19,49 @@
                     d="M1 1h15M1 7h15M1 13h15" />
             </svg>
         </button>
-        <div class="hidden w-full md:block md:w-auto item" id="navbar-default">
+
+        <!-- Navbar Menu -->
+        <div class="hidden w-full md:block md:w-auto uppercase" id="navbar-dropdown">
             <ul
-                class="font-medium font-Anek flex uppercase flex-col md:items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-[80px] rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                class="flex flex-col font-medium p-4 md:p-0 mt-4 border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                 <li>
                     <a href="/"
-                        class="font-Anek font-bold text-[17px] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ Request::is('/') ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#2300F9] via-[#009FF9] to-[#08FFF0]' : 'text-white' }}">
+                        class="font-bold text-[15px] block py-2 px-3 rounded hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ Request::is('/') ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-300' : 'text-gray-700 dark:text-white' }}">
                         Home
                     </a>
                 </li>
-
                 <li>
                     <a href="/our-client"
-                        class="font-Anek font-bold text-[17px] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ Request::is('our-client') ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#2300F9] via-[#009FF9] to-[#08FFF0]' : 'text-white' }}">
+                        class="font-bold text-[15px] block py-2 px-3 rounded hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ Request::is('our-client') ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-300' : 'text-gray-700 dark:text-white' }}">
                         Client
                     </a>
                 </li>
                 <li>
                     <a href="/about-us"
-                        class="font-Anek font-bold text-[17px] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0     {{ Request::is('about-us') ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#2300F9] via-[#009FF9] to-[#08FFF0]' : 'text-white' }}">
+                        class="font-bold text-[15px] block py-2 px-3 rounded hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ Request::is('about-us') ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-300' : 'text-gray-700 dark:text-white' }}">
                         About Me
                     </a>
                 </li>
                 <li>
                     <a href="/news"
-                        class="font-Anek font-bold text-[17px] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0     {{ Request::is('news*') ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#2300F9] via-[#009FF9] to-[#08FFF0]' : 'text-white' }}">
+                        class="font-bold text-[15px] block py-2 px-3 rounded hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ Request::is('news*') ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-300' : 'text-gray-700 dark:text-white' }}">
                         News
                     </a>
                 </li>
-                <li>
-                    <a href="/contact-us"
-                        class="font-Anek font-bold text-[17px] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0     {{ Request::is('contact-us') ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#2300F9] via-[#009FF9] to-[#08FFF0]' : 'text-white' }}">
-                        Contact
+                <li class="md:hidden block my-3 ml-1 md:my-0 md:pl-[100px]">
+                    <a href="/kontak-form"
+                        class="bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 text-white font-bold py-2 px-6 rounded-full">
+                        Contact Us
                     </a>
                 </li>
-
             </ul>
+        </div>
+
+        <div class="flex-shrink-0 hidden md:block">
+            <a href="/contact-us"
+                class="bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 text-white font-bold py-2 px-6 rounded-full">
+                Contact Us
+            </a>
         </div>
     </div>
 </nav>

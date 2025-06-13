@@ -1,16 +1,19 @@
+/* Navbar default */
 #navbar {
-    overflow: hidden;
-    background-color: transparent;
-    transition: 0.4s;
+    background-color: #121440; /* Default warna navbar */
+    transition: background-color 0.3s ease-in-out;
     position: fixed;
-    width: 100%;
     top: 0;
-    z-index: 99;
+    width: 100%;
+    z-index: 1000;
 }
 
+/* Transparan hanya di halaman root (/) */
+#navbar.transparent {
+    background-color: transparent;
+}
+
+/* Warna navbar saat di-scroll */
 #navbar.scrolled {
-    background-color: #121440;
-    /* Change to white when scrolled */
-    opacity: 1;
-    /* Add any other styles you want for the solid navbar */
+    background-color: #121440; /* Warna saat di-scroll */
 }

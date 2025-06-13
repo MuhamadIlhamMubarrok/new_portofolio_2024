@@ -22,14 +22,14 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.projek.index') }}">Project</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('projek.index') }}">Project</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Create Project</li>
             </ol>
         </nav>
 
         <div class="container">
-            <form action="{{ route('admin.projek.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('projek.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="banner" class="form-label">Banner Product</label>

@@ -1,11 +1,11 @@
 @extends('layouts.landingpage')
 
-@section('title', 'PORTOFOLIO - ILHAM')
+@section('title', 'Kontak')
 
 @section('content')
     <div class="flex flex-col justify-center items-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 mt-[100px]"
         data-aos="fade-up">
-        <h1 class="font-Anek font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-10"
+        <h1 class="font-poppins font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-10"
             style="background: linear-gradient(178deg, #2300F9 51%, #009FF9 67%, #08FFF0 77%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;">
@@ -22,7 +22,7 @@
             class="flex text-white flex-col md:flex-row justify-center items-center space-y-6 md:space-x-10 md:space-y-0 pt-12">
             {{-- foto --}}
             <div class="flex flex-shrink-0">
-                <img src="{{ asset('./assets/images/contact1.png') }}" class="w-full md:w-[270px] h-auto object-cover"
+                <img src="{{ asset('./images/images/contact1.webp') }}" class="w-full md:w-[270px] h-auto object-cover"
                     alt="Deskripsi Gambar">
             </div>
             <div class="border-t md:border-l border-white md:h-[265px] w-full md:w-auto"></div>
@@ -112,7 +112,7 @@
     </div>
     <div class="bg-[#F2F2F2]/15 mt-24 flex flex-col w-full items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
         data-aos="fade-up">
-        <h1 class="font-Anek font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-10"
+        <h1 class="font-poppins font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-10"
             style="background: linear-gradient(178deg, #2300F9 55%, #009FF9 67%, #08FFF0 77%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;">
@@ -123,6 +123,17 @@
             We’d love to hear from you! Whether you have questions, need more information, or are ready to start your next
             project, feel free to reach out. Fill out the form below, and we’ll get back to you as soon as possible.
         </p>
+        @if ($errors->any())
+            <div data-aos="fade-up" class="p-4 bg-red-100 border-l-4 border-red-500 text-red-700 rounded-lg">
+                <p data-aos="fade-up" class="text-sm font-dmsans font-medium"><strong>Terjadi
+                        Kesalahan!</strong></p>
+                <ul data-aos="fade-up" class="list-disc pl-6 text-sm font-dmsans">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         {{-- form --}}
         <form id="contactForm" class="md:px-[260px] mx-auto w-full py-12 flex flex-col justify-center items-center"
             method="POST" action="{{ route('submitContactForm') }}" onsubmit="sendWhatsAppMessage(event)">
@@ -148,6 +159,24 @@
                 </div>
             </div>
             <div class="relative z-0 w-full mb-5 group">
+                <input type="text" name="nomer" id="floating_nomer"
+                    class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required />
+                <label for="floating_nomer"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    Nomer Whatsapp
+                </label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="email" name="email" id="floating_email"
+                    class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required />
+                <label for="floating_email"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    Email
+                </label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
                 <select name="status" id="status"
                     class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     required>
@@ -170,8 +199,9 @@
                     Deskripsi
                 </label>
             </div>
+            <div class="g-recaptcha mb-4" data-sitekey="6LeYjM8qAAAAAC6Di_7OlJZDN6ZQiXtIM0b6TzR0" data-theme="dark"></div>
             <button type="submit" id="submit-button"
-                class="flex flex-row justify-center items-center gap-x-4 text-white w-[180px] md:w-[240px] font-Anek bg-gradient-to-br from-[#2300F9] via-[#009FF9] to-[#08FFF0] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-full txt-[18px] px-4 md:px-5 py-2.5 text-center me-2 mb-4 md:mb-2">
+                class="flex flex-row justify-center items-center gap-x-4 text-white w-[180px] md:w-[240px] font-poppins bg-gradient-to-br from-[#2300F9] via-[#009FF9] to-[#08FFF0] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-full txt-[18px] px-4 md:px-5 py-2.5 text-center me-2 mb-4 md:mb-2">
                 Send Message
             </button>
         </form>

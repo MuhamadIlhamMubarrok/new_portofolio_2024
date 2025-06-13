@@ -6,25 +6,35 @@ use App\Http\Controllers\Controller;
 use App\Models\Certificate;
 use App\Models\Client;
 use App\Models\Count;
+use App\Models\Message;
 use App\Models\News;
 use App\Models\Projek;
 use App\Models\Skill;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
+use App\Mail\ContactFormSubmitted;
+use App\Mail\Pengirim;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
+use Exception;
 
 class HomeController extends Controller
 {
     public function AboutUs()
     {
-        return view('aboutus');
+        $client = Client::all();
+        return view('aboutus', compact('client'));
     }
     public function ContactUs()
     {
-        return view('contactus');
+        $client = Client::all();
+        return view('contactus', compact('client'));
     }
     public function news(Request $request)
     {
         $query = News::query();
+        $client = Client::all();
 
         // Filter by search term
         if ($request->has('search')) {
@@ -41,20 +51,22 @@ class HomeController extends Controller
         }
 
         // Fetch filtered data
-        $news = $query->get();
+        $news = $query->paginate(6);
 
-        return view('news', compact('news'));
+        return view('news', compact('news', 'client'));
     }
 
     public function DetailHome()
     {
-        return view('detailProduct');
+        $client = Client::all();
+        return view('detailProduct', compact('client'));
     }
 
     public function OurClient()
     {
+        $client = Client::all();
         $clients = Client::all();
-        return view('ourclients', compact('clients'));
+        return view('ourclients', compact('clients', 'client'));
     }
     public function LandingPage()
     {
@@ -63,30 +75,108 @@ class HomeController extends Controller
         $skill = Skill::all();
         $certificate = Certificate::all();
         $news = News::all();
-        return view('landingpage', compact('counts', 'skill', 'certificate', 'news', 'projects'));
+        $client = Client::all();
+        return view('landingpage', compact('counts', 'skill', 'certificate', 'news', 'projects', 'client'));
     }
 
     public function DetailNews(string $id)
     {
         $news = News::find($id);
+        $client = Client::all();
         $other = News::where('id', '!=', $id)->get();
         if ($news) {
-            return view('detailNews', compact('news', 'other'));
+            return view('detailNews', compact('news', 'other', 'client'));
         } else {
             abort(404, 'News Details Not Found');
         }
     }
 
-     public function DetailProject(string $id)
+    public function DetailProject(string $id)
     {
-
+        $client = Client::all();
         $project = Projek::find($id);
         $other = Projek::where('id', '!=', $id)->get();
         if ($project) {
-            return view('detailProject', compact('project', "other"));
+            return view('detailProject', compact('project', 'other', 'client'));
         } else {
             abort(404, 'Project Details Not Found');
         }
-       
+    }
+
+    public function submitContactForm(Request $request)
+    {
+        $request->merge([
+            'nomer' => preg_replace('/[^0-9]/', '', $request->nomer),
+        ]);
+
+        // Validasi Input
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'nama' => 'required|string|max:255',
+                'nama_instansi' => 'required|string|max:255',
+                'nomer' => 'required|regex:/^[0-9]{10,13}$/',
+                'status' => 'required|in:mahasiswa,pekerja,perusahaan',
+                'deskripsi' => 'required|string|max:1000',
+                'email' => 'required|email|max:255',
+                'g-recaptcha-response' => 'required',
+            ],
+            [
+                'nama.required' => 'Nama lengkap wajib diisi.',
+                'nama.string' => 'Nama lengkap harus berupa teks.',
+                'nama.max' => 'Nama lengkap maksimal 255 karakter.',
+
+                'nama_instansi.required' => 'Nama instansi wajib diisi.',
+                'nama_instansi.string' => 'Nama instansi harus berupa teks.',
+                'nama_instansi.max' => 'Nama instansi maksimal 255 karakter.',
+
+                'nomer.required' => 'Nomor WhatsApp wajib diisi.',
+                'nomer.regex' => 'Nomor WhatsApp harus terdiri dari 10 hingga 13 digit angka.',
+
+                'status.required' => 'Status wajib dipilih.',
+                'status.in' => 'Status yang dipilih tidak valid.',
+
+                'deskripsi.required' => 'Deskripsi wajib diisi.',
+                'deskripsi.string' => 'Deskripsi harus berupa teks.',
+                'deskripsi.max' => 'Deskripsi maksimal 1000 karakter.',
+
+                'email.required' => 'Alamat email wajib diisi.', 
+                'email.email' => 'Alamat email yang dimasukkan tidak valid.', 
+                'email.max' => 'Alamat email maksimal 255 karakter.',
+
+                'g-recaptcha-response.required' => 'Silakan verifikasi reCAPTCHA.',
+            ],
+        );
+
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => '6LeYjM8qAAAAAI1WgnBwx2zSYHIBhhcR-7INZPH4',
+            'response' => $request->input('g-recaptcha-response'),
+        ]);
+
+        if (!$response->json('success')) {
+            return back()->withErrors(['captcha' => 'Captcha tidak valid.']);
+        }
+
+        // Simpan ke database
+        $message = Message::create($request->only(['nama', 'nama_instansi', 'nomer', 'status', 'deskripsi', 'email']));
+
+       try {
+            Mail::to('milhammubarrok@gmail.com')->send(new ContactFormSubmitted($message));
+        } catch (Exception $e) {
+            Log::error('Gagal mengirim email ke admin: ' . $e->getMessage());
+        }
+
+        try {
+            Mail::to($request->email)->send(new Pengirim($message));
+        } catch (Exception $e) {
+            Log::error('Gagal mengirim email ke user (' . $request->email . '): ' . $e->getMessage());
+        }
+
+        return back()->with('success', 'Pesan Anda telah dikirim.');
     }
 }

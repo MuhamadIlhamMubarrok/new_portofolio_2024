@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Member')
+@section('title', 'Daftar Member')
 
 @section('content')
 
@@ -14,7 +14,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Member</li>
             </ol>
         </nav>
@@ -36,10 +36,10 @@
                             </div>
                         @endif
 
-                        <a href="{{ route('admin.member.create') }}" class="btn btn-primary mb-3">Create Member</a>
+                        <a href="{{ route('member.create') }}" class="btn btn-primary mb-3">Create Member</a>
 
                         <!-- Search Form -->
-                        <form action="{{ route('admin.member.index') }}" method="GET" class="mb-3">
+                        <form action="{{ route('member.index') }}" method="GET" class="mb-3">
                             <div class="input-group">
                                 <input type="text" name="search" class="form-control" placeholder="Search member"
                                     value="{{ $search }}">
@@ -69,10 +69,10 @@
                                         <td>{{ $memberItem->nama }}</td>
                                         <td>{{ $memberItem->jabatan }}</td>
                                         <td>
-                                            <a href="{{ route('admin.member.edit', $memberItem->id) }}"
+                                            <a href="{{ route('member.edit', $memberItem->id) }}"
                                                 class="btn btn-warning">Edit</a>
-                                            <form action="{{ route('admin.member.destroy', $memberItem->id) }}"
-                                                method="POST" style="display:inline-block;">
+                                            <form action="{{ route('member.destroy', $memberItem->id) }}" method="POST"
+                                                style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>

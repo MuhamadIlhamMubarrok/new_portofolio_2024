@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Projeks')
+@section('title', 'Daftar Projeks')
 
 @section('content')
 
@@ -14,7 +14,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Project</li>
             </ol>
         </nav>
@@ -35,9 +35,9 @@
                                 {{ session('error') }}
                             </div>
                         @endif
-                        <a href="{{ route('admin.projek.create') }}" class="btn btn-primary mb-3">Create Project</a>
+                        <a href="{{ route('projek.create') }}" class="btn btn-primary mb-3">Create Project</a>
                         <!-- Search Form -->
-                        <form action="{{ route('admin.projek.index') }}" method="GET" class="mb-3">
+                        <form action="{{ route('projek.index') }}" method="GET" class="mb-3">
                             <div class="input-group">
                                 <input type="text" name="search" class="form-control" placeholder="Search Project"
                                     value="{{ old('search', $search) }}">
@@ -90,9 +90,9 @@
                                             {{ $projek->category }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.projek.edit', $projek->id) }}"
+                                            <a href="{{ route('projek.edit', $projek->id) }}"
                                                 class="btn btn-sm btn-primary">Edit</a>
-                                            <form action="{{ route('admin.projek.destroy', $projek->id) }}" method="POST"
+                                            <form action="{{ route('projek.destroy', $projek->id) }}" method="POST"
                                                 style="display: inline;">
                                                 @csrf
                                                 @method('DELETE')

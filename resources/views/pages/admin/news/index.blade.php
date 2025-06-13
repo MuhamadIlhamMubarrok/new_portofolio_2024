@@ -6,7 +6,7 @@
     <div class="page-content">
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Berita</li>
             </ol>
         </nav>
@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="card-title">Daftar Berita</h4>
-                            <a href="{{ route('admin.news.create') }}" class="btn btn-primary btn-sm">Tambah Berita</a>
+                            <a href="{{ route('news.create') }}" class="btn btn-primary btn-sm">Tambah Berita</a>
                         </div>
 
                         @if (session('success'))
@@ -55,9 +55,9 @@
                                             <td>{{ ucfirst($item->category) }}</td>
                                             <td>{{ Str::limit(strip_tags($item->deskripsi), 50) }}</td>
                                             <td>
-                                                <a href="{{ route('admin.news.edit', $item->id) }}"
+                                                <a href="{{ route('news.edit', $item->id) }}"
                                                     class="btn btn-warning btn-sm">Edit</a>
-                                                <form action="{{ route('admin.news.destroy', $item->id) }}" method="POST"
+                                                <form action="{{ route('news.destroy', $item->id) }}" method="POST"
                                                     style="display:inline-block;">
                                                     @csrf
                                                     @method('DELETE')
@@ -75,7 +75,7 @@
                         </div>
 
                         <div class="mt-3">
-                            {{ $news->links() }} <!-- Pagination links -->
+                            {{ $news->links('vendor.pagination.simple-bootstrap-5') }} <!-- Pagination links -->
                         </div>
 
                     </div>

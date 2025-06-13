@@ -10,4 +10,6 @@ class Member extends Model
 {
     use HasFactory, HasUuids;
      protected $guarded = [];
+
+     protected $table = "members";
 }

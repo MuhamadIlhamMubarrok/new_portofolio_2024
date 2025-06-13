@@ -4,7 +4,7 @@
         </div>
         <h1 class="text-white text-xl">CERTIFICATE</h1>
     </div>
-    <h1 class="font-Anek text-[24px] md:text-[32px] font-semibold mb-4 uppercase"
+    <h1 class="font-poppins text-[24px] md:text-[32px] font-semibold mb-4 uppercase"
         style="background: linear-gradient(178deg, #2300F9 25%, #009FF9 32%, #08FFF0 44%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;">
@@ -16,7 +16,7 @@
         breakpoints='{"640": {"slidesPerView": 1}, "768": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}}'>
 
     </swiper-container> --}}
-    <swiper-container data-aos="fade-left" class="mySwiper" effect="coverflow" grab-cursor="true" centered-slides="true"
+    <swiper-container class="mySwiper" effect="coverflow" grab-cursor="true" centered-slides="true"
         slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
         coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
         initial-slide="{{ intval(count($certificate) / 2) }}" loop="true">

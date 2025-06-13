@@ -14,7 +14,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Member</li>
             </ol>
         </nav>
@@ -24,7 +24,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.jabatan.update', $member->id) }}"
+                        <form method="POST" action="{{ route('member.update', $member->id) }}"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
@@ -37,9 +37,9 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="nama" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="nama" name="nama"
-                                    value="{{ $member->nama }}">
+                                <label for="jabatan" class="form-label">Jabatan</label>
+                                <input type="text" class="form-control" id="jabatan" name="jabatan"
+                                    value="{{ $member->jabatan }}">
                             </div>
 
                             <div class="mb-3">

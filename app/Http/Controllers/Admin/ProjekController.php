@@ -46,14 +46,14 @@ class ProjekController extends Controller
     {
         try {
             $this->projekService->createProjek($request);
-            return redirect()->route('admin.projek.index')->with('success', 'Projek Created successfully.');
+            return redirect()->route('projek.index')->with('success', 'Projek Created successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to Create Project: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.projek.index')->with($notification);
+            return redirect()->route('projek.index')->with($notification);
         }
     }
 
@@ -73,14 +73,14 @@ class ProjekController extends Controller
     {
         try {
             $this->projekService->updateProjek($request, $id);
-            return redirect()->route('admin.projek.index')->with('success', 'Project updated successfully.');
+            return redirect()->route('projek.index')->with('success', 'Project updated successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to update Project: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.projek.index')->with($notification);
+            return redirect()->route('projek.index')->with($notification);
         }
     }
 
@@ -94,14 +94,14 @@ class ProjekController extends Controller
                 'alert-type' => 'success',
             ];
 
-            return redirect()->route('admin.projek.index')->with($notification);
+            return redirect()->route('projek.index')->with($notification);
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to delete Project: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.projek.index')->with($notification);
+            return redirect()->route('projek.index')->with($notification);
         }
     }
 }

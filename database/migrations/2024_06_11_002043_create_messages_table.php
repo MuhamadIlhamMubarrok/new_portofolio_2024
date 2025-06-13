@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string("firstName")->nullable();
-            $table->string("lastName")->nullable();
+            $table->string("nama")->nullable();
+            $table->string("nama_instansi")->nullable();
+            $table->string("status")->nullable();
+            $table->string("nomer")->nullable();
             $table->string("email")->nullable();
-            $table->string("message")->nullable();
+            $table->text("deskripsi")->nullable();
             $table->timestamps();
         });
     }

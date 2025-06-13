@@ -2,26 +2,36 @@
 
     <div class="flex flex-col-reverse md:flex-row justify-center items-center md:gap-x-8 px-4 md:px-0">
         <div class="text-center md:text-left flex flex-col items-center md:items-start" data-aos="fade-up">
-            <h2 class="text-white text-[28px] md:text-[42px] font-Anek font-extrabold" data-aos="fade-up">Hello, It's
+            <h2 class="text-white text-[25px] md:text-[33px] font-poppins font-extrabold" data-aos="fade-up">Hello, It's
                 me</h2>
-            <h1 class="text-white text-[36px] md:text-[56px] font-Anek font-extrabold md:mb-0 mb-4">Muhamad <span
+            <h1 class="text-white text-[25px] md:text-[49px] font-poppins font-extrabold md:mt-[-15px] uppercase">
+                Muhamad
+                <span
                     style="background: linear-gradient(178deg, #2300F9 30%, #009FF9 47%, #08FFF0 74%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;">Ilham</span>
-                Mubarrok</h1>
-            <h2 class="text-white text-[24px] md:text-[38px] font-Anek font-semibold md:mb-0 mb-4">Fullstack Developer |
+                Mubarrok
+            </h1>
+            <h2 class="text-white text-[21px] md:text-[31px] font-poppins font-semibold md:mt-[-10px] md:mb-0 mb-4">
+                Fullstack Developer
+                |
                 Backend Specialist
             </h2>
-            <p class="text-white text-[18px] md:text-[28px] font-Anek font-normal mb-4">I'm a programmer, focusing on
+            <p
+                class="text-gray-300 bg-white/20 p-2 rounded-xl text-[15px] md:my-2 md:text-[22px] font-dmsans font-light mb-4">
+                I'm a programmer, focusing
+                on
                 both <span class="font-semibold uppercase"
                     style="background: linear-gradient(178deg, #2300F9 30%, #009FF9 47%, #08FFF0 64%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;">frontend</span>
+    -webkit-text-fill-color: transparent;">front
+                    end</span>
                 <br> and <span class=" font-semibold uppercase"
                     style="background: linear-gradient(178deg, #2300F9 30%, #009FF9 47%, #08FFF0 64%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;">backend
-                    development</span>, with
+    -webkit-text-fill-color: transparent;">back
+                    end
+                </span>development, with
                 a passion <br>
                 for building
                 robust backend
@@ -74,8 +84,8 @@
                     </svg>
                 </a>
             </div>
-            <a href="{{ asset('storage/cv/muhamad_ilham_cv.pdf') }}" download
-                class="flex flex-row justify-center items-center gap-x-4 text-white w-[180px] md:w-[240px] font-Anek bg-gradient-to-br from-[#2300F9] via-[#009FF9] to-[#08FFF0] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-full txt-[18px] px-4 md:px-5 py-2.5 text-center me-2 mb-4 md:mb-2">
+            <a href="{{ asset('storage/cv/muhamad_ilham.pdf') }}" download
+                class="flex flex-row justify-center items-center gap-x-4 text-white w-[180px] md:w-[240px] font-poppins bg-gradient-to-br from-[#2300F9] via-[#009FF9] to-[#08FFF0] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-full text-[12px] px-4 md:px-5 py-2.5 text-center me-2 mb-4 md:mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
                     class=" animate-bounce">
                     <path fill="#ffffff"
@@ -85,7 +95,7 @@
             </a>
         </div>
         <div class="mt-8 md:mt-0">
-            <img class="w-[240px] md:w-[400px] lg:w-[514px] h-auto" src="{{ asset('./assets/images/ilham.png') }}"
+            <img class="w-[240px] md:w-[400px] lg:w-[514px] h-auto" src="{{ asset('images/images/ilham.webp') }}"
                 alt="ilham" data-aos="fade-up">
         </div>
     </div>

@@ -21,23 +21,21 @@ Route::get('/project/{id}', [HomeController::class, 'DetailProject'])->name('hom
 Route::get('/', [HomeController::class, 'LandingPage'])->name('home');
 Route::get('/home/detail', [HomeController::class, 'DetailHome'])->name('home.detail');
 
-Route::name('admin.')
-    ->prefix('admin')
-    ->group(function () {
-        Route::middleware('auth')->group(function () {
-            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-            Route::resource('skill', SkillController::class);
-            Route::resource('client', ClientController::class);
-            Route::resource('count', CountController::class);
-            Route::resource('projek', ProjekController::class);
-            Route::resource('certificate', CertificateController::class);
-            Route::resource('news', NewsController::class);
-            Route::post('/admin/upload-image', [NewsController::class, 'upload'])->name('upload.image');
-            Route::resource('member', MemberController::class);
-            Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-                \UniSharp\LaravelFilemanager\Lfm::routes();
-            });
-        });
+Route::middleware('auth2')->prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/message', [DashboardController::class, 'message'])->name('dashboard.message');
+    Route::delete('/message/{id}', [DashboardController::class, 'destroyKontak'])->name('dashboard.message.destroy');
+    Route::resource('skill', SkillController::class);
+    Route::resource('client', ClientController::class);
+    Route::resource('count', CountController::class);
+    Route::resource('projek', ProjekController::class);
+    Route::resource('certificate', CertificateController::class);
+    Route::resource('news', NewsController::class);
+    Route::post('/admin/upload-image', [NewsController::class, 'upload'])->name('upload.image');
+    Route::resource('member', MemberController::class);
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
     });
+});
 
 require __DIR__ . '/auth.php';

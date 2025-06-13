@@ -3,7 +3,7 @@
         <div class="border-[1px] rounded-full border-white w-[25px] md:w-[50px] my-[15px] md:my-[25px]"></div>
         <h1 class="text-white text-xl">TRACK RECORD</h1>
     </div>
-    <h1 class="font-Anek text-[24px] md:text-[32px] font-semibold mb-4"
+    <h1 class="font-poppins text-[24px] md:text-[32px] font-semibold mb-4"
         style="background: linear-gradient(178deg, #2300F9 25%, #009FF9 32%, #08FFF0 44%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;">
@@ -13,10 +13,10 @@
             <div
                 class="flex flex-col justify-center items-center bg-[#F9F9F9]/15 shadow-custom-thick rounded-[16px] px-[20px] pt-[20px] pb-[40px] md:pb-[80px] md:w-[400px]">
                 <h1 id="count-{{ $index }}"
-                    class="font-inter custom-gradient-text  text-[48px] md:text-[96px] font-extrabold"
+                    class="font-dmsans custom-gradient-text  text-[48px] md:text-[96px] font-extrabold"
                     data-count="{{ $count->count }}">
                     {{ $count->count }}</h1>
-                <h1 class="font-inter font-semibold text-[16px] md:text-[24px] uppercase custom-gradient-text">
+                <h1 class="font-poppins font-semibold text-[16px] md:text-[24px] uppercase custom-gradient-text">
                     {{ $count->judul_count }}</h1>
                 <p class="font-inter text-justify text-white text-sm md:text-base">{{ $count->deskripsi }}</p>
             </div>
@@ -25,7 +25,7 @@
 
     <div class="flex items-center justify-center">
         <a href="/our-client"
-            class="text-white w-[180px] duration-200 md:w-[240px] border border-[2px] border-[#009FF9] hover:border hover:border-[#F9F9F9]/15 hover:rounded-full= hover:border-[2px] font-Anek hover:bg-gradient-to-br hover:from-[#2300F9] hover:via-[#009FF9] hover:to-[#08FFF0] font-bold rounded-full txt-[18px] px-4 md:px-5 py-2.5 text-center me-2 mb-4 md:mb-2">
+            class="text-white w-[180px] duration-200 md:w-[240px] border border-[2px] border-[#009FF9] hover:border hover:border-[#F9F9F9]/15 hover:rounded-full= hover:border-[2px] font-poppins hover:bg-gradient-to-br hover:from-[#2300F9] hover:via-[#009FF9] hover:to-[#08FFF0] font-bold rounded-full txt-[18px] px-4 md:px-5 py-2.5 text-center me-2 mb-4 md:mb-2">
             VIEW OUR CLIENT
         </a>
     </div>

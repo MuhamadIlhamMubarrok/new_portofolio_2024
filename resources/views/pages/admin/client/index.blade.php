@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Clients')
+@section('title', 'Daftar Clients')
 
 @section('content')
 
@@ -14,7 +14,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Clients</li>
             </ol>
         </nav>
@@ -36,10 +36,10 @@
                             </div>
                         @endif
 
-                        <a href="{{ route('admin.client.create') }}" class="btn btn-primary mb-3">Create Client</a>
+                        <a href="{{ route('client.create') }}" class="btn btn-primary mb-3">Create Client</a>
 
                         <!-- Search Form -->
-                        <form action="{{ route('admin.client.index') }}" method="GET" class="mb-3">
+                        <form action="{{ route('client.index') }}" method="GET" class="mb-3">
                             <div class="input-group">
                                 <input type="text" name="search" class="form-control" placeholder="Search clients"
                                     value="{{ old('search', $search) }}">
@@ -66,9 +66,9 @@
                                                 width="50"></td>
                                         <td>{{ $client->nama }}</td>
                                         <td>
-                                            <a href="{{ route('admin.client.edit', $client->id) }}"
+                                            <a href="{{ route('client.edit', $client->id) }}"
                                                 class="btn btn-warning">Edit</a>
-                                            <form action="{{ route('admin.client.destroy', $client->id) }}" method="POST"
+                                            <form action="{{ route('client.destroy', $client->id) }}" method="POST"
                                                 style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')

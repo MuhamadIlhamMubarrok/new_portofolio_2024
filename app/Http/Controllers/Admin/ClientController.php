@@ -24,6 +24,7 @@ class ClientController extends Controller
         })->orderBy('created_at', 'desc')->paginate(5);
 
         return view('pages.admin.client.index', compact('clients', 'search'));
+
     }
 
     public function create()
@@ -35,7 +36,7 @@ class ClientController extends Controller
     {
         try {
             $this->clientService->createClient($request);
-            return redirect()->route('admin.client.index')->with('success', 'Client created successfully.');
+            return redirect()->route('client.index')->with('success', 'Client created successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to create Client: ' . $e->getMessage(),
@@ -55,14 +56,14 @@ class ClientController extends Controller
     {
         try {
             $this->clientService->updateClient($request, $id);
-            return redirect()->route('admin.client.index')->with('success', 'Client updated successfully.');
+            return redirect()->route('client.index')->with('success', 'Client updated successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to update Client: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.client.index')->with($notification);
+            return redirect()->route('client.index')->with($notification);
         }
     }
 
@@ -76,14 +77,14 @@ class ClientController extends Controller
                 'alert-type' => 'success',
             ];
 
-            return redirect()->route('admin.client.index')->with($notification);
+            return redirect()->route('client.index')->with($notification);
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to delete Client: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.client.index')->with($notification);
+            return redirect()->route('client.index')->with($notification);
         }
     }
 }

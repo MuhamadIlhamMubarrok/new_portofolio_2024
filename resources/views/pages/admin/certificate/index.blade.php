@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Certificate')
+@section('title', 'Daftar Certificate')
 
 @section('content')
 
@@ -14,7 +14,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Certificate</li>
             </ol>
         </nav>
@@ -36,10 +36,10 @@
                             </div>
                         @endif
 
-                        <a href="{{ route('admin.certificate.create') }}" class="btn btn-primary mb-3">Create Certficate</a>
+                        <a href="{{ route('certificate.create') }}" class="btn btn-primary mb-3">Create Certficate</a>
 
                         <!-- Search Form -->
-                        {{-- <form action="{{ route('admin.certificate.index') }}" method="GET" class="mb-3">
+                        {{-- <form action="{{ route('certificate.index') }}" method="GET" class="mb-3">
                             <div class="input-group">
                                 <input type="text" name="search" class="form-control" placeholder="Search Certficate"
                                     value="{{ old('search', $search) }}">
@@ -65,10 +65,10 @@
                                         <td><img src="{{ asset('storage/logo_certificate/' . $item->gambar) }}"
                                                 alt="Gambar" width="50"></td>
                                         <td>
-                                            <a href="{{ route('admin.certificate.edit', $item->id) }}"
+                                            <a href="{{ route('certificate.edit', $item->id) }}"
                                                 class="btn btn-warning">Edit</a>
-                                            <form action="{{ route('admin.certificate.destroy', $item->id) }}"
-                                                method="POST" style="display:inline-block;">
+                                            <form action="{{ route('certificate.destroy', $item->id) }}" method="POST"
+                                                style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>

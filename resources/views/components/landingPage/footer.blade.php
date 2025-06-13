@@ -1,41 +1,52 @@
-<div class="h-auto w-full bg-cover bg-bottom bg-no-repeat flex flex-col md:flex-row px-4 py-6 md:px-8 md:py-10 lg:px-20 lg:py-15 gap-y-4"
-    style="background-image: url('{{ asset('./assets/background/footer.png') }}');">
-    <div class="md:w-[60%] flex flex-col gap-y-5">
-        <img src="{{ asset('./assets/images/favicon.png') }}" alt="logo aing" class="h-[50px] w-[80px]">
-        <div class="flex flex-col md:flex-row text-white gap-y-5 md:gap-x-[200px]">
-            <div class="text-start">
-                <h1 class="font-bold font-Anek text-base md:text-lg lg:text-xl">Portofolio - Muhamad Ilham Mubarrok</h1>
-                <p class="w-full md:w-[400px] text-sm md:text-base lg:text-lg">Aku dan hiruk pikuk perjalan ini adalah
-                    kalibrasi frequensi tanpa arogansi</p>
-            </div>
-            <div>
-                <h1 class="text-base font-bold font-Anek md:text-lg lg:text-xl">Navbar</h1>
-                <ul class="text-sm md:text-base lg:text-lg">
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Our Client</li>
-                    <li>News</li>
-                </ul>
-            </div>
-        </div>
-        <div class="flex flex-col md:flex-row text-white gap-y-5 md:gap-x-10">
-            <div class="text-start">
-                <h1 class="font-bold font-Anek text-base md:text-lg lg:text-xl">Telephone</h1>
-                <p class="text-sm md:text-base lg:text-lg">08312213123</p>
-            </div>
-            <div>
-                <h1 class="font-bold font-Anek text-base md:text-lg lg:text-xl">WhatsApp</h1>
-                <p class="text-sm md:text-base lg:text-lg">08312213123</p>
-            </div>
-            <div>
-                <h1 class="font-bold font-Anek text-base md:text-lg lg:text-xl">Email</h1>
-                <p class="text-sm md:text-base lg:text-lg">milhammubarrok@gmail.com</p>
+@if (Request::path() !== 'contact-us')
+    <div class="w-full h-[60px] py-6 flex items-center overflow-hidden bg-[#051844]/30 py-[40px]" data-aos="fade-down">
+        <div class="marquee-wrapper">
+            <div class="marquee-content flex flex-row items-center">
+                @foreach ($client as $index => $clients)
+                    <img src="{{ asset('./storage/logo_client/' . $clients->gambar) }}" alt="Gambar"
+                        class="h-[40px] w-auto md:h-[50px] lg:h-[60px]">
+                @endforeach
+                <!-- Repeated for seamless looping -->
+                @foreach ($client as $index => $clients)
+                    <img src="{{ asset('./storage/logo_client/' . $clients->gambar) }}" alt="Gambar"
+                        class="h-[40px] w-auto md:h-[50px] lg:h-[60px]">
+                @endforeach
+                @foreach ($client as $index => $clients)
+                    <img src="{{ asset('./storage/logo_client/' . $clients->gambar) }}" alt="Gambar"
+                        class="h-[40px] w-auto md:h-[50px] lg:h-[60px]">
+                @endforeach
+                @foreach ($client as $index => $clients)
+                    <img src="{{ asset('./storage/logo_client/' . $clients->gambar) }}" alt="Gambar"
+                        class="h-[40px] w-auto md:h-[50px] lg:h-[60px]">
+                @endforeach
+                @foreach ($client as $index => $clients)
+                    <img src="{{ asset('./storage/logo_client/' . $clients->gambar) }}" alt="Gambar"
+                        class="h-[40px] w-auto md:h-[50px] lg:h-[60px]">
+                @endforeach
             </div>
         </div>
-        <div class="flex flex-col text-white gap-y-4">
-            <h1 class="font-semibold text-base md:text-lg lg:text-xl">Sosial Media</h1>
-            <div class="flex flex-row justify-center md:justify-start items-center gap-x-4 mb-6">
-                {{-- IG --}}
+    </div>
+@endif
+
+<div class="min-h-auto w-full bg-cover bg-bottom bg-no-repeat flex flex-col md:flex-row px-4 py-6 md:px-8 md:py-10 lg:px-20 lg:py-15 gap-y-4"
+    style="background-image: url('{{ asset('./images/background/footer.webp') }}');">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-y-5 md:gap-x-10 w-full">
+        <!-- Logo and Description -->
+        <div class="flex flex-col items-start text-white text-start">
+            <img src="{{ asset('./images/logo/logo.png') }}" alt="logo aing" class="h-[50px] w-[80px]">
+            <div>
+                <h1 class="font-bold font-poppins text-base md:text-lg lg:text-xl">Portofolio - Muhamad Ilham Mubarrok
+                </h1>
+                <p class="w-full md:w-[400px] text-sm md:text-base lg:text-lg">Aku dan hiruk pikuk perjalanan ini adalah
+                    kalibrasi frekuensi tanpa arogansi</p>
+            </div>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="flex flex-col items-start justify-start text-white gap-y-2 mt-12">
+            <h1 class="font-bold font-poppins text-base md:text-lg lg:text-xl">Sosial Media</h1>
+            <div class="flex flex-row justify-start items-center gap-x-4">
+                <!-- Instagram -->
                 <a href="https://www.instagram.com/milhamm._/" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="35" height="35"
                         viewBox="0 0 24 24">
@@ -43,7 +54,7 @@
                             d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
                     </svg>
                 </a>
-                {{-- TWITTER --}}
+                <!-- Twitter -->
                 <a href="" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="35" height="35"
                         viewBox="-2 -2 24 24">
@@ -55,7 +66,7 @@
                         </g>
                     </svg>
                 </a>
-                {{-- LINKEDIN --}}
+                <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/muhamad-ilham-mubarrok-ab67462a0/" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="35" height="35"
                         viewBox="-2 -2 24 24">
@@ -67,7 +78,7 @@
                         </g>
                     </svg>
                 </a>
-                {{-- FACEBOOK --}}
+                <!-- Facebook -->
                 <a href="" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-pulse" width="35" height="35"
                         viewBox="-2 -2 24 24">
@@ -82,7 +93,44 @@
             </div>
         </div>
     </div>
-    <div class="flex md:items-end md:justify-end items-start justify-center">
+
+    <!-- Copyright -->
+    <div class="flex justify-center md:justify-end items-center w-full mt-4 md:mt-0">
         <p class="text-white text-xs md:text-sm lg:text-base text-center">Copyright © 2024 - Muhamad Ilham Mubarrok</p>
     </div>
 </div>
+
+<style>
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .marquee-wrapper {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .marquee-content {
+        display: flex;
+        animation: marquee 16s linear infinite;
+    }
+
+    .marquee-content img {
+        margin-right: 100px;
+        /* Spacing antar gambar */
+    }
+
+    /* Responsif untuk mobile dan tablet */
+    @media (max-width: 768px) {
+        .marquee-content img {
+            margin-right: 70px;
+            /* Spacing lebih kecil untuk layar kecil */
+        }
+    }
+</style>

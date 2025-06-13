@@ -33,7 +33,7 @@ class CertificateController extends Controller
     {
         try {
             $this->certificateService->createCertificate($request);
-            return redirect()->route('admin.certificate.index')->with('success', 'Certificate created successfully.');
+            return redirect()->route('certificate.index')->with('success', 'Certificate created successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to create Certificate: ' . $e->getMessage(),
@@ -53,14 +53,14 @@ class CertificateController extends Controller
     {
         try {
             $this->certificateService->updateCertificate($request, $id);
-            return redirect()->route('admin.certificate.index')->with('success', 'Certificate updated successfully.');
+            return redirect()->route('certificate.index')->with('success', 'Certificate updated successfully.');
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to update Certificate: ' . $e->getMessage(),
                 'alert-type' => 'error',
             ];
 
-            return redirect()->route('admin.certificate.index')->with($notification);
+            return redirect()->route('certificate.index')->with($notification);
         }
     }
 
@@ -74,7 +74,7 @@ class CertificateController extends Controller
                 'alert-type' => 'success',
             ];
 
-            return redirect()->route('admin.certificate.index')->with($notification);
+            return redirect()->route('certificate.index')->with($notification);
         } catch (\Exception $e) {
             $notification = [
                 'message' => 'Failed to delete Certificate: ' . $e->getMessage(),
