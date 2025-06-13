@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description"
-        content="Muhamad Ilham Mubarrok is a skilled Fullstack Developer specializing in backend solutions with a passion for designing seamless, user-friendly systems. With experience in both front-end and back-end development, he brings high-quality projects to life, ensuring client satisfaction and driving success through innovative tech solutions." />
+    <meta name="description" content="@yield('meta_description')" />
     <meta name="keywords"
         content="Muhamad Ilham Mubarrok, Fullstack Developer, Backend Developer, Web Development, Frontend and Backend Solutions, Custom Software Development,
          API Development, Web Applications, User-friendly Interfaces, Technology Solutions, High-quality Web Development, Tech Expertise, Programming, IDN Polytechnic Graduate, politeknik IDN,
@@ -17,19 +16,17 @@
     <meta property="og:title" content="Muhamad Ilham Mubarrok - Fullstack Developer">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://milhammubarrok.my.id">
-    <meta property="og:image" content="https://milhammubarrok.my.id/images/background/banner.png">
+    <meta property="og:image" content="@yield('og_image')">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:description"
-        content="Muhamad Ilham Mubarrok adalah Fullstack Developer yang berfokus pada solusi backend dan pengembangan web yang user-friendly. Dengan pengalaman dalam pengembangan aplikasi web dan API, saya berkomitmen untuk menciptakan proyek-proyek teknologi inovatif yang memenuhi kebutuhan klien. Temukan portofolio saya dan lihat bagaimana saya membantu membangun sistem yang efisien dan berkualitas tinggi.">
+    <meta property="og:description" content="@yield('meta_description')">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:creator" content="@milhammubarrok">
     <meta name="twitter:site" content="@milhammubarrok">
     <meta name="twitter:title" content="Muhamad Ilham Mubarrok - Fullstack Developer">
-    <meta name="twitter:description"
-        content="Lihat portofolio Muhamad Ilham Mubarrok, Fullstack Developer dengan pengalaman dalam pengembangan web dan solusi backend. Jelajahi proyek-proyek saya dan lihat bagaimana saya mengimplementasikan teknologi terkini untuk membangun sistem yang efisien dan user-friendly.">
+    <meta name="twitter:description" content="@yield('meta_description')">
     <meta name="twitter:domain" content="https://milhammubarrok.my.id/">
-    <meta name="twitter:image:src" content="https://milhammubarrok.my.id/images/background/banner.png">
+    <meta name="twitter:image:src" content="@yield('og_image')">
     <meta name="author" content="Muhamad Ilham Mubarrok" />
     <meta http-equiv="cache-control" content="public" />
     <meta name="application-name" content="Muhamad Ilham Mubarrok - Fullstack Developer" />

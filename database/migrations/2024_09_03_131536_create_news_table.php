@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string("banner");
+             $table->string('alt_banner')->nullable();
             $table->enum("category", ["work experience", "hobby", "achievment", "organizational experience"])->nullable();
             $table->string("title");
             $table->text("deskripsi");
+            $table->text('meta_description')->nullable();
             $table->timestamps();
         });
     }

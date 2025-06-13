@@ -26,7 +26,9 @@ class ProjekService
         
         $data = [
             'nama' => $request->nama,
+            'alt_banner' => $request->alt_banner,
             'deskripsi' => $request->deskripsi,
+            'meta_description' => $request->meta_description,
             'memberId' => $request->members,
             'skillId' => $request->skillIds,
             'category' => $request->category, 
@@ -58,10 +60,12 @@ class ProjekService
 
         $data = [
             'nama' => $request->nama,
+            'alt_banner' => $request->alt_banner,
             'deskripsi' => $request->deskripsi,
+            'meta_description' => $request->meta_description,
             'memberId' => $request->members,
             'skillId' => $request->skillIds,
-            'category' => $request->category,
+            'category' => $request->category, 
         ];
 
         if ($request->hasFile('banner')) {

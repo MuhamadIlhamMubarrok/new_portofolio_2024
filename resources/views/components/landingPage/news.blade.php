@@ -11,7 +11,7 @@
                 data-aos="fade-up">
                 <div class="relative flex flex-row items-center justify-start w-full">
                     <img class="rounded-t-[24px] h-[175px] w-full object-cover object-center"
-                        src="{{ asset('./storage/banner_news/' . $item->banner) }}">
+                        src="{{ asset('./storage/banner_news/' . $item->banner) }} " alt="{{ $item->alt_banner }}">
                     <h2
                         class="absolute bottom-2 right-2 text-white font-poppins text-[14px] bg-[#121440] rounded-full w-max px-[13px] py-1">
                         {{ $item->category }}

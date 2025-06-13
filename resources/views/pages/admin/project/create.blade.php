@@ -36,6 +36,10 @@
                     <input type="file" class="form-control dropify" id="banner" name="banner">
                 </div>
                 <div class="mb-3">
+                    <label for="alt_banner" class="form-label">Alt Banner</label>
+                    <input type="text" class="form-control" id="alt_banner" name="alt_banner">
+                </div>
+                <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>
                     <input type="text" class="form-control" id="nama" name="nama">
                 </div>
@@ -78,6 +82,10 @@
                 <div class="mb-3">
                     <label for="deskripsi" class="form-label">Deskripsi</label>
                     <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="meta_description" class="form-label">Meta Description</label>
+                    <textarea class="form-control" id="meta_description" name="meta_description" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>

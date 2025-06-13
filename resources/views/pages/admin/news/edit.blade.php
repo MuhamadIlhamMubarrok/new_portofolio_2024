@@ -36,6 +36,12 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="alt_banner" class="form-label">Alt Banner</label>
+                                <input type="text" class="form-control" id="alt_banner" name="alt_banner"
+                                    value="{{ $news->alt_banner }}">
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="title" class="form-label">Judul</label>
                                 <input type="text" class="form-control" id="title" name="title"
                                     value="{{ $news->title }}">
@@ -56,6 +62,11 @@
                             <div class="mb-3">
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
                                 <textarea class="form-control" id="deskripsi" name="deskripsi">{{ $news->deskripsi }}</textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="meta_description" class="form-label">Meta Description</label>
+                                <textarea class="form-control" id="meta_description" name="meta_description">{{ $news->meta_description }}</textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary me-2">Submit</button>

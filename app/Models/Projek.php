@@ -10,7 +10,7 @@ class Projek extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $fillable = ['banner', 'nama', 'deskripsi', 'memberId', 'skillId', 'category'];
+    protected $fillable = ['banner','alt_banner', 'meta_description', 'nama', 'deskripsi', 'memberId', 'skillId', 'category'];
 
     // Tambahkan casts untuk mengonversi JSON ke array
     protected $casts = [

@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="/">
-            <img src="{{ asset('./assets/images/favicon.png') }}" class="w-50 h-40" alt="PT.AKM">
+            <img src="{{ asset('./images/logo/logo.png') }}" class="w-50 h-40" alt="Ilham Web Developer">
         </a>
         <div class="sidebar-toggler not-active">
             <span></span>

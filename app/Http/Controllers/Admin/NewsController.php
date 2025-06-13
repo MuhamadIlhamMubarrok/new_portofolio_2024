@@ -54,12 +54,14 @@ class NewsController extends Controller
             $banner->storeAs('public/banner_news/', $banner->hashName());
             $bannerPath = $banner->hashName();
         }
-
+        // @dd($request->all());
         News::create([
             'banner' => $bannerPath,
             'title' => $request->input('title'),
             'category' => $request->input('category'),
             'deskripsi' => $request->input('deskripsi'),
+            'meta_description' => $request->input('meta_description'),
+            'alt_banner' => $request->input('alt_banner'),
         ]);
 
         return redirect()->route('news.index')->with('success', 'Berita berhasil ditambahkan.');
@@ -107,6 +109,8 @@ class NewsController extends Controller
             'title' => $request->input('title'),
             'category' => $request->input('category'),
             'deskripsi' => $request->input('deskripsi'),
+            'meta_description' => $request->input('meta_description'),
+            'alt_banner' => $request->input('alt_banner'),
         ]);
 
         return redirect()->route('news.index')->with('success', 'Berita berhasil diperbarui.');

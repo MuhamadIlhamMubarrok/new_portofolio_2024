@@ -27,6 +27,11 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="alt_banner" class="form-label">Alt alt_banner</label>
+                                <input type="text" class="form-control" id="alt_banner" name="banner_alt">
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="title" class="form-label">Judul</label>
                                 <input type="text" class="form-control" id="title" name="title">
                             </div>
@@ -44,6 +49,13 @@
                             <div class="mb-3">
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
                                 <textarea class="form-control" id="deskripsi" name="deskripsi" style="height: 400px;"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="meta_description" class="form-label">Meta Deskripsion</label>
+                                <textarea class="form-control" id="meta_description" name="meta_description" rows="4"
+                                    placeholder="Tulis deskripsi meta di sini..."></textarea>
+
                             </div>
 
                             <button type="submit" class="btn btn-primary me-2">Submit</button>

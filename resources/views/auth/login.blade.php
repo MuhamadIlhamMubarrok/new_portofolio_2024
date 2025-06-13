@@ -5,10 +5,11 @@
 @section('content')
 
     <div
-        class="flex h-screen w-full bg-no-repeat bg-right bg-cover bg-[url('{{ asset('./images/background/landingpage3.png') }}')]">
-        <div class="hidden md:block w-[50%] h-full bg-[#8394AC]"
+        class="flex h-screen w-full bg-no-repeat bg-right bg-cover bg-black">
+        <div class="hidden md:block w-[50%] h-full bg-gradient-to-br from-[#2300F9]/40 via-[#009FF9]/40 to-[#08FFF0]/40"
             style="clip-path: ellipse(80% 100% at 10% 50%); box-shadow: 10px 0 15px 100px #ffff">
-            <div class="flex flex-col w-full h-full bg-[#00214E]" style="clip-path: ellipse(80% 90% at 10% 50%);">
+            <div class="flex flex-col w-full h-full bg-gradient-to-br from-[#2300F9]/20 via-[#009FF9]/20 to-[#08FFF0]/20 backdrop-blur-md "
+                style="clip-path: ellipse(80% 90% at 10% 50%);">
                 {{-- logo --}}
                 <div class="flex flex-row items-center justify-start ms-[60px] my-[40px] gap-x-3">
                     <img src="{{ asset('./images/logo/logo.png') }}" class="w-auto h-[40px]" alt="">
@@ -18,16 +19,17 @@
                 {{-- tengah --}}
                 <div class="w-full ms-[20px] ms-[70px] mt-[50px]">
                     <img class="w-[400px]" src="{{ asset('./images/asset/illustration.svg') }}" alt="">
-                    <h1 class="text-[40px] text-white font-bold pe-[300px] mt-[23px]" style="font-family: 'Poppins';">A few
+                    <h1 class="text-[40px] text-white font-bold pe-[300px] mt-[23px] uppercase font-poppins"
+                        style="font-family: 'Poppins';">A few
                         more clicks to
                         sign in to your account.</h1>
-                    <p class="text-[20px] text-[#C6CDD7] pe-[300px]" style="font-family: 'Poppins';">Manage all your collage
+                    <p class="text-[20px] text-[#eaebee] pe-[300px]" style="font-family: 'Poppins';">Manage all your collage
                         in one place</p>
                 </div>
             </div>
         </div>
 
-        <div class="flex-1 md:ps-[50px] ps-0 h-full">
+        <div class="flex-1 md:ps-[50px] ps-0 h-full bg-black">
             <div id="form-container"
                 class="w-[100%] flex flex-col justify-center items-center h-full pt-8 pb-12 px-6 transition-all duration-500 ease-in-out">
                 <div id="login-form" class="w-full">

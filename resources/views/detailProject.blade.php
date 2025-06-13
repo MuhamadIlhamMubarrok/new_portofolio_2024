@@ -1,6 +1,9 @@
 @extends('layouts.blog')
 
 @section('title', $project->nama)
+@section('meta_description', $project->meta_description)
+@section('og_image', asset('storage/fotoProject/' . $project->gambar))
+
 
 @section('content')
     <div class="flex flex-col justify-center items-center py-16 mt-12">
@@ -16,7 +19,7 @@
 
             <img src="{{ asset('./storage/fotoProject/' . $project->banner) }}"
                 class="w-full h-auto max-h-[600px] object-cover object-center rounded-xl shadow-xl transition-transform duration-500 hover:scale-105 border-[4px] border-transparent hover:border-[#08FFF0]"
-                alt="foto projek">
+                alt="{{ $project->alt_banner }}">
 
             <div class="flex flex-col lg:flex-row lg:justify-between mt-10 gap-6">
                 <!-- Deskripsi -->
@@ -89,7 +92,7 @@
                 <swiper-slide
                     class="bg-[#F9F9F9]/15 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
                     <div class="relative">
-                        <img src="{{ asset('./storage/fotoProject/' . $item->banner) }}"
+                        <img src="{{ asset('./storage/fotoProject/' . $item->banner) }}" alt="{{ $item->alt_banner }}"
                             class="w-full h-[200px] object-cover">
                         <span class="absolute bottom-2 right-2 bg-[#121440] text-white text-sm px-3 py-1 rounded-full">
                             {{ $item->category }}
