@@ -20,14 +20,20 @@
 
             <div class="flex flex-col lg:flex-row lg:justify-between mt-10 gap-6">
                 <!-- Deskripsi -->
-                <div class="w-full lg:w-[60%] cke-editor max-w-none">
+                <div
+                    class="bg-gradient-to-br from-[#2300F9]/10 via-[#009FF9]/10 to-[#08FFF0]/10 
+            backdrop-blur-md rounded-[24px] shadow-[0_0_30px_#08FFF033] 
+            border border-[#08FFF0]/20 transition-all duration-500 hover:shadow-[0_0_50px_#08FFF088] w-full lg:w-[60%] cke-editor max-w-none">
                     {!! $project->deskripsi !!}
                 </div>
 
                 <!-- Info Tambahan -->
                 <div class="w-full lg:w-[35%] space-y-6">
                     <!-- Skills -->
-                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-md" data-aos="fade-left">
+                    <div class="bg-gradient-to-br from-[#2300F9]/10 via-[#009FF9]/10 to-[#08FFF0]/10 
+            backdrop-blur-md rounded-[24px] shadow-[0_0_30px_#08FFF033] 
+            border border-[#08FFF0]/20 transition-all duration-500 hover:shadow-[0_0_50px_#08FFF088] p-6 rounded-xl shadow-md"
+                        data-aos="fade-left">
                         <h2
                             class="text-[18px] font-bold font-poppins mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2300F9] via-[#009FF9] to-[#08FFF0]">
                             Programming Languages Used:
@@ -41,7 +47,10 @@
                     </div>
 
                     <!-- Members -->
-                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-md" data-aos="fade-left">
+                    <div class="bg-gradient-to-br from-[#2300F9]/10 via-[#009FF9]/10 to-[#08FFF0]/10 
+            backdrop-blur-md rounded-[24px] shadow-[0_0_30px_#08FFF033] 
+            border border-[#08FFF0]/20 transition-all duration-500 hover:shadow-[0_0_50px_#08FFF088] p-6 rounded-xl shadow-md"
+                        data-aos="fade-left">
                         <h2
                             class="text-[18px] font-bold font-poppins mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2300F9] via-[#009FF9] to-[#08FFF0]">
                             Participating Team Members:

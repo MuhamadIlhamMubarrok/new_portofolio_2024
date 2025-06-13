@@ -231,7 +231,10 @@
                     style="background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.05) 100%);">
                 </div>
             </div>
-            <div class=" flex flex-col cke-editor bg-white/20 p-6 mt-6 rounded-lg" data-aos="fade-up">
+            <div class=" flex flex-col cke-editor bg-gradient-to-br from-[#2300F9]/10 via-[#009FF9]/10 to-[#08FFF0]/10 
+            backdrop-blur-md p-6 mt-6 rounded-[24px] shadow-[0_0_30px_#08FFF033] 
+            border border-[#08FFF0]/20 transition-all duration-500 hover:shadow-[0_0_50px_#08FFF088]"
+                data-aos="fade-up">
                 <p class="font-dmsans">
                     {!! $news->deskripsi !!}
                 </p>
@@ -274,13 +277,15 @@
                             {{ $item->title }}
                         </h2>
                         <p class="font-inter text-[#F9F9F9] text-sm leading-relaxed min-h-[60px]">
-                            {{ Str::limit(strip_tags($item->deskripsi), 50) }}...
+                            {{ Str::limit(strip_tags($item->deskripsi), 100) }}...
                         </p>
 
                         <!-- Button -->
                         <a href="/news/{{ $item->id }}"
-                            class="inline-block text-center text-white text-xs font-poppins font-semibold px-6 py-2 rounded-full border-2 border-[#009FF9] transition-all duration-300 
-                            hover:bg-gradient-to-br hover:from-[#2300F9] hover:via-[#009FF9] hover:to-[#08FFF0] hover:text-black hover:shadow-md">
+                            class="w-[180px] md:w-[100px] px-4 md:px-1 py-2.5 text-[10px] text-white text-center font-poppins font-bold
+                                rounded-full border-2 border-[#009FF9] transition-all duration-300
+                                bg-transparent hover:bg-gradient-to-br hover:from-[#2300F9] hover:via-[#009FF9] hover:to-[#08FFF0]
+                                shadow-[0_0_10px_#009FF944] hover:shadow-[0_0_20px_#08FFF0AA]">
                             LEARN MORE
                         </a>
                     </div>
