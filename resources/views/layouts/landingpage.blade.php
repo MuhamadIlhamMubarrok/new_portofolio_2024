@@ -58,24 +58,27 @@
     <link href="{{ asset('./css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="icon" href="{{ asset('./assets/images/favicon.png') }}" type="image.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-        <style>
-            @keyframes bounce-x {
-                0%, 100% {
-                    transform: translateX(0);
-                }
-                50% {
-                    transform: translateX(6px);
-                }
+    <style>
+        @keyframes bounce-x {
+
+            0%,
+            100% {
+                transform: translateX(0);
             }
-            .animate-bounce-x {
-                animation: bounce-x 1s infinite;
+
+            50% {
+                transform: translateX(6px);
             }
-            </style>
+        }
+
+        .animate-bounce-x {
+            animation: bounce-x 1s infinite;
+        }
+    </style>
 
 </head>
 
@@ -130,7 +133,7 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
 
     <!-- App JS -->
     <script src="./js/showimage.js"></script>

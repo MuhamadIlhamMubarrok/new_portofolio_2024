@@ -7,6 +7,7 @@ use App\Models\Projek;
 use App\Models\SubGambarProject;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProjekService
 {
@@ -23,6 +24,15 @@ class ProjekService
             
         ]);
 
+        $slug = Str::slug($request->input('nama'));
+        $originalSlug = $slug;
+        $counter = 1;
+
+        // Cek kalau slug sudah ada, tambahkan angka unik di belakang
+        while (Projek::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter++;
+        }
+
         
         $data = [
             'nama' => $request->nama,
@@ -31,6 +41,7 @@ class ProjekService
             'meta_description' => $request->meta_description,
             'memberId' => $request->members,
             'skillId' => $request->skillIds,
+            'slug' => $slug,
             'category' => $request->category, 
         ];
 
@@ -52,11 +63,20 @@ class ProjekService
             'deskripsi' => 'required|string',
             'memberId' => 'array',
             'skillId' => 'array', 
-            'banner' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'banner' => 'nullable|image|mimes:webp|max:2048',
             'category' => 'required',
         ]);
 
         $projek = Projek::findOrFail($id);
+
+        $slug = Str::slug($request->input('title'));
+        $originalSlug = $slug;
+        $counter = 1;
+
+        // Cek kalau slug sudah ada, tambahkan angka unik di belakang
+        while (Projek::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter++;
+        }
 
         $data = [
             'nama' => $request->nama,
@@ -65,6 +85,7 @@ class ProjekService
             'meta_description' => $request->meta_description,
             'memberId' => $request->members,
             'skillId' => $request->skillIds,
+            'slug' => $slug,
             'category' => $request->category, 
         ];
 

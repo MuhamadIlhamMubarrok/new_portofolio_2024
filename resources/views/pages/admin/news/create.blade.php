@@ -27,8 +27,8 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="alt_banner" class="form-label">Alt alt_banner</label>
-                                <input type="text" class="form-control" id="alt_banner" name="banner_alt">
+                                <label for="alt_banner" class="form-label">Alt Banner</label>
+                                <input type="text" class="form-control" id="alt_banner" name="alt_banner">
                             </div>
 
                             <div class="mb-3">

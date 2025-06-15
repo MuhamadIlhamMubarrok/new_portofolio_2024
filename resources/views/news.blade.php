@@ -61,7 +61,7 @@
                             </div>
                             <p class="font-inter text-[#F9F9F9] font-light">
                                 {{ Str::limit(strip_tags($item->deskripsi), 100) }}...</p>
-                            <a href="/news/{{ $item->id }}"
+                            <a href="/news/{{ $item->slug }}"
                                 class="w-[180px] md:w-[100px] px-4 md:px-1 py-2.5 text-[10px] text-white text-center font-poppins font-bold
                                     rounded-full border-2 border-[#009FF9] transition-all duration-300
                                     bg-transparent hover:bg-gradient-to-br hover:from-[#2300F9] hover:via-[#009FF9] hover:to-[#08FFF0]

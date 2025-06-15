@@ -2,7 +2,7 @@
 
 @section('title', $news->title)
 @section('meta_description', $news->meta_description)
-@section('og_image', asset('storage/banner_news/' . $berita->banner))
+@section('og_image', asset('storage/banner_news/' . $news->banner))
 
 
 @section('content')

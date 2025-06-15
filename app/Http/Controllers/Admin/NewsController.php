@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 class NewsController extends Controller
 {
@@ -47,6 +49,15 @@ class NewsController extends Controller
             'deskripsi' => 'required|string',
         ]);
 
+        $slug = Str::slug($request->input('title'));
+        $originalSlug = $slug;
+        $counter = 1;
+
+        // Cek kalau slug sudah ada, tambahkan angka unik di belakang
+        while (News::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter++;
+        }
+
         // Handle the banner upload
         $bannerPath = null;
         if ($request->hasFile('banner')) {
@@ -58,6 +69,7 @@ class NewsController extends Controller
         News::create([
             'banner' => $bannerPath,
             'title' => $request->input('title'),
+            'slug' => $slug,
             'category' => $request->input('category'),
             'deskripsi' => $request->input('deskripsi'),
             'meta_description' => $request->input('meta_description'),
@@ -85,14 +97,14 @@ class NewsController extends Controller
     public function update(Request $request, string $id)
     {
         $news = News::findOrFail($id);
-        // $request->validate([
-        //     'banner' => 'nullable|image',
-        //     'title' => 'required|string|max:255',
-        //     'category' => 'required|in:work experience,hobby,activity',
-        //     'deskripsi' => 'required|string',
-        // ]);
-        // @dd($request->all());
+        $slug = Str::slug($request->input('title'));
+        $originalSlug = $slug;
+        $counter = 1;
 
+        // Cek kalau slug sudah ada, tambahkan angka unik di belakang
+        while (News::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter++;
+        }
         // Handle the banner upload
         if ($request->hasFile('banner')) {
             // Delete the old banner if it exists
@@ -109,6 +121,7 @@ class NewsController extends Controller
             'title' => $request->input('title'),
             'category' => $request->input('category'),
             'deskripsi' => $request->input('deskripsi'),
+            'slug' => $slug,
             'meta_description' => $request->input('meta_description'),
             'alt_banner' => $request->input('alt_banner'),
         ]);

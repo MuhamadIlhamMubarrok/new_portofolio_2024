@@ -16,8 +16,8 @@ Route::get('/contact-us', [HomeController::class, 'ContactUs'])->name('home.cont
 Route::post('/contact-us', [HomeController::class, 'submitContactForm'])->name('submitContactForm');
 Route::get('/our-client', [HomeController::class, 'OurClient'])->name('home.ourclients');
 Route::get('/news', [HomeController::class, 'news'])->name('home.news');
-Route::get('/news/{id}', [HomeController::class, 'DetailNews'])->name('home.news.detail');
-Route::get('/project/{id}', [HomeController::class, 'DetailProject'])->name('home.project.detail');
+Route::get('/news/{slug}', [HomeController::class, 'DetailNews'])->name('home.news.detail');
+Route::get('/project/{slug}', [HomeController::class, 'DetailProject'])->name('home.project.detail');
 Route::get('/', [HomeController::class, 'LandingPage'])->name('home');
 Route::get('/home/detail', [HomeController::class, 'DetailHome'])->name('home.detail');
 

@@ -105,7 +105,7 @@
                         <p class="text-white text-sm font-light">
                             {{ Str::limit(strip_tags($item->deskripsi), 100) }}
                         </p>
-                        <a href="/project/{{ $item->id }}"
+                        <a href="/project/{{ $item->slug }}"
                             class="inline-block text-white font-bold text-sm px-4 py-2 mt-2 rounded-full border border-[#009FF9] hover:bg-gradient-to-br from-[#2300F9] via-[#009FF9] to-[#08FFF0] transition-all">
                             LEARN MORE
                         </a>

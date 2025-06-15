@@ -85,11 +85,11 @@ class HomeController extends Controller
         return view('landingpage', compact('counts', 'skill', 'certificate', 'news', 'projects', 'client', 'logoPaths'));
     }
 
-    public function DetailNews(string $id)
+    public function DetailNews(string $slug)
     {
-        $news = News::find($id);
+        $news = News::where('slug',$slug)->first();
         $client = Client::all();
-        $other = News::where('id', '!=', $id)->get();
+        $other = News::where('id', '!=', $slug)->get();
         if ($news) {
             return view('detailNews', compact('news', 'other', 'client'));
         } else {
@@ -97,11 +97,11 @@ class HomeController extends Controller
         }
     }
 
-    public function DetailProject(string $id)
+    public function DetailProject(string $slug)
     {
         $client = Client::all();
-        $project = Projek::find($id);
-        $other = Projek::where('id', '!=', $id)->get();
+        $project = Projek::where('slug', $slug)->first();
+        $other = Projek::where('id', '!=', $slug)->get();
         if ($project) {
             return view('detailProject', compact('project', 'other', 'client'));
         } else {
