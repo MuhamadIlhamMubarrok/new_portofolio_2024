@@ -1,4 +1,4 @@
-<div class="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+<div class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 md:px-8 lg:px-16">
     <div class="flex flex-col-reverse md:flex-row justify-center items-center md:gap-x-8 px-4 md:px-0 animate-fade-in">
         <div class="text-center md:text-left flex flex-col items-center md:items-start" data-aos="fade-up">
             <h2 class="text-white text-[25px] md:text-[33px] font-poppins font-extrabold animate-pulse">Hello, It's me

@@ -1,4 +1,4 @@
-<div class=" justify-center flex flex-col  md:px-[200px] px-[50px] py-[50px] bg-cover bg-center md:py-[100px]">
+<div class=" justify-center flex flex-col px-4 md:px-[200px] my-[80px]">
     <x-section-header smallTitle="WHAT WE MADE" bigTitle="OUR SERVICES" />
     <div class="container mx-auto px-4">
         <div class="grid md:grid-cols-2 grid-cols-1 gap-8">
