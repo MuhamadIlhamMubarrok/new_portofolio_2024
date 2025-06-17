@@ -74,7 +74,7 @@
                 </a>
             </div>
 
-            <a href="{{ asset('storage/cv/muhamad_ilham.pdf') }}" download
+            <a href="{{ asset('storage/cv/cv.pdf') }}" download
                 class="flex flex-row justify-center items-center gap-x-4 text-white w-[180px] md:w-[240px] font-poppins bg-gradient-to-br from-[#2300F9] via-[#009FF9] to-[#08FFF0] hover:brightness-125 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-full text-[12px] px-4 md:px-5 py-2.5 text-center me-2 mb-4 md:mb-2 shadow-lg transition-transform hover:scale-105">
                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
                     class=" animate-bounce">
