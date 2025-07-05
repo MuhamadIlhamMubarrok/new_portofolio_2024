@@ -179,6 +179,44 @@
         .cke-editor img:hover {
             transform: scale(1.03);
         }
+
+        .cke-editor table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(8, 255, 240, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(8, 255, 240, 0.05);
+        }
+
+        .cke-editor th,
+        .cke-editor td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: black;
+        }
+
+        .cke-editor th {
+            background: linear-gradient(90deg, #08FFF0, #009FF9, #2300F9);
+            color: #ffffff;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            border-bottom: 2px solid rgba(8, 255, 240, 0.3);
+        }
+
+        .cke-editor tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .cke-editor tr:hover {
+            background-color: rgba(8, 255, 240, 0.05);
+            transition: background-color 0.3s ease;
+        }
     </style>
 
 
