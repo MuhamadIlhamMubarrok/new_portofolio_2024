@@ -97,7 +97,7 @@
                     <!-- Image + Category -->
                     <div class="relative w-full">
                         <img class="rounded-t-[24px] h-[175px] w-full object-cover object-center"
-                            src="{{ asset('./storage/banner_news/' . $project->banner) }}" alt="{{ $project->alt_banner }}">
+                            src="{{ asset('./storage/fotoProject/' . $project->banner) }}" alt="{{ $project->alt_banner }}">
                         <h2
                             class="absolute bottom-2 right-2 text-white font-poppins text-[12px] bg-[#121440] rounded-full w-max px-[12px] py-0.5">
                             {{ $project->category }}
