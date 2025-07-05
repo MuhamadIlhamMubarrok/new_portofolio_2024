@@ -46,63 +46,65 @@
                                 </div>
                             </div>
                         </form>
-                        <table class="table mt-3">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Banner</th>
-                                    <th>Nama</th>
-                                    <th>Deskripsi</th>
-                                    <th>Members</th>
-                                    <th>Skills</th>
-                                    <th>Category</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                @foreach ($projeks as $index => $projek)
+                        <div class="table-responsive">
+                            <table class="table table-striped align-top">
+                                <thead>
                                     <tr>
-                                        <td>{{ $index + 1 }}</td>
-                                        <td>
-                                            <img src="{{ asset('storage/fotoProject/' . $projek->banner) }}" alt="gambar"
-                                                width="50">
-                                        </td>
-                                        <td>{{ $projek->nama }}</td>
-                                        <td>{{ Str::limit(strip_tags($projek->deskripsi), 50) }}</td>
-                                        <td>
-                                            <!-- Menampilkan gambar-gambar member -->
-                                            @foreach ($projek->getMembers() as $member)
-                                                <img src="{{ asset('storage/logo_members/' . $member->gambar) }}"
-                                                    alt="{{ $member->nama }}" width="40" height="40"
-                                                    style="border-radius: 50%; margin-right: 5px;">
-                                            @endforeach
-                                        </td>
-                                        <td>
-                                            <!-- Menampilkan gambar-gambar member -->
-                                            @foreach ($projek->getSkills() as $skill)
-                                                <img src="{{ asset('storage/logo_skills/' . $skill->gambar) }}"
-                                                    alt="{{ $skill->nama }}" width="40" height="40"
-                                                    style="border-radius: 50%; margin-right: 5px;">
-                                            @endforeach
-                                        </td>
-                                        <td>
-                                            {{ $projek->category }}
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('projek.edit', $projek->id) }}"
-                                                class="btn btn-sm btn-primary">Edit</a>
-                                            <form action="{{ route('projek.destroy', $projek->id) }}" method="POST"
-                                                style="display: inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                            </form>
-                                        </td>
+                                        <th>No</th>
+                                        <th>Banner</th>
+                                        <th>Nama</th>
+                                        <th>Deskripsi</th>
+                                        <th>Members</th>
+                                        <th>Skills</th>
+                                        <th>Category</th>
+                                        <th>Action</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+
+                                    @foreach ($projeks as $index => $projek)
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>
+                                                <img src="{{ asset('storage/fotoProject/' . $projek->banner) }}"
+                                                    alt="gambar" width="50">
+                                            </td>
+                                            <td>{{ $projek->nama }}</td>
+                                            <td>{{ Str::limit(strip_tags($projek->deskripsi), 50) }}</td>
+                                            <td>
+                                                <!-- Menampilkan gambar-gambar member -->
+                                                @foreach ($projek->getMembers() as $member)
+                                                    <img src="{{ asset('storage/logo_members/' . $member->gambar) }}"
+                                                        alt="{{ $member->nama }}" width="40" height="40"
+                                                        style="border-radius: 50%; margin-right: 5px;">
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                <!-- Menampilkan gambar-gambar member -->
+                                                @foreach ($projek->getSkills() as $skill)
+                                                    <img src="{{ asset('storage/logo_skills/' . $skill->gambar) }}"
+                                                        alt="{{ $skill->nama }}" width="40" height="40"
+                                                        style="border-radius: 50%; margin-right: 5px;">
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                {{ $projek->category }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('projek.edit', $projek->id) }}"
+                                                    class="btn btn-sm btn-primary">Edit</a>
+                                                <form action="{{ route('projek.destroy', $projek->id) }}" method="POST"
+                                                    style="display: inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                         <!-- Pagination Links -->
                         <div class="d-flex justify-content-center mt-4">
                             {{ $projeks->appends(['search' => $search])->links('vendor.pagination.simple-bootstrap-4') }}
